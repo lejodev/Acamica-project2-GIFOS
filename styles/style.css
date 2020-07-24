@@ -7,6 +7,7 @@
 }
 
 .header {
+  padding: 0 10vw;
   border-top: 5px solid #572EE5;
   display: -ms-grid;
   display: grid;
@@ -44,5 +45,104 @@
   border: 1px solid #572EE5;
   border-radius: 50%;
   padding: 20px;
+}
+
+.search {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.search .search-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #572EE5;
+}
+
+.search .search-title .full-width {
+  display: inline-block;
+  width: 100%;
+}
+
+.search .search-title .gifos {
+  color: #50E3C2;
+}
+
+.search .img-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search .img-form .form .label {
+  position: relative;
+  display: inline-block;
+  width: 45vw;
+  height: 8vh;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.search .img-form .form .label input[type=text] {
+  padding-left: 2vw;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #572EE5;
+  background-position: right;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  font-size: 1.5rem;
+}
+
+.search .img-form .form .label .searchAction {
+  cursor: pointer;
+  position: absolute;
+  right: 2vw;
+  width: 25px;
+  height: 25px;
+  background-image: url(/assets/icon-search.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.search .trending {
+  text-align: center;
+}
+
+.search .trending .trending-title {
+  font-size: 1.2rem;
+  color: #572EE5;
+}
+
+.search .trending p {
+  font-size: 1.2rem;
+  color: #572EE5;
 }
 /*# sourceMappingURL=style.css.map */
