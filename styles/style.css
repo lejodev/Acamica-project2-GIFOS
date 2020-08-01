@@ -8,7 +8,7 @@
 
 .header {
   padding: 0 10vw;
-  border-top: 5px solid #572EE5;
+  border-top: 5px solid #572ee5;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2] 0.1fr;
@@ -42,12 +42,12 @@
 
 .header .createGif {
   margin: 20px;
-  border: 1px solid #572EE5;
+  border: 1px solid #572ee5;
   border-radius: 50%;
   padding: 20px;
 }
 
-.search {
+main .search {
   width: 100%;
   height: 100vh;
   display: -webkit-box;
@@ -65,22 +65,22 @@
           justify-content: space-evenly;
 }
 
-.search .search-title {
+main .search .search-title {
   text-align: center;
   font-size: 3rem;
-  color: #572EE5;
+  color: #572ee5;
 }
 
-.search .search-title .full-width {
+main .search .search-title .full-width {
   display: inline-block;
   width: 100%;
 }
 
-.search .search-title .gifos {
-  color: #50E3C2;
+main .search .search-title .gifos {
+  color: #50e3c2;
 }
 
-.search .img-form {
+main .search .img-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,7 +93,7 @@
           align-items: center;
 }
 
-.search .img-form .form .label {
+main .search .img-form .form .label {
   position: relative;
   display: inline-block;
   width: 45vw;
@@ -110,18 +110,18 @@
           justify-content: center;
 }
 
-.search .img-form .form .label input[type=text] {
+main .search .img-form .form .label input[type="text"] {
   padding-left: 2vw;
   width: 100%;
   height: 100%;
-  border: 1px solid #572EE5;
+  border: 1px solid #572ee5;
   background-position: right;
   background-repeat: no-repeat;
   border-radius: 50px;
   font-size: 1.5rem;
 }
 
-.search .img-form .form .label .searchAction {
+main .search .img-form .form .label .searchAction {
   cursor: pointer;
   position: absolute;
   right: 2vw;
@@ -132,17 +132,83 @@
   background-repeat: no-repeat;
 }
 
-.search .trending {
+main .search .trending {
   text-align: center;
 }
 
-.search .trending .trending-title {
+main .search .trending .trending-title {
   font-size: 1.2rem;
-  color: #572EE5;
+  color: #572ee5;
 }
 
-.search .trending p {
+main .search .trending p {
   font-size: 1.2rem;
-  color: #572EE5;
+  color: #572ee5;
+}
+
+main .trending-gifos {
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f5f8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+main .trending-gifos #carousel {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  height: 50%;
+  margin: auto 0 auto 0;
+}
+
+main .trending-gifos #carousel .trending-gifos-carousel-container {
+  margin: auto;
+  width: 84%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .trending-gifos #carousel .trending-gifos-carousel-container img {
+  width: 32%;
+  height: 100%;
+}
+
+.footer {
+  width: 100%;
+  height: 20vh;
+  padding: 0 10vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer span {
+  display: inline-block;
 }
 /*# sourceMappingURL=style.css.map */
