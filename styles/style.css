@@ -149,6 +149,7 @@ main .search .trending p {
 main .trending-gifos {
   width: 100%;
   height: 100vh;
+  padding: 10vh 0;
   background-color: #f3f5f8;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,6 +158,21 @@ main .trending-gifos {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+}
+
+main .trending-gifos .center-title {
+  text-align: center;
+}
+
+main .trending-gifos .center-title .trending-h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #572ee5;
+}
+
+main .trending-gifos .center-title p {
+  padding: 3vh 0;
+  font-size: 1.3rem;
 }
 
 main .trending-gifos #carousel {
@@ -206,9 +222,5 @@ main .trending-gifos #carousel .trending-gifos-carousel-container img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.footer span {
-  display: inline-block;
 }
 /*# sourceMappingURL=style.css.map */
