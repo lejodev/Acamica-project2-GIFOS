@@ -146,6 +146,86 @@ main .search .trending p {
   color: #572ee5;
 }
 
+main .favorites {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .favorites .fav-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+main .favorites .fav-heading .center-title {
+  text-align: center;
+  text-align: center;
+  font-size: 3rem;
+  color: #572ee5;
+}
+
+main .favorites .fav-container {
+  width: 100%;
+  height: 106vh;
+  padding: 0 8vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-column-gap: 2vw;
+          column-gap: 2vw;
+  row-gap: 5vh;
+}
+
+main .favorites .fav-container .fav-gif {
+  width: 100%;
+  height: 32vh;
+  background-color: lightcoral;
+}
+
+main .favorites .my-gifos-container {
+  width: 100%;
+  height: 69vh;
+  background-color: lightcyan;
+  padding: 0 8vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-column-gap: 2vw;
+          column-gap: 2vw;
+  row-gap: 5vh;
+}
+
+main .favorites .my-gifos-container .my-gifo {
+  width: 100%;
+  height: 32vh;
+  background-color: lightcoral;
+}
+
+main .favorites .button {
+  padding: 3vh 2vw;
+  margin: 13vh 0;
+  border: 1px solid #572ee5;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 main .trending-gifos {
   width: 100%;
   height: 100vh;
@@ -222,5 +302,19 @@ main .trending-gifos #carousel .trending-gifos-carousel-container img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-bottom: 5px solid #572ee5;
+}
+
+.footer .share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .share img {
+  margin-left: 1vw;
 }
 /*# sourceMappingURL=style.css.map */
