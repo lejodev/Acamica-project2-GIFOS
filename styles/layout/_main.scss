@@ -1,0 +1,243 @@
+@include phone {
+    .main {
+        // Taget Main.html
+        // background-color: lightsalmon;
+
+        @import "searchForm";
+
+        // Taget favorites.html
+
+        .favGifs {
+            width: 100%;
+            padding: 0 6vw;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            .heading {
+                text-align: center;
+            }
+            .favContainer {
+                width: 100%;
+                height: 128vh;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 6vw;
+                row-gap: 4vh;
+                .favGif {
+                    width: 100%;
+                    height: 18vh;
+                    background-color: lightcoral;
+                }
+            }
+            .button {
+                // Make this button mixin
+                padding: 2vh 3vw;
+                margin: 3vh 0;
+                border: 1px solid #572ee5;
+                text-transform: uppercase;
+                border-radius: 2rem;
+                cursor: pointer;
+            }
+        }
+
+        // Target myGifos.html
+
+        .myGifos {
+            width: 100%;
+            padding: 0 6vw;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            .heading {
+                // Import heading mixin here
+                text-align: center;
+            }
+            .myGifosContainer {
+                width: 100%;
+                height: 84vh;
+                display: grid;
+                box-sizing: border-box;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 6vw;
+                row-gap: 4vh;
+                .myGif {
+                    width: 100%;
+                    height: 18vh;
+                    background-color: lightcoral;
+                }
+            }
+            .button {
+                // Make this button mixin
+                padding: 2vh 3vw;
+                margin: 3vh 0;
+                border: 1px solid #572ee5;
+                text-transform: uppercase;
+                border-radius: 2rem;
+                cursor: pointer;
+            }
+        }
+
+        // Target: index.html
+        .trending-gifos {
+            width: 100%;
+            height: 65vh;
+            background-color: #f3f5f8;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            .center-title {
+                // Set this style in typography or mixins ===============================
+                font-size: 1.2rem;
+                color: #572ee5;
+                text-align: center;
+            }
+            .gallery {
+                width: 100%;
+                height: 50%;
+                background-color: crimson;
+                margin-bottom: 15%;
+            }
+        }
+    }
+}
+@include desktop {
+    .main {
+        width: 100%;
+        // Target main.html
+        @import "searchForm";
+        .trending-gifos {
+            width: 100%;
+            height: 100vh;
+            background-color: #f3f5f8;
+            display: grid;
+            grid-template-rows: 35% 65%;
+            .center-title {
+                // Make this brand
+                align-self: center;
+                text-align: center;
+                background-color: aqua;
+                h2 {
+                    span {
+                        color: #572ee5;
+                    }
+                }
+            }
+            .gallery {
+                width: 100%;
+                height: 70%;
+                align-self: start;
+                background-color: burlywood;
+                // .trending-gifos-carousel-container {
+
+                // }
+            }
+        }
+        .favGifs {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            // Laaateeeeeeeeeeeeeer =====================================
+            // width: 100%;
+            // height: 100vh;
+            // display: flex;
+            // flex-flow: column;
+            // background-color: darkcyan;
+            .heading {
+                text-align: center;
+                background-color: crimson;
+            }
+            .favContainer {
+                width: 100%;
+                height: 106vh;
+                // background-color: lightblue;
+                padding: 0 8vw; // Make variable
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 2vw;
+                row-gap: 5vh;
+                background-color: darkslategrey;
+                overflow-y: scroll;
+                .favGif {
+                    width: 100%;
+                    height: 32vh;
+                    background-color: lightcoral;
+                }
+            }
+            @import '../components/buttons';
+        }
+
+        // Target: myGifos.html
+
+        .myGifos {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            .heading {
+                text-align: center;
+                background-color: crimson;
+            }
+            .myGifosContainer {
+                width: 100%;
+                height: 69vh;
+                background-color: darkorange;
+                padding: 0 8vw; // Make variable
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 2vw;
+                row-gap: 5vh;
+                overflow-y: scroll;
+                .myGif {
+                    width: 100%;
+                    height: 32vh;
+                    background-color:darkslategray;
+                }
+            }
+            @import '../components/buttons';
+        }
+        .create-gif-container {
+            width: 100%;
+            // height: 75vh;
+            // background-color: dodgerblue;
+            // padding: 0 10vw;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            .createGif {
+                width: 50%;
+                height: 70vh;
+                background-color: dimgray;
+                // margin: auto;
+            }
+            .steps {
+                display: flex;
+                align-items: center;
+                div {
+                    margin: 0.8rem;
+                    width: 2rem;
+                    height: 2rem;
+                    padding: 0.5rem;
+                    border-radius: 50%;
+                    border: 1.3px solid #572ee5;
+                    display: inherit;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    // place-items: inherit;
+                }
+            }
+            .bar {
+                width: 60%;
+                height: 1.2vh;
+                background-color: #572ee5;
+                border-radius: 5rem;
+            }
+            // a {
+            //     width: 100%;
+            //     height: fit-content;
+                @import '../components/buttons';
+            // }
+        }
+    }
+}

@@ -1,0 +1,170 @@
+@include phone {
+    .search {
+        width: 100%;
+        height: 100vh;
+        // background-color: teal;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    
+        .search-title {
+            // Set this style in typography or mixins ===============================
+            text-align: center;
+            font-size: 3rem;
+            color: #572ee5; // Brand
+            .full-width {
+                display: inline-block;
+                width: 100%;
+            }
+            .gifos {
+                color: #50e3c2;
+            }
+        }
+        .img-form {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            // align-items: center;
+            img {
+                width: 80vw;
+            }
+            .form {
+                // Put this in components/forms =========================================
+                .label {
+                    position: relative;
+                    display: inline-block;
+                    width: 90vw;
+                    height: 8vh;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    input[type="text"] {
+                        padding-left: 2vw;
+                        width: 100%;
+                        height: 100%;
+                        // padding: 0 50px;
+                        border: 1px solid #572ee5;
+                        background-position: right;
+                        background-repeat: no-repeat;
+                        border-radius: 50px;
+                        font-size: 1.5rem;
+                    }
+                    .searchAction {
+                        // background-color: yellow;
+                        cursor: pointer;
+                        position: absolute;
+                        right: 2vw;
+                        width: 25px;
+                        height: 25px;
+                        background-image: url(/assets/icon-search.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+            } //components/forms =========================================
+        }
+        .trending {
+            text-align: center;
+            .trending-title {
+                // Set this style in typography or mixins ===============================
+                font-size: 1.2rem;
+                color: #572ee5; // Brand
+            }
+            p {
+                font-size: 1.2rem;
+                color: #572ee5; //Brand
+            }
+        }
+    }
+}
+@include desktop {
+    .search {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        // background-color: teal;
+        display: grid;
+        grid-template-rows: 30% 50% 20%;
+        justify-items: center;
+        .search-title {
+            // Set this style in typography or mixins ===============================
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: inline-block;
+            text-align: center;
+            font-size: 3rem;
+            color: #572ee5; // Brand
+            .full-width {
+                display: inline-block;
+                width: 100%;
+            }
+            .gifos {
+                color: #50e3c2;
+            }
+        }
+        .img-form {
+            height: 100%;
+            width: 60%;
+            display: grid;
+            grid-template-rows: 4fr 1fr;
+            align-items: center;
+            align-items: center;
+            img {
+                width: 100%;
+                height: 80%;
+                align-self: flex-end;
+            }
+            .form {
+                align-self: start;
+                // Put this in components/forms =========================================
+                .label {
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    height: 8vh;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    input[type="text"] {
+                        padding-left: 2vw;
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #572ee5;
+                        background-position: right;
+                        background-repeat: no-repeat;
+                        border-radius: 50px;
+                        font-size: 1.5rem;
+                    }
+                    .searchAction {
+                        cursor: pointer;
+                        position: absolute;
+                        right: 2vw;
+                        width: 25px;
+                        height: 25px;
+                        background-image: url(/assets/icon-search.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                }
+            } //components/forms =========================================
+        }
+        .trending {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            .trending-title {
+                // Set this style in typography or mixins ===============================
+                font-size: 1.2rem;
+                color: #572ee5; // Brand
+            }
+            p {
+                font-size: 1.2rem;
+                color: #572ee5; //Brand
+            }
+        }
+    }
+}

@@ -4,29 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/main.css">
     <title>GIFOS</title>
 </head>
 
 <body>
     <header class="header">
         <div class="logo">
-            <a href="favorites.html"></a>
             <img src="assets/logo-desktop.svg" alt="">
         </div>
-        <nav class="nav">
+        <input type="checkbox" id="input">
+        <label for="input" class="burger">
+            <span class="stick"></span>
+        </label>
+        <!-- <div class="burger"></div> -->
+        <nav class="menu">
             <ul class="links">
-                <li>modo nocturno</li>
-                <li> <a href="favorites.html">favoritos</a></li>
-                <li> <a href="mis-gifos.html"> mis gifos </a></li>
+                <li>Modo Nocturno</li>
+                <hr>
+                <li> <a href="favorites.html">Favoritos</a></li>
+                <hr>
+                <li> <a href="mis-gifos.html"> Mis GIFOS </a></li>
+                <hr>
             </ul>
         </nav>
-        <img class="createGif" src="assets/button-crear-gifo.svg" alt="">
+        <a href="createGif.html">
+            <img class="createGif" src="assets/button-crear-gifo.svg" alt="">
+        </a>
     </header>
-    <main>
+    <main class="main">
         <section class="search">
-            <h2 class="search-title"><span class="full-width">inspírate, busca, guarda, y crea</span> los mejores <span
-                    class="gifos">GIFOS</span> </h2>
+            <h2 class="search-title">
+                <span class="full-width">inspírate, busca, guarda, y crea</span>
+                los mejores
+                <span class="gifos">GIFOS</span>
+            </h2>
             <div class="img-form">
                 <img src="assets/ilustra_header.svg" alt="">
                 <form class="form" action="send">
@@ -46,24 +58,25 @@
                 <h2 class="trending-h2">trending <span>GIFOS</span></h2>
                 <p>Mira los últimos GIFO de nuestra comunidad</p>
             </div>
-            <article id="carousel">
+            <article class="gallery">
                 <div class="trending-gifos-carousel-container">
-                    <img src="assets/caleb-woods-_5xA3Wb6zAc-unsplash.jpg" alt="cute cat">
+                    <!-- <img src="assets/caleb-woods-_5xA3Wb6zAc-unsplash.jpg" alt="cute cat">
                     <img src="assets/jamie-street-UtrE5DcgEyg-unsplash.jpg" alt="pretty dog 1">
-                    <img src="assets/victor-grabarczyk-N04FIfHhv_k-unsplash.jpg" alt="pretty dog 2">
+                    <img src="assets/victor-grabarczyk-N04FIfHhv_k-unsplash.jpg" alt="pretty dog 2"> -->
                 </div>
             </article>
         </section>
     </main>
     <footer class="footer">
-        <div class="share">Compartir en:
+        <div class="shareIcons">
+            <p>Compartir en:</p>
             <img src="assets/icon_facebook.svg" alt="facebook">
             <img src="assets/icon-twitter.svg" alt="twitter">
             <img src="assets/icon_instagram.svg" alt="instagram">
         </div>
         <div class="copyright">© GIFOS 2020 All Rights Reserved.</div>
-
     </footer>
+    <script src="main.js"></script>
 </body>
 
 </html>

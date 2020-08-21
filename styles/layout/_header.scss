@@ -1,0 +1,134 @@
+@include phone {
+    .header {
+        width: 100%;
+        height: 15vh;
+        display: grid;
+        box-sizing: border-box;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "logo burger"
+            "menu menu";
+        .logo {
+            padding-top: 2vh;
+            padding-left: 3vw;
+            grid-area: logo;
+        }
+        .burger {
+            padding-top: 2vh;
+            padding-right: 3vw;
+            grid-area: burger;
+            width: 8vw;
+            height: 5vh;
+            justify-self: flex-end;
+            align-self: center;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .stick {
+                position: absolute;
+                width: 8vw;
+                height: 5px;
+                background-color: #572ee5;
+                transition: 0.5s;
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 8vw;
+                    height: 5px;
+                    background-color: #572ee5;
+                    transition: 0.3s;
+                }
+                &::before {
+                    position: absolute;
+                    top: -15px;
+                }
+                &::after {
+                    position: absolute;
+                    bottom: -15px;
+                }
+            }
+        }
+        #input:checked ~ .burger .stick {
+            background-color: #fff;
+            transition: 0.5s;
+            &::before {
+                transform: translateY(15px) rotate(-45deg);
+            }
+            &::after {
+                transform: translateY(-15px) rotate(45deg);
+            }
+        }
+        #input:checked ~ .menu {
+            display: block;
+        }
+        #input {
+            display: none;
+        }
+        .menu {
+            grid-area: menu;
+            background-color: #562ee5da;
+            height: 100vh;
+            width: 100%;
+            display: none;
+            z-index: 3;
+            .links {
+                width: 100%;
+                height: 100%;
+                padding-left: 0;
+                text-align: center;
+                list-style: none;
+                li,
+                li a {
+                    color: white;
+                    font-size: 1.3rem;
+                }
+            }
+            hr {
+                width: 10vw;
+            }
+        }
+        .createGif {
+            display: none;
+        }
+    }
+}
+@include desktop {
+    .header {
+        width: 100%;
+        padding: 1vh 8vw;
+        border-top: 5px solid #572ee5;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) 0.1fr;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        input,
+        label {
+            display: none;
+        }
+        .menu {
+            .links {
+                list-style: none;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-end;
+                li {
+                    margin: 0 20px;
+                }
+                hr {
+                    display: none;
+                }
+            }
+        }
+        .createGif {
+            margin: 20px;
+            border: 1px solid #572ee5;
+            border-radius: 50%;
+            padding: 20px;
+            &:hover {
+                background-color: aquamarine;
+            }
+        }
+    }
+}
