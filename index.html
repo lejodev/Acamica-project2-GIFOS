@@ -39,32 +39,73 @@
                 los mejores
                 <span class="gifos">GIFOS</span>
             </h2>
-            <div class="img-form">
-                <img src="assets/ilustra_header.svg" alt="">
+            <div class="imgForm">
+                <img class="img" src="assets/ilustra_header.svg" alt="">
                 <form class="form" action="send">
-                    <label class="label">
-                        <input type="text" placeholder="Busca GIFOS y más">
+                    <div class="searchBox">
+                        <!-- <input type="text" placeholder="Busca GIFOS y más" class="searchInput"> -->
+                        <input list="input" placeholder="Busca GIFOS y más" class="searchInput">
                         <div class="searchAction"></div>
-                    </label>
+                        <ul class="suggestions">
+                            <!-- <li>item1</li>
+                            <li>item1</li>
+                            <li>item1</li>
+                            <li>item1</li> -->
+                        </ul>
+                    </div>
                 </form>
             </div>
             <div class="trending">
                 <h2 class="trending-title">Trending:</h2>
-                <p>Reactions, Entetainment, Sports, Stickers, Artists</p>
+                <p class="trendNames">Reactions, Entetainment, Sports, Stickers, Artists</p>
             </div>
+        </section>
+        <section class="results">
+            <div class="heading">
+                <h2>Result</h2>
+            </div>
+            <div class="resultsContainer">
+                <!-- <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video>
+                <video src="" class="result"></video> -->
+            </div>
+            <span class="button">ver más</span>
         </section>
         <section class="trending-gifos">
             <div class="center-title">
                 <h2 class="trending-h2">trending <span>GIFOS</span></h2>
                 <p>Mira los últimos GIFO de nuestra comunidad</p>
             </div>
-            <article class="gallery">
-                <div class="trending-gifos-carousel-container">
-                    <!-- <img src="assets/caleb-woods-_5xA3Wb6zAc-unsplash.jpg" alt="cute cat">
-                    <img src="assets/jamie-street-UtrE5DcgEyg-unsplash.jpg" alt="pretty dog 1">
-                    <img src="assets/victor-grabarczyk-N04FIfHhv_k-unsplash.jpg" alt="pretty dog 2"> -->
-                </div>
-            </article>
+            <div class="carousel">
+                <!-- <div class="gif-menuContainer">
+                    <img src="https://media0.giphy.com/media/b0I9c0NXRMS1W/giphy.gif?cid=1973f650ea27fa3fef0ae5891a63ad863610b385391e77ed&amp;rid=giphy.gif"
+                        alt="" class="trendGif">
+                    <div class="menu">
+                        <div class="icons">
+                            <img src="" alt="" class="like icon">
+                            <img src="" alt="" class="download icon">
+                            <img src="" alt="" class="expand icon">
+                        </div>
+                        <div class="gifInfo">
+                            <p class="user">user</p>
+                            <h2 class="title">title </h2>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </section>
     </main>
     <footer class="footer">
@@ -76,7 +117,7 @@
         </div>
         <div class="copyright">© GIFOS 2020 All Rights Reserved.</div>
     </footer>
-    <script src="main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

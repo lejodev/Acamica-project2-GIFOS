@@ -2,6 +2,40 @@
     .main {
         // Taget Main.html
         // background-color: lightsalmon;
+        .results {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            // Laaateeeeeeeeeeeeeer =====================================
+            // width: 100%;
+            // height: 100vh;
+            // display: flex;
+            // flex-flow: column;
+            // background-color: darkcyan;
+            display: none;
+            .heading {
+                text-align: center;
+                background-color: crimson;
+            }
+            .resultsContainer {
+                width: 100vw;
+                height: 106vh;
+                // background-color: lightblue;
+                padding: 0 8vw; // Make variable
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 2vw;
+                row-gap: 5vh;
+                background-color: darkslategrey;
+                overflow-y: scroll;
+                .result {
+                    width: 100%;
+                    height: 32vh;
+                    background-color: lightcoral;
+                }
+            }
+            @import "../components/buttons";
+        }
 
         @import "searchForm";
 
@@ -24,6 +58,7 @@
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 6vw;
                 row-gap: 4vh;
+                overflow-y: scroll;
                 .favGif {
                     width: 100%;
                     height: 18vh;
@@ -62,6 +97,7 @@
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 6vw;
                 row-gap: 4vh;
+                overflow-y: scroll;
                 .myGif {
                     width: 100%;
                     height: 18vh;
@@ -93,11 +129,21 @@
                 color: #572ee5;
                 text-align: center;
             }
-            .gallery {
+            .carousel {
                 width: 100%;
                 height: 50%;
                 background-color: crimson;
                 margin-bottom: 15%;
+                padding-left: 5vw;
+                display: flex;
+                flex-flow: row nowrap;
+                overflow-x: auto;
+                .trendGif {
+                    margin-right: 5vw;
+                    min-width: 65%;
+                    height: 100%;
+                    background-color: chartreuse;
+                }
             }
         }
     }
@@ -107,6 +153,38 @@
         width: 100%;
         // Target main.html
         @import "searchForm";
+        .results {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            // Laaateeeeeeeeeeeeeer =====================================
+            // width: 100%;
+            // height: 100vh;
+            // display: flex;
+            // flex-flow: column;
+            // background-color: darkcyan;
+            display: none;
+            .heading {
+                text-align: center;
+                background-color: crimson;
+            }
+            .resultsContainer {
+                width: 100%;
+                height: 106vh;
+                padding: 0 8vw; // Make variable
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 2vw;
+                row-gap: 5vh;
+                background-color: khaki;
+                overflow-y: scroll;
+
+                // ============================================================
+
+                @import'../components/hoverMenuGrid';
+            }
+            @import "../components/buttons";
+        }
         .trending-gifos {
             width: 100%;
             height: 100vh;
@@ -124,11 +202,100 @@
                     }
                 }
             }
-            .gallery {
-                width: 100%;
+            .carousel {  // Container
+                margin: 0 auto;
+                width: 80%;
                 height: 70%;
                 align-self: start;
-                background-color: burlywood;
+                background-color: black;
+                display: flex;
+                overflow-x: auto;
+
+                // Import hover menu grid
+                @import'../components/hoverMenuCarousel';
+
+                // .gif-menuContainer {
+                //     position: relative;
+                //     min-width: 27%;
+                //     height: 100%;
+                //     background-color: brown;
+                //     margin-right: 5%;
+                //     .trendGif {
+                //         position: absolute;
+                //         width: 100%;
+                //         height: 100%;
+                //         background-color: brown;
+                //         margin-right: 5%;
+                //     }
+                //     .menu {
+                //         width: 100%;
+                //         height: 100%;
+                //         background-color: #562ee5a4;
+                //         .icons {
+                //             width: 100%;
+                //             height: 25%;
+                //             display: grid;
+                //             grid-template-columns: repeat(3, 10%);
+                //             grid-template-rows: 100%;
+                //             justify-content: flex-end;
+                //             align-items: center;
+                //             gap: 5%;
+                //             padding-right: 5%;
+                //             .icon {
+                //                 height: 2.2em;
+                //                 width: 100%;
+                //                 background-color: rgba(255, 255, 255, 0.7);
+                //                 // padding: 10px;
+                //                 border-radius: 6px;
+                //                 background-repeat: no-repeat;
+                //                 background-size: auto;
+                //                 background-position: center;
+                //                 box-sizing: border-box;
+                //                 padding: 20px;
+                //                 &:hover {
+                //                     background-color: #fff;
+                //                 }
+                //             }
+                //             .like {
+                //                 background-image: url(/assets/icon-fav-hover.svg);
+                //             }
+                //             .download {
+                //                 background-image: url(/assets/icon-download.svg);
+                //             }
+                //             .expand {
+                //                 background-image: url(/assets/icon-max.svg);
+                //             }
+                //         }
+                //         .gifInfo {
+                //             width: 100%;
+                //             height: 75%;
+                //             display: flex;
+                //             flex-flow: column;
+                //             justify-content: flex-end;
+                //             bottom: 0;
+                //             padding-left: 5%;
+                //             padding-bottom: 11%;
+                //             color: #fff;
+                //             box-sizing: border-box;
+                //             .user {
+                //                 margin: 0;
+                //                 padding: 2% 0;
+                //             }
+                //             .title {
+                //                 margin: 0;
+                //             }
+                //         }
+                //     }
+                //     &:hover .menu {
+                //         position: absolute;
+                //     }
+                // }
+
+                // .hoverMenu {
+                //     min-width: 30%;
+                //     height: 100%;
+                //     background-color: #562ee596;
+                // }
                 // .trending-gifos-carousel-container {
 
                 // }
@@ -165,7 +332,7 @@
                     background-color: lightcoral;
                 }
             }
-            @import '../components/buttons';
+            @import "../components/buttons";
         }
 
         // Target: myGifos.html
@@ -191,10 +358,10 @@
                 .myGif {
                     width: 100%;
                     height: 32vh;
-                    background-color:darkslategray;
+                    background-color: darkslategray;
                 }
             }
-            @import '../components/buttons';
+            @import "../components/buttons";
         }
         .create-gif-container {
             width: 100%;
@@ -236,7 +403,7 @@
             // a {
             //     width: 100%;
             //     height: fit-content;
-                @import '../components/buttons';
+            @import "../components/buttons";
             // }
         }
     }
