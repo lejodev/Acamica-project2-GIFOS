@@ -96,8 +96,6 @@ function search(endpoint) { // Exportable and change name
     if (input.value) {
 
         fetch(path).then(raw => raw.json()).then(json => {
-            console.log(json);
-            console.log(`${json.data.length} ====================================`);
             (json.data.length < 12) ? (seeMoreButton.style.display = 'none') : (seeMoreButton.style.display = 'block')
             json.data.forEach(obj => {
                 hoverGifMenu(obj, resultsGrid);
@@ -108,6 +106,9 @@ function search(endpoint) { // Exportable and change name
     }
 }
 displayTrendingGifos()
+
+// localStorage.clear();
+
 // search()
 
 // function displayTrendingGifos() {
@@ -202,3 +203,4 @@ displayTrendingGifos()
 // }
 
 // module.exports = hoverGifMenu;
+// localStorage.clear()

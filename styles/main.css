@@ -1028,11 +1028,99 @@ body {
     row-gap: 5vh;
     background-color: darkslategrey;
     overflow-y: scroll;
+    display: none;
   }
-  .main .favGifs .favContainer .favGif {
+  .main .favGifs .favContainer .gif-menuContainer {
+    position: relative;
     width: 100%;
     height: 32vh;
-    background-color: lightcoral;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: #fff;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .main .favGifs .favContainer .gif-menuContainer:hover .menu {
+    position: absolute;
   }
   .main .favGifs .button {
     padding: 3vh 2vw;
@@ -1043,6 +1131,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     cursor: pointer;
+  }
+  .main .favGifs .button {
+    display: none;
   }
   .main .myGifos {
     display: -webkit-box;
@@ -1220,5 +1311,29 @@ body {
   .footer .shareIcons img {
     margin-left: 1vw;
   }
+}
+
+.noResult {
+  width: 100%;
+  height: 70vh;
+  background-color: firebrick;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (50%)[2];
+      grid-template-rows: repeat(2, 50%);
+  justify-items: center;
+}
+
+.noResult .image {
+  width: 40vw;
+  height: 100%;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.noResult .text {
+  color: aqua;
 }
 /*# sourceMappingURL=main.css.map */

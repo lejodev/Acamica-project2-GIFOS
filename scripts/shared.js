@@ -91,6 +91,24 @@ export function displayTrendingGifos() {
         .catch(err => console.log(err))
 }
 
+export function noResult (parent, image, text) {
+    var parentContainer = parent;
+    var noreSultContainer = document.createElement('div');
+    noreSultContainer.className = 'noResult';
+    
+    var img = document.createElement('div')
+    img.className = 'image'
+    img.style.backgroundImage = `url(${image})`
+    noreSultContainer.appendChild(img)
+
+    var txt = document.createElement('span');
+    txt.innerHTML = text;
+    txt.className = 'text'
+    noreSultContainer.appendChild(txt)
+    
+    parentContainer.appendChild(noreSultContainer);
+}
+
 
 
 // export default hoverGifMenu;

@@ -315,6 +315,11 @@
                 text-align: center;
                 background-color: crimson;
             }
+            // .noResult {
+            //     width: 100%;
+            //     height: 70vh;
+            //     background-color: dimgray;
+            // }
             .favContainer {
                 width: 100%;
                 height: 106vh;
@@ -326,13 +331,19 @@
                 row-gap: 5vh;
                 background-color: darkslategrey;
                 overflow-y: scroll;
-                .favGif {
-                    width: 100%;
-                    height: 32vh;
-                    background-color: lightcoral;
-                }
+                display: none;
+
+                // .favGif {
+                //     width: 100%;
+                //     height: 32vh;
+                //     background-color: lightcoral;
+                // }
+                @import'../components/hoverMenuGrid';
             }
             @import "../components/buttons";
+            .button {
+                display: none;
+            }
         }
 
         // Target: myGifos.html
