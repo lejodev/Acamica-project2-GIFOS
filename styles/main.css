@@ -1132,9 +1132,6 @@ body {
     text-transform: uppercase;
     cursor: pointer;
   }
-  .main .favGifs .button {
-    display: none;
-  }
   .main .myGifos {
     display: -webkit-box;
     display: -ms-flexbox;

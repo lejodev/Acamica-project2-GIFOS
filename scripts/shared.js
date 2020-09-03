@@ -9,7 +9,8 @@ export function hoverGifMenu(json, parent) {
 
     var trendGif = document.createElement('img');
     trendGif.className = 'trendGif';
-    trendGif.setAttribute('src', json.images.original.url);
+    trendGif.src = json.images.original.url;
+    // trendGif.setAttribute('src', json.images.original.url);
 
     var menu = document.createElement('div');
     menu.className = 'menu';
@@ -83,8 +84,9 @@ export function displayTrendingGifos() {
     fetch(path).then(rawResponse => rawResponse.json())
         .then(res => {
             res.data.forEach(obj => {
-                localStorage.set
+                // localStorage.set
                 // hoverMenuCarousel(obj.images.original.url, obj.title, obj.username, carousel);
+                // console.log(obj);
                 hoverGifMenu(obj, carousel);
             })
         })

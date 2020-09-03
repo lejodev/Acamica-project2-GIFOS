@@ -1,33 +1,43 @@
 import { noResult, hoverGifMenu, displayTrendingGifos } from "./shared.js";
 
-var seeMoreButton = document.querySelector('.button'); // Exportable
+var seeMoreButton = document.querySelector('.button');
 var resultsParentContainer = document.querySelector('.favContainer');
+var parentContainer = document.querySelector('.favGifs');
+var favorites = [];
 
-var favorites = JSON.parse(localStorage.favs);
-
-function getFavorites() {
-    if(localStorage.favs) {
+function checkLocalstorage() {
+    if (localStorage.favs) {
+        favorites = JSON.parse(localStorage.favs);
+        resultsParentContainer.style.display = 'grid';
         alert('With favorites');
-        for (let i = 0; i < favorites.length; i++) {
-            resultsParentContainer.style.display = 'grid';
-            console.log(favorites[i]);
-            hoverGifMenu(favorites[i], resultsParentContainer)
-        }
     } else {
         alert('No favs');
         var img = '/assets/icon-mis-gifos-sin-contenido.svg';
         var text = 'Sin contenido';
-        noResult(resultsParentContainer, img, text);
+        noResult(parentContainer, img, text);
     }
     // for (let i = 0; i < favorites.length; i++) {
     //     console.log(favorites[i].title);
     // }
 }
-getFavorites();
+seeMoreButton.addEventListener('click', setFavorites)
+function setFavorites() {
+    if (favorites.length > 12) {
+        for (let i = 0; i < 12; i++) {
+            hoverGifMenu(favorites[i], resultsParentContainer);
+        }
+        favorites.splice(0, 12);
+    } else {
+        for(let i = 0; i < favorites.length; i++) {
+            hoverGifMenu(favorites[i], resultsParentContainer)
+        }
+        seeMoreButton.style.display = 'none';
+    }
+}
 
-// seeMoreButton.style.display = 'none';
 
-// console.log(favorites);
+checkLocalstorage();
+setFavorites();
 
 displayTrendingGifos()
 
