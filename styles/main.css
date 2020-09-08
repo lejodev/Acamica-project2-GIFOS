@@ -111,8 +111,10 @@ body {
   }
   .header .menu .links li,
   .header .menu .links li a {
+    font-family: "Montserrat", sans-serif;
     color: white;
     font-size: 1.3rem;
+    text-decoration: none;
   }
   .header .menu hr {
     width: 10vw;
@@ -157,8 +159,12 @@ body {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  .header .menu .links li {
-    margin: 0 20px;
+  .header .menu .links li,
+  .header .menu .links li a {
+    font-family: "Montserrat", sans-serif;
+    color: #572ee5;
+    text-decoration: none;
+    margin: 0 1rem;
   }
   .header .menu .links hr {
     display: none;
@@ -175,7 +181,11 @@ body {
 }
 
 @media (max-width: 599px) {
+  .main {
+    width: 100%;
+  }
   .main .results {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -206,11 +216,196 @@ body {
     background-color: darkslategrey;
     overflow-y: scroll;
   }
-  .main .results .resultsContainer .result {
+}
+
+@media (max-width: 599px) and (min-width: 600px) {
+  .main .results .resultsContainer .gif-menuContainer {
+    position: relative;
     width: 100%;
     height: 32vh;
-    background-color: lightcoral;
+    background-color: brown;
+    margin-right: 5%;
   }
+  .main .results .resultsContainer .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .main .results .resultsContainer .gif-menuContainer:hover .menu {
+    position: absolute;
+  }
+}
+
+@media (max-width: 599px) and (max-width: 599px) {
+  .main .results .resultsContainer .gif-menuContainer {
+    position: relative;
+    width: 100%;
+    height: 32vh;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .results .resultsContainer .gif-menuContainer .trendGif {
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+    display: none;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+}
+
+@media (max-width: 599px) {
   .main .results .button {
     padding: 3vh 2vw;
     margin: 4vh 0;
@@ -241,16 +436,17 @@ body {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .main .search .search-title {
+  .main .search .title {
     text-align: center;
     font-size: 3rem;
     color: #572ee5;
+    font-family: "Montserrat", sans-serif;
   }
-  .main .search .search-title .full-width {
+  .main .search .title .full-width {
     display: inline-block;
     width: 100%;
   }
-  .main .search .search-title .gifos {
+  .main .search .title .gifos {
     color: #50e3c2;
   }
   .main .search .imgForm {
@@ -297,21 +493,43 @@ body {
     cursor: pointer;
   }
   .main .search .imgForm .form .searchBox .suggestions {
+    width: 100%;
+    list-style: none;
+    padding: 0;
     margin: 0;
     display: none;
-    width: 50%;
-    background-color: seagreen;
   }
   .main .search .imgForm .form .searchBox .suggestions li {
+    height: 1.4rem;
+    padding: 0.5rem 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 10% 90%;
+        grid-template-columns: 10% 90%;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .image {
+    height: 100%;
+    background-image: url(/assets/icon-search.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     cursor: pointer;
   }
-  .main .search .imgForm .form .searchBox .suggestions li:hover {
-    background-color: tan;
+  .main .search .imgForm .form .searchBox .suggestions li .text {
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
   }
   .main .search .trending {
     text-align: center;
   }
   .main .search .trending .trending-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     color: #572ee5;
   }
@@ -328,7 +546,7 @@ body {
     display: -ms-grid;
     display: grid;
   }
-  .main .search .search-title {
+  .main .search .title {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -336,12 +554,13 @@ body {
     text-align: center;
     font-size: 3rem;
     color: #572ee5;
+    font-family: "Montserrat", sans-serif;
   }
-  .main .search .search-title .full-width {
+  .main .search .title .full-width {
     display: inline-block;
     width: 100%;
   }
-  .main .search .search-title .gifos {
+  .main .search .title .gifos {
     color: #50e3c2;
   }
   .main .search .imgForm {
@@ -377,6 +596,10 @@ body {
   .main .search .imgForm .form .searchBox .searchInput {
     border-style: none;
     width: 100%;
+    height: 1.5rem;
+  }
+  .main .search .imgForm .form .searchBox .searchInput:focus {
+    border-style: none;
   }
   .main .search .imgForm .form .searchBox .searchAction {
     width: 100%;
@@ -388,16 +611,38 @@ body {
     cursor: pointer;
   }
   .main .search .imgForm .form .searchBox .suggestions {
-    margin: 0;
     display: none;
-    width: 50%;
-    background-color: seagreen;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   .main .search .imgForm .form .searchBox .suggestions li {
+    width: 100%;
+    height: 1.4rem;
+    margin: 0.5rem 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 5% 95%;
+        grid-template-columns: 5% 95%;
     cursor: pointer;
   }
-  .main .search .imgForm .form .searchBox .suggestions li:hover {
-    background-color: tan;
+  .main .search .imgForm .form .searchBox .suggestions li .image {
+    height: 100%;
+    background-image: url(/assets/icon-search.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .text {
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
   }
   .main .search .trending {
     height: 100%;
@@ -405,6 +650,7 @@ body {
     text-align: center;
   }
   .main .search .trending .trending-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     color: #572ee5;
   }
@@ -446,17 +692,204 @@ body {
     row-gap: 4vh;
     overflow-y: scroll;
   }
-  .main .favGifs .favContainer .favGif {
+}
+
+@media (max-width: 599px) and (min-width: 600px) {
+  .main .favGifs .favContainer .gif-menuContainer {
+    position: relative;
     width: 100%;
-    height: 18vh;
-    background-color: lightcoral;
+    height: 32vh;
+    background-color: brown;
+    margin-right: 5%;
   }
+  .main .favGifs .favContainer .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .main .favGifs .favContainer .gif-menuContainer:hover .menu {
+    position: absolute;
+  }
+}
+
+@media (max-width: 599px) and (max-width: 599px) {
+  .main .favGifs .favContainer .gif-menuContainer {
+    position: relative;
+    width: 100%;
+    height: 32vh;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .trendGif {
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+    display: none;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+}
+
+@media (max-width: 599px) {
   .main .favGifs .button {
-    padding: 2vh 3vw;
-    margin: 3vh 0;
+    padding: 3vh 2vw;
+    margin: 4vh 0;
     border: 1px solid #572ee5;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-    border-radius: 2rem;
     cursor: pointer;
   }
   .main .myGifos {
@@ -525,27 +958,6 @@ body {
     color: #572ee5;
     text-align: center;
   }
-  .main .trending-gifos .carousel {
-    width: 100%;
-    height: 50%;
-    background-color: crimson;
-    margin-bottom: 15%;
-    padding-left: 5vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-    overflow-x: auto;
-  }
-  .main .trending-gifos .carousel .trendGif {
-    margin-right: 5vw;
-    min-width: 65%;
-    height: 100%;
-    background-color: chartreuse;
-  }
 }
 
 @media (min-width: 600px) {
@@ -572,16 +984,17 @@ body {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .main .search .search-title {
+  .main .search .title {
     text-align: center;
     font-size: 3rem;
     color: #572ee5;
+    font-family: "Montserrat", sans-serif;
   }
-  .main .search .search-title .full-width {
+  .main .search .title .full-width {
     display: inline-block;
     width: 100%;
   }
-  .main .search .search-title .gifos {
+  .main .search .title .gifos {
     color: #50e3c2;
   }
   .main .search .imgForm {
@@ -628,21 +1041,43 @@ body {
     cursor: pointer;
   }
   .main .search .imgForm .form .searchBox .suggestions {
+    width: 100%;
+    list-style: none;
+    padding: 0;
     margin: 0;
     display: none;
-    width: 50%;
-    background-color: seagreen;
   }
   .main .search .imgForm .form .searchBox .suggestions li {
+    height: 1.4rem;
+    padding: 0.5rem 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 10% 90%;
+        grid-template-columns: 10% 90%;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .image {
+    height: 100%;
+    background-image: url(/assets/icon-search.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     cursor: pointer;
   }
-  .main .search .imgForm .form .searchBox .suggestions li:hover {
-    background-color: tan;
+  .main .search .imgForm .form .searchBox .suggestions li .text {
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
   }
   .main .search .trending {
     text-align: center;
   }
   .main .search .trending .trending-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     color: #572ee5;
   }
@@ -659,7 +1094,7 @@ body {
     display: -ms-grid;
     display: grid;
   }
-  .main .search .search-title {
+  .main .search .title {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -667,12 +1102,13 @@ body {
     text-align: center;
     font-size: 3rem;
     color: #572ee5;
+    font-family: "Montserrat", sans-serif;
   }
-  .main .search .search-title .full-width {
+  .main .search .title .full-width {
     display: inline-block;
     width: 100%;
   }
-  .main .search .search-title .gifos {
+  .main .search .title .gifos {
     color: #50e3c2;
   }
   .main .search .imgForm {
@@ -708,6 +1144,10 @@ body {
   .main .search .imgForm .form .searchBox .searchInput {
     border-style: none;
     width: 100%;
+    height: 1.5rem;
+  }
+  .main .search .imgForm .form .searchBox .searchInput:focus {
+    border-style: none;
   }
   .main .search .imgForm .form .searchBox .searchAction {
     width: 100%;
@@ -719,16 +1159,38 @@ body {
     cursor: pointer;
   }
   .main .search .imgForm .form .searchBox .suggestions {
-    margin: 0;
     display: none;
-    width: 50%;
-    background-color: seagreen;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   .main .search .imgForm .form .searchBox .suggestions li {
+    width: 100%;
+    height: 1.4rem;
+    margin: 0.5rem 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 5% 95%;
+        grid-template-columns: 5% 95%;
     cursor: pointer;
   }
-  .main .search .imgForm .form .searchBox .suggestions li:hover {
-    background-color: tan;
+  .main .search .imgForm .form .searchBox .suggestions li .image {
+    height: 100%;
+    background-image: url(/assets/icon-search.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .text {
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
   }
   .main .search .trending {
     height: 100%;
@@ -736,6 +1198,7 @@ body {
     text-align: center;
   }
   .main .search .trending .trending-title {
+    font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
     color: #572ee5;
   }
@@ -761,7 +1224,8 @@ body {
   }
   .main .results .heading {
     text-align: center;
-    background-color: crimson;
+    font-family: "Montserrat", sans-serif;
+    color: #572ee5;
   }
   .main .results .resultsContainer {
     width: 100%;
@@ -777,6 +1241,9 @@ body {
     background-color: khaki;
     overflow-y: scroll;
   }
+}
+
+@media (min-width: 600px) and (min-width: 600px) {
   .main .results .resultsContainer .gif-menuContainer {
     position: relative;
     width: 100%;
@@ -828,7 +1295,7 @@ body {
             box-sizing: border-box;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .icon:hover {
-    background-color: #fff;
+    background-color: red;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
     background-image: url(/assets/icon-fav-hover.svg);
@@ -869,65 +1336,29 @@ body {
   .main .results .resultsContainer .gif-menuContainer:hover .menu {
     position: absolute;
   }
-  .main .results .button {
-    padding: 3vh 2vw;
-    margin: 4vh 0;
-    border: 1px solid #572ee5;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-  .main .trending-gifos {
-    width: 100%;
-    height: 100vh;
-    background-color: #f3f5f8;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-rows: 35% 65%;
-        grid-template-rows: 35% 65%;
-  }
-  .main .trending-gifos .center-title {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    text-align: center;
-    background-color: aqua;
-  }
-  .main .trending-gifos .center-title h2 span {
-    color: #572ee5;
-  }
-  .main .trending-gifos .carousel {
-    margin: 0 auto;
-    width: 80%;
-    height: 70%;
-    -ms-flex-item-align: start;
-        align-self: start;
-    background-color: black;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow-x: auto;
-  }
-  .main .trending-gifos .carousel .gif-menuContainer {
+}
+
+@media (min-width: 600px) and (max-width: 599px) {
+  .main .results .resultsContainer .gif-menuContainer {
     position: relative;
-    min-width: 30%;
-    height: 100%;
+    width: 100%;
+    height: 32vh;
+    background-color: brown;
     margin-right: 5%;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .trendGif {
-    position: absolute;
+  .main .results .resultsContainer .gif-menuContainer .trendGif {
     width: 100%;
     height: 100%;
+    background-color: brown;
     margin-right: 5%;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu {
+  .main .results .resultsContainer .gif-menuContainer .menu {
     width: 100%;
     height: 100%;
     background-color: #562ee5a4;
+    display: none;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .icons {
+  .main .results .resultsContainer .gif-menuContainer .menu .icons {
     width: 100%;
     height: 25%;
     display: -ms-grid;
@@ -945,31 +1376,32 @@ body {
     gap: 5%;
     padding-right: 5%;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .icons .icon {
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .icon {
     height: 2.2em;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
     border-radius: 6px;
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center;
+    padding: 20px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 20px;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .icons .icon:hover {
-    background-color: #fff;
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .icons .like {
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
     background-image: url(/assets/icon-fav-hover.svg);
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .icons .download {
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
     background-image: url(/assets/icon-download.svg);
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .icons .expand {
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
     background-image: url(/assets/icon-max.svg);
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .gifInfo {
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
     height: 75%;
     display: -webkit-box;
@@ -989,15 +1421,44 @@ body {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .gifInfo .user {
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo .user {
     margin: 0;
     padding: 2% 0;
   }
-  .main .trending-gifos .carousel .gif-menuContainer .menu .gifInfo .title {
+  .main .results .resultsContainer .gif-menuContainer .menu .gifInfo .title {
     margin: 0;
   }
-  .main .trending-gifos .carousel .gif-menuContainer:hover .menu {
-    position: absolute;
+}
+
+@media (min-width: 600px) {
+  .main .results .button {
+    padding: 3vh 2vw;
+    margin: 4vh 0;
+    border: 1px solid #572ee5;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .main .trending-gifos {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #f3f5f8;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 35%  65%;
+        grid-template-rows: 35%  65%;
+  }
+  .main .trending-gifos .center-title {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    text-align: center;
+  }
+  .main .trending-gifos .center-title h2 span {
+    color: #572ee5;
   }
   .main .favGifs {
     display: -webkit-box;
@@ -1015,6 +1476,9 @@ body {
     text-align: center;
     background-color: crimson;
   }
+  .main .favGifs .heading h2 {
+    font-family: "Montserrat", sans-serif;
+  }
   .main .favGifs .favContainer {
     width: 100%;
     height: 106vh;
@@ -1026,10 +1490,12 @@ body {
     -webkit-column-gap: 2vw;
             column-gap: 2vw;
     row-gap: 5vh;
-    background-color: darkslategrey;
     overflow-y: scroll;
     display: none;
   }
+}
+
+@media (min-width: 600px) and (min-width: 600px) {
   .main .favGifs .favContainer .gif-menuContainer {
     position: relative;
     width: 100%;
@@ -1081,7 +1547,7 @@ body {
             box-sizing: border-box;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
-    background-color: #fff;
+    background-color: red;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
     background-image: url(/assets/icon-fav-hover.svg);
@@ -1122,6 +1588,101 @@ body {
   .main .favGifs .favContainer .gif-menuContainer:hover .menu {
     position: absolute;
   }
+}
+
+@media (min-width: 600px) and (max-width: 599px) {
+  .main .favGifs .favContainer .gif-menuContainer {
+    position: relative;
+    width: 100%;
+    height: 32vh;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .trendGif {
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+    display: none;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+}
+
+@media (min-width: 600px) {
   .main .favGifs .button {
     padding: 3vh 2vw;
     margin: 4vh 0;
@@ -1238,6 +1799,279 @@ body {
 }
 
 @media (max-width: 599px) {
+  .carousel {
+    width: 100%;
+    height: 50%;
+    background-color: crimson;
+    margin-bottom: 15%;
+    padding-left: 5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 599px) and (max-width: 599px) {
+  .carousel .gif-menuContainer {
+    position: relative;
+    min-width: 70%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .carousel .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-right: 5%;
+  }
+}
+
+@media (max-width: 599px) and (min-width: 600px) {
+  .carousel .gif-menuContainer {
+    position: relative;
+    min-width: 30%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .carousel .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .carousel .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .carousel .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .carousel .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 20px;
+  }
+  .carousel .gif-menuContainer .menu .icons .icon:hover {
+    background-color: #fff;
+  }
+  .carousel .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .carousel .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .carousel .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .carousel .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .carousel .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .carousel .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .carousel .gif-menuContainer:hover .menu {
+    position: absolute;
+  }
+}
+
+@media (min-width: 600px) {
+  .row {
+    bottom: 30%;
+    padding: 20px;
+    height: 10vh;
+    width: 5vw;
+    background-color: #F3F5F8;
+    background-repeat: no-repeat;
+    background-size: 1.3rem;
+    background-position: center;
+    border: 1px solid #572EE5;
+  }
+  .leftRow {
+    background-image: url(/assets/button-left.svg);
+    position: absolute;
+    margin-left: 2rem;
+  }
+  .carousel {
+    scroll-behavior: smooth;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    -ms-flex-item-align: start;
+        align-self: start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: auto;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 599px) {
+  .carousel .gif-menuContainer {
+    position: relative;
+    min-width: 70%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .carousel .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-right: 5%;
+  }
+}
+
+@media (min-width: 600px) and (min-width: 600px) {
+  .carousel .gif-menuContainer {
+    position: relative;
+    min-width: 30%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .carousel .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .carousel .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .carousel .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .carousel .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 20px;
+  }
+  .carousel .gif-menuContainer .menu .icons .icon:hover {
+    background-color: #fff;
+  }
+  .carousel .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .carousel .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .carousel .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .carousel .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .carousel .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .carousel .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .carousel .gif-menuContainer:hover .menu {
+    position: absolute;
+  }
+}
+
+@media (min-width: 600px) {
+  .rightRow {
+    background-image: url(/assets/button-right.svg);
+    margin-right: 2rem;
+    right: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 599px) {
   .footer {
     width: 100%;
     height: 32vh;
@@ -1332,5 +2166,207 @@ body {
 
 .noResult .text {
   color: aqua;
+}
+
+@media (min-width: 600px) {
+  .fullImageContainer {
+    position: fixed;
+    top: 0;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    background-color: rgba(0, 87, 128, 0.473);
+  }
+  .fullImageContainer .closeAction {
+    margin-top: 5%;
+    margin-right: 5%;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    width: 5%;
+    height: 5%;
+    background-image: url(/assets/button-close.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+  }
+  .fullImageContainer .gif-menuContainer {
+    height: 60%;
+    width: 50%;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    background-color: sienna;
+  }
+  .fullImageContainer .gif-menuContainer .trendGif {
+    background-color: lime;
+    height: 80%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+  }
+  .fullImageContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 20%;
+    background-color: maroon;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .fullImageContainer .gif-menuContainer .menu .gifInfo {
+    width: 50%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    background-color: linen;
+  }
+  .fullImageContainer .gif-menuContainer .menu .gifInfo .user {
+    background-color: sienna;
+  }
+  .fullImageContainer .gif-menuContainer .menu .gifInfo .title {
+    background-color: springgreen;
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons {
+    width: 50%;
+    height: 100%;
+    background-color: lightsteelblue;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons .icon {
+    width: 10%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons .dislike {
+    background-image: url("/assets/icon-fav-hover.svg");
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+}
+
+@media (max-width: 599px) {
+  .fullImageContainer {
+    position: fixed;
+    top: 0;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    background-color: rgba(0, 87, 128, 0.473);
+  }
+  .fullImageContainer .closeAction {
+    margin-top: 5%;
+    margin-right: 5%;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    width: 5%;
+    height: 5%;
+    background-image: url(/assets/button-close.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+  }
+  .fullImageContainer .gif-menuContainer {
+    height: 60%;
+    width: 85%;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    background-color: sienna;
+  }
+  .fullImageContainer .gif-menuContainer .trendGif {
+    background-color: lime;
+    height: 80%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+  }
+  .fullImageContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 20%;
+    background-color: maroon;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .fullImageContainer .gif-menuContainer .menu .gifInfo {
+    width: 50%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    background-color: linen;
+  }
+  .fullImageContainer .gif-menuContainer .menu .gifInfo .user {
+    background-color: sienna;
+  }
+  .fullImageContainer .gif-menuContainer .menu .gifInfo .title {
+    background-color: springgreen;
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons {
+    width: 50%;
+    height: 100%;
+    background-color: lightsteelblue;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons .icon {
+    width: 10%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons .dislike {
+    background-image: url("/assets/icon-fav-hover.svg");
+  }
+  .fullImageContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
 }
 /*# sourceMappingURL=main.css.map */

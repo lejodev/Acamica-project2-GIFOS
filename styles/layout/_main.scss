@@ -1,8 +1,11 @@
+@import "../base/typography";
 @include phone {
     .main {
+        width: 100%;
         // Taget Main.html
         // background-color: lightsalmon;
         .results {
+            width: 100%;
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
@@ -28,11 +31,7 @@
                 row-gap: 5vh;
                 background-color: darkslategrey;
                 overflow-y: scroll;
-                .result {
-                    width: 100%;
-                    height: 32vh;
-                    background-color: lightcoral;
-                }
+                @import "../components/hoverMenuGrid";
             }
             @import "../components/buttons";
         }
@@ -59,21 +58,26 @@
                 column-gap: 6vw;
                 row-gap: 4vh;
                 overflow-y: scroll;
-                .favGif {
-                    width: 100%;
-                    height: 18vh;
-                    background-color: lightcoral;
-                }
+                // ======================================== here ========================================
+
+                @import "../components/hoverMenuGrid";
+
+                // .favGif {
+                //     width: 100%;
+                //     height: 18vh;
+                //     background-color: lightcoral;
+                // }
             }
-            .button {
-                // Make this button mixin
-                padding: 2vh 3vw;
-                margin: 3vh 0;
-                border: 1px solid #572ee5;
-                text-transform: uppercase;
-                border-radius: 2rem;
-                cursor: pointer;
-            }
+            @import "../components/buttons";
+            // .button {
+            //     // Make this button mixin
+            //     padding: 2vh 3vw;
+            //     margin: 3vh 0;
+            //     border: 1px solid #572ee5;
+            //     text-transform: uppercase;
+            //     border-radius: 2rem;
+            //     cursor: pointer;
+            // }
         }
 
         // Target myGifos.html
@@ -129,22 +133,23 @@
                 color: #572ee5;
                 text-align: center;
             }
-            .carousel {
-                width: 100%;
-                height: 50%;
-                background-color: crimson;
-                margin-bottom: 15%;
-                padding-left: 5vw;
-                display: flex;
-                flex-flow: row nowrap;
-                overflow-x: auto;
-                .trendGif {
-                    margin-right: 5vw;
-                    min-width: 65%;
-                    height: 100%;
-                    background-color: chartreuse;
-                }
-            }
+            // .carousel {
+            //     width: 100%;
+            //     height: 50%;
+            //     background-color: crimson;
+            //     margin-bottom: 15%;
+            //     padding-left: 5vw;
+            //     display: flex;
+            //     flex-flow: row nowrap;
+            //     overflow-x: auto;
+            //     // .trendGif {
+            //     //     margin-right: 5vw;
+            //     //     min-width: 65%;
+            //     //     height: 100%;
+            //     //     background-color: chartreuse;
+            //     // }
+            //     @import "../components/hoverMenuCarousel";
+            // }
         }
     }
 }
@@ -166,7 +171,8 @@
             display: none;
             .heading {
                 text-align: center;
-                background-color: crimson;
+                font-family: $titles;
+                color: #572ee5;
             }
             .resultsContainer {
                 width: 100%;
@@ -181,125 +187,49 @@
 
                 // ============================================================
 
-                @import'../components/hoverMenuGrid';
+                @import "../components/hoverMenuGrid";
             }
             @import "../components/buttons";
         }
         .trending-gifos {
+            position: relative;
             width: 100%;
             height: 100vh;
             background-color: #f3f5f8;
             display: grid;
-            grid-template-rows: 35% 65%;
+            grid-template-rows: 35%  65% ;
             .center-title {
                 // Make this brand
                 align-self: center;
                 text-align: center;
-                background-color: aqua;
+
                 h2 {
                     span {
                         color: #572ee5;
                     }
                 }
             }
-            .carousel {  // Container
-                margin: 0 auto;
-                width: 80%;
-                height: 70%;
-                align-self: start;
-                background-color: black;
-                display: flex;
-                overflow-x: auto;
+            // .leftRow {
+            //     // display: none;
+            //     height: fit-content;
+            //     background-color: red;
+            // }
+            // .carousel {
+            //     // Container
+            //     margin: 0 auto;
+            //     width: 80%;
+            //     height: 70%;
+            //     align-self: start;
+            //     // background-color: black;
+            //     display: flex;
+            //     overflow-x: auto;
 
-                // Import hover menu grid
-                @import'../components/hoverMenuCarousel';
-
-                // .gif-menuContainer {
-                //     position: relative;
-                //     min-width: 27%;
-                //     height: 100%;
-                //     background-color: brown;
-                //     margin-right: 5%;
-                //     .trendGif {
-                //         position: absolute;
-                //         width: 100%;
-                //         height: 100%;
-                //         background-color: brown;
-                //         margin-right: 5%;
-                //     }
-                //     .menu {
-                //         width: 100%;
-                //         height: 100%;
-                //         background-color: #562ee5a4;
-                //         .icons {
-                //             width: 100%;
-                //             height: 25%;
-                //             display: grid;
-                //             grid-template-columns: repeat(3, 10%);
-                //             grid-template-rows: 100%;
-                //             justify-content: flex-end;
-                //             align-items: center;
-                //             gap: 5%;
-                //             padding-right: 5%;
-                //             .icon {
-                //                 height: 2.2em;
-                //                 width: 100%;
-                //                 background-color: rgba(255, 255, 255, 0.7);
-                //                 // padding: 10px;
-                //                 border-radius: 6px;
-                //                 background-repeat: no-repeat;
-                //                 background-size: auto;
-                //                 background-position: center;
-                //                 box-sizing: border-box;
-                //                 padding: 20px;
-                //                 &:hover {
-                //                     background-color: #fff;
-                //                 }
-                //             }
-                //             .like {
-                //                 background-image: url(/assets/icon-fav-hover.svg);
-                //             }
-                //             .download {
-                //                 background-image: url(/assets/icon-download.svg);
-                //             }
-                //             .expand {
-                //                 background-image: url(/assets/icon-max.svg);
-                //             }
-                //         }
-                //         .gifInfo {
-                //             width: 100%;
-                //             height: 75%;
-                //             display: flex;
-                //             flex-flow: column;
-                //             justify-content: flex-end;
-                //             bottom: 0;
-                //             padding-left: 5%;
-                //             padding-bottom: 11%;
-                //             color: #fff;
-                //             box-sizing: border-box;
-                //             .user {
-                //                 margin: 0;
-                //                 padding: 2% 0;
-                //             }
-                //             .title {
-                //                 margin: 0;
-                //             }
-                //         }
-                //     }
-                //     &:hover .menu {
-                //         position: absolute;
-                //     }
-                // }
-
-                // .hoverMenu {
-                //     min-width: 30%;
-                //     height: 100%;
-                //     background-color: #562ee596;
-                // }
-                // .trending-gifos-carousel-container {
-
-                // }
-            }
+            //     // Import hover menu grid
+            //     @import "../components/hoverMenuCarousel";
+            // }
+            // .rightRow {
+            //     background-color: peachpuff;
+            // }
         }
         .favGifs {
             display: flex;
@@ -314,6 +244,9 @@
             .heading {
                 text-align: center;
                 background-color: crimson;
+                h2 {
+                    font-family: $titles;
+                }
             }
             // .noResult {
             //     width: 100%;
@@ -329,7 +262,7 @@
                 grid-template-columns: repeat(4, 1fr);
                 column-gap: 2vw;
                 row-gap: 5vh;
-                background-color: darkslategrey;
+                // background-color: darkslategrey;
                 overflow-y: scroll;
                 display: none;
 
@@ -338,7 +271,7 @@
                 //     height: 32vh;
                 //     background-color: lightcoral;
                 // }
-                @import'../components/hoverMenuGrid';
+                @import "../components/hoverMenuGrid";
             }
             @import "../components/buttons";
             // .button {

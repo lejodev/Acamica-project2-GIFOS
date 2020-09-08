@@ -39,7 +39,7 @@ function setFavorites() {
 checkLocalstorage();
 setFavorites();
 
-displayTrendingGifos()
+displayTrendingGifos();
 
 
 

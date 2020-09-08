@@ -1,3 +1,4 @@
+@import '../base/typography';
 @include phone {
     .search {
         width: 100%;
@@ -7,11 +8,12 @@
         flex-flow: column nowrap;
         align-items: center;
         justify-content: space-evenly;
-        .search-title {
+        .title {
             // Set this style in typography or mixins ===============================
             text-align: center;
             font-size: 3rem;
             color: #572ee5; // Brand
+            font-family: $titles;
             .full-width {
                 display: inline-block;
                 width: 100%;
@@ -59,17 +61,49 @@
                         cursor: pointer;
                     }
                     .suggestions {
+                        width: 100%;
+                        list-style: none;
+                        // background-color: maroon;
+                        padding: 0;
                         margin: 0;
                         display: none;
-                        width: 50%;
-                        background-color: seagreen;
                         li {
-                            cursor: pointer;
-                            &:hover {
-                                background-color: tan;
+                            height: 1.4rem;
+                            padding: 0.5rem 0;
+                            display: grid;
+                            grid-template-columns: 10% 90%;
+                            .image {
+                                height: 100%;
+                                background-image: url(/assets/icon-search.svg);
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                // background-color: lime;
+                                cursor: pointer;
+                            }
+                            .text {
+                                padding-left: 20px;
+                                display: flex;
+                                align-items: center;
+                                height: 100%;
+                                // background-color: olive;
                             }
                         }
                     }
+                    // .suggestions {
+                    //     margin: 0;
+                    //     display: none;
+                    //     width: 50%;
+                    //     background-color: seagreen;
+                    //     li {
+                    //         display: grid;
+                    //         grid-template-columns: 90% 10%;
+                    //         cursor: pointer;
+                    //         &:hover {
+                    //             background-color: tan;
+                    //         }
+                    //     }
+                    // }
                 }
             }
         }
@@ -77,6 +111,7 @@
             text-align: center;
             .trending-title {
                 // Set this style in typography or mixins ===============================
+                font-family: $titles;
                 font-size: 1.2rem;
                 color: #572ee5; // Brand
             }
@@ -96,7 +131,7 @@
         display: grid;
         // grid-template-rows: 30% 50% 20%;
         // justify-items: center;
-        .search-title {
+        .title {
             // Set this style in typography or mixins ===============================
             height: 100%;
             width: 100%;
@@ -105,6 +140,7 @@
             text-align: center;
             font-size: 3rem;
             color: #572ee5; // Brand
+            font-family: $titles;
             .full-width {
                 display: inline-block;
                 width: 100%;
@@ -139,7 +175,17 @@
                         // background-color: teal;
                         border-style: none;
                         width: 100%;
-                        // height: 100%;
+                        height: 1.5rem;
+                        &:focus {
+                            border-style: none;
+                        }
+                        // &:focus ~ .searchAction {
+                        //     background-color: tomato;
+                        //     background-image: url("/assets/button-close.svg");
+                        //     &:active ~ .searchAction{
+                        //         background-color: teal;
+                        //     }
+                        // }
                     }
                     .searchAction {
                         // background-color: tan;
@@ -152,14 +198,34 @@
                         cursor: pointer;
                     }
                     .suggestions {
-                        margin: 0;
                         display: none;
-                        width: 50%;
-                        background-color: seagreen;
+                        width: 100%;
+                        list-style: none;
+                        // background-color: maroon;
+                        padding: 0;
+                        margin: 0;
                         li {
+                            // background-color: tomato;
+                            width: 100%;
+                            height: 1.4rem;
+                            margin: 0.5rem 0;
+                            display: grid;
+                            grid-template-columns: 5% 95%;
                             cursor: pointer;
-                            &:hover {
-                                background-color: tan;
+                            .image {
+                                height: 100%;
+                                background-image: url(/assets/icon-search.svg);
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                // background-color: lime;
+                            }
+                            .text {
+                                padding-left: 20px;
+                                display: flex;
+                                align-items: center;
+                                height: 100%;
+                                // background-color: olive;
                             }
                         }
                     }
@@ -172,6 +238,7 @@
             text-align: center;
             .trending-title {
                 // Set this style in typography or mixins ===============================
+                font-family: $titles;
                 font-size: 1.2rem;
                 color: #572ee5; // Brand
             }

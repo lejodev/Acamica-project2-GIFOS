@@ -1,0 +1,172 @@
+@include desktop {
+    .fullImageContainer {
+        position: fixed;
+        top: 0;
+        // position: relative;
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        // display: flex;
+        flex-flow: column;
+        background-color: rgba(0, 87, 128, 0.473);
+        .closeAction {
+            margin-top: 5%;
+            margin-right: 5%;
+            align-self: flex-end;
+            width: 5%;
+            height: 5%;
+            // background-color: seagreen;
+            background-image: url(/assets/button-close.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            cursor: pointer;
+        }
+        .gif-menuContainer {
+            height: 60%;
+            width: 50%;
+            margin: auto;
+            align-self: center;
+            background-color: sienna;
+            .trendGif {
+                background-color: lime;
+                height: 80%;
+                width: 100%;
+                // background-image: url(/assets/icon-search.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                cursor: pointer;
+            }
+            .menu {
+                width: 100%;
+                height: 20%;
+                background-color: maroon;
+                display: flex;
+                .gifInfo {
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    flex-flow: column;
+                    background-color: linen;
+                    .user {
+                        background-color: sienna;
+                    }
+                    .title {
+                        background-color: springgreen;
+                    }
+                }
+                .icons {
+                    width: 50%;
+                    height: 100%;
+                    background-color: lightsteelblue;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-end;
+                    .icon {
+                        width: 10%;
+                        height: 100%;
+                        background-size: contain;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                    .dislike {
+                        background-image: url("/assets/icon-fav-hover.svg");
+                        // background-color: antiquewhite;
+                    }
+                    .download {
+                        // background-color: aqua;
+                        background-image: url(/assets/icon-download.svg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include phone {
+    .fullImageContainer {
+        position: fixed;
+        top: 0;
+        // position: relative;
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        // display: flex;
+        flex-flow: column;
+        background-color: rgba(0, 87, 128, 0.473);
+        .closeAction {
+            margin-top: 5%;
+            margin-right: 5%;
+            align-self: flex-end;
+            width: 5%;
+            height: 5%;
+            // background-color: seagreen;
+            background-image: url(/assets/button-close.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            cursor: pointer;
+        }
+        .gif-menuContainer {
+            height: 60%;
+            width: 85%;
+            margin: auto;
+            align-self: center;
+            background-color: sienna;
+            .trendGif {
+                background-color: lime;
+                height: 80%;
+                width: 100%;
+                // background-image: url(/assets/icon-search.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                cursor: pointer;
+            }
+            .menu {
+                width: 100%;
+                height: 20%;
+                background-color: maroon;
+                display: flex;
+                .gifInfo {
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    flex-flow: column;
+                    background-color: linen;
+                    .user {
+                        background-color: sienna;
+                    }
+                    .title {
+                        background-color: springgreen;
+                    }
+                }
+                .icons {
+                    width: 50%;
+                    height: 100%;
+                    background-color: lightsteelblue;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-end;
+                    align-content: center;
+                    .icon {
+                        width: 10%;
+                        height: 100%;
+                        background-size: contain;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                    .dislike {
+                        background-image: url("/assets/icon-fav-hover.svg");
+                        // background-color: antiquewhite;
+                    }
+                    .download {
+                        // background-color: aqua;
+                        background-image: url(/assets/icon-download.svg);
+                    }
+                }
+            }
+        }
+    }
+}

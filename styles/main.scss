@@ -9,5 +9,9 @@ body {
 @import 'abstracts/mixins';
 @import 'layout/header';
 @import 'layout/main';
+@import 'components/carousel';
 @import 'layout/footer';
-@import 'components/noResult'
+@import 'components/noResult';
+@import 'components/fullImage';
+@import 'abstracts/variables';
+@import 'base/typography';

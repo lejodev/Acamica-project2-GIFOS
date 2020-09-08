@@ -1,0 +1,68 @@
+@import '../base/typography';
+@include phone {
+    .carousel {
+        width: 100%;
+        height: 50%;
+        background-color: crimson;
+        margin-bottom: 15%;
+        padding-left: 5vw;
+        display: flex;
+        flex-flow: row nowrap;
+        overflow-x: auto;
+        // .trendGif {
+        //     margin-right: 5vw;
+        //     min-width: 65%;
+        //     height: 100%;
+        //     background-color: chartreuse;
+        // }
+        @import "../components/hoverMenuCarousel";
+    }
+}
+
+@include desktop {
+    .row {
+        bottom: 30%;
+        padding: 20px;
+        height: 10vh;
+        width: 5vw;
+        background-color: #F3F5F8;
+        background-repeat: no-repeat;
+        background-size: 1.3rem;
+        // background-size: contain;
+        background-position: center;
+        // box-sizing: border-box;
+        border: 1px solid #572EE5;
+    }
+    .leftRow {
+        background-image: url(/assets/button-left.svg);
+        position: absolute;
+        // height: 100px;
+        margin-left: 2rem;
+        // &:active ~ .carousel .gif-menuContainer{
+        //     transform: translateX(-200px);
+        //     background-color: black;
+        // }
+    }
+    .carousel {
+        scroll-behavior: smooth;
+        // Container
+        margin: 0 auto;
+        width: 80%;
+        height: 100%;
+        align-self: start;
+        // background-color: black;
+        display: flex;
+        overflow-x: auto;
+        overflow: hidden;
+
+        // Import hover menu grid
+        @import "../components/hoverMenuCarousel";
+    }
+    .rightRow {
+        background-image: url(/assets/button-right.svg);
+        margin-right: 2rem;
+        right: 0;
+        position: absolute;
+        // height: 50px;
+    }
+}
