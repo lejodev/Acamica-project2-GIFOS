@@ -53,28 +53,33 @@
     </header> -->
 
     <main class="main">
-        <section class="create-gif-container">
-            <div class="createGif">
-                <h2 class="center-title">
-                    <span> Aqui podrás </span>
-                    <span> crear tus propios <span class="toUpperCase">gifos </span></span>
-                </h2>
-                <p>
-                    <span>¡Crea tu GIFO en sólo 3 pasos!</span>
-                    <span>(Sólo necesitas una cámara para grabar un video)</span>
-                </p>
+        <section class="create-gif">
+            <div class="content-container">
+                <div class="intro format-text">
+                    <h2 class="title">
+                        <span> Aqui podrás </span>
+                        <span> crear tus propios <span class="toUpperCase">gifos </span></span>
+                    </h2>
+                    <p class="paragraph">
+                        <span>¡Crea tu GIFO en sólo 3 pasos!</span>
+                        <span>(Sólo necesitas una cámara para grabar un video)</span>
+                    </p>
+                </div>
+                <video src="" class="make-gif"></video>
             </div>
-            <div class="steps">
-                <div class="one">1</div>
-                <div class="two">2</div>
-                <div class="three">3</div>
+            <div class="steps counter-repeat">
+                <div class="one step">1</div>
+                <div class="two step">2</div>
+                <div class="three step">3</div>
+                <div class="counter-repeat timer">
+                    <p class="data-chronometer">00:00:00</p>
+                </div>
             </div>
             <div class="bar"></div>
-            <a href="create-gif-step-2.html" class="button">
-                <!-- <span class="button"> -->
-                    COMENZAR
-                <!-- </span> -->
-            </a>
+            <span class="button">COMENZAR</span>
+            <span class="film">GRABAR</span>
+            <span class="stop">FINALIZAR</span>
+            <span class="upload">SUBIR GIFO</span>
         </section>
     </main>
 
@@ -88,6 +93,8 @@
         <div class="copyright">© GIFOS 2020 All Rights Reserved.</div>
     </footer>
 
+    <script type="module" src="scripts/createGif.js"></script>
+    <script  src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 </body>
 
 </html>

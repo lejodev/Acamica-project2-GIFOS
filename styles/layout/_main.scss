@@ -197,7 +197,7 @@
             height: 100vh;
             background-color: #f3f5f8;
             display: grid;
-            grid-template-rows: 35%  65% ;
+            grid-template-rows: 35% 65%;
             .center-title {
                 // Make this brand
                 align-self: center;
@@ -307,7 +307,7 @@
             }
             @import "../components/buttons";
         }
-        .create-gif-container {
+        .create-gif {
             width: 100%;
             // height: 75vh;
             // background-color: dodgerblue;
@@ -315,16 +315,48 @@
             display: flex;
             flex-flow: column;
             align-items: center;
-            .createGif {
+            .content-container {
                 width: 50%;
                 height: 70vh;
-                background-color: dimgray;
-                // margin: auto;
+                .format-text {
+                    width: 100%;
+                    height: 100%;
+                    // background-color: dimgray;
+                    border: 1px solid #572ee5;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    justify-content: center;
+                    h2 {
+                        color: #572ee5;
+                        span {
+                            text-align: center;
+                            display: inline-block;
+                            width: 100%;
+                        }
+                        .toUpperCase {
+                            text-transform: uppercase;
+                            color: #50e3c2;
+                            display: inline;
+                        }
+                    }
+                    // margin: auto;
+                }
+                .make-gif {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #572ee5;
+                    display: none;
+                    object-fit: cover;
+                }
             }
+
             .steps {
+                width: 50%;
+                position: relative;
                 display: flex;
-                align-items: center;
-                div {
+                justify-content: center;
+                .step {
                     margin: 0.8rem;
                     width: 2rem;
                     height: 2rem;
@@ -336,6 +368,14 @@
                     align-items: center;
                     cursor: pointer;
                     // place-items: inherit;
+                }
+                .counter-repeat {
+                    // display: none;
+                    position: absolute;
+                    right: 0;
+                    width: 130px;
+                    height: 60px;
+                    background-color: #572ee5;
                 }
             }
             .bar {

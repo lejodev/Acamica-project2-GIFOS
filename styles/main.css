@@ -406,7 +406,7 @@ body {
 }
 
 @media (max-width: 599px) {
-  .main .results .button {
+  .main .results .button, .main .results .film, .main .results .stop, .main .results .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
     border: 1px solid #572ee5;
@@ -882,7 +882,7 @@ body {
 }
 
 @media (max-width: 599px) {
-  .main .favGifs .button {
+  .main .favGifs .button, .main .favGifs .film, .main .favGifs .stop, .main .favGifs .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
     border: 1px solid #572ee5;
@@ -1431,7 +1431,7 @@ body {
 }
 
 @media (min-width: 600px) {
-  .main .results .button {
+  .main .results .button, .main .results .film, .main .results .stop, .main .results .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
     border: 1px solid #572ee5;
@@ -1448,8 +1448,8 @@ body {
     background-color: #f3f5f8;
     display: -ms-grid;
     display: grid;
-    -ms-grid-rows: 35%  65%;
-        grid-template-rows: 35%  65%;
+    -ms-grid-rows: 35% 65%;
+        grid-template-rows: 35% 65%;
   }
   .main .trending-gifos .center-title {
     -ms-flex-item-align: center;
@@ -1683,7 +1683,7 @@ body {
 }
 
 @media (min-width: 600px) {
-  .main .favGifs .button {
+  .main .favGifs .button, .main .favGifs .film, .main .favGifs .stop, .main .favGifs .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
     border: 1px solid #572ee5;
@@ -1728,7 +1728,7 @@ body {
     height: 32vh;
     background-color: darkslategray;
   }
-  .main .myGifos .button {
+  .main .myGifos .button, .main .myGifos .film, .main .myGifos .stop, .main .myGifos .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
     border: 1px solid #572ee5;
@@ -1738,7 +1738,7 @@ body {
     text-transform: uppercase;
     cursor: pointer;
   }
-  .main .create-gif-container {
+  .main .create-gif {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1751,20 +1751,60 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .main .create-gif-container .createGif {
+  .main .create-gif .content-container {
     width: 50%;
     height: 70vh;
-    background-color: dimgray;
   }
-  .main .create-gif-container .steps {
+  .main .create-gif .content-container .format-text {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #572ee5;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
-  .main .create-gif-container .steps div {
+  .main .create-gif .content-container .format-text h2 {
+    color: #572ee5;
+  }
+  .main .create-gif .content-container .format-text h2 span {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+  .main .create-gif .content-container .format-text h2 .toUpperCase {
+    text-transform: uppercase;
+    color: #50e3c2;
+    display: inline;
+  }
+  .main .create-gif .content-container .make-gif {
+    width: 100%;
+    height: 100%;
+    background-color: #572ee5;
+    display: none;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .main .create-gif .steps {
+    width: 50%;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .main .create-gif .steps .step {
     margin: 0.8rem;
     width: 2rem;
     height: 2rem;
@@ -1780,13 +1820,20 @@ body {
             align-items: center;
     cursor: pointer;
   }
-  .main .create-gif-container .bar {
+  .main .create-gif .steps .counter-repeat {
+    position: absolute;
+    right: 0;
+    width: 130px;
+    height: 60px;
+    background-color: #572ee5;
+  }
+  .main .create-gif .bar {
     width: 60%;
     height: 1.2vh;
     background-color: #572ee5;
     border-radius: 5rem;
   }
-  .main .create-gif-container .button {
+  .main .create-gif .button, .main .create-gif .film, .main .create-gif .stop, .main .create-gif .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
     border: 1px solid #572ee5;
