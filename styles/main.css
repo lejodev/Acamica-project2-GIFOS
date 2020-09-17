@@ -1723,11 +1723,196 @@ body {
     row-gap: 5vh;
     overflow-y: scroll;
   }
-  .main .myGifos .myGifosContainer .myGif {
+}
+
+@media (min-width: 600px) and (min-width: 600px) {
+  .main .myGifos .myGifosContainer .gif-menuContainer {
+    position: relative;
     width: 100%;
     height: 32vh;
-    background-color: darkslategray;
+    background-color: brown;
+    margin-right: 5%;
   }
+  .main .myGifos .myGifosContainer .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer:hover .menu {
+    position: absolute;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 599px) {
+  .main .myGifos .myGifosContainer .gif-menuContainer {
+    position: relative;
+    width: 100%;
+    height: 32vh;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .trendGif {
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+    display: none;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+}
+
+@media (min-width: 600px) {
   .main .myGifos .button, .main .myGifos .film, .main .myGifos .stop, .main .myGifos .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
@@ -1754,6 +1939,7 @@ body {
   .main .create-gif .content-container {
     width: 50%;
     height: 70vh;
+    position: relative;
   }
   .main .create-gif .content-container .format-text {
     width: 100%;
@@ -1789,10 +1975,97 @@ body {
   .main .create-gif .content-container .make-gif {
     width: 100%;
     height: 100%;
+    position: absolute;
     background-color: #572ee5;
     display: none;
     -o-object-fit: cover;
        object-fit: cover;
+    opacity: 0.3;
+  }
+  .main .create-gif .content-container .gifo-status {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main .create-gif .content-container .gifo-status .uploading {
+    text-align: center;
+    margin: auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: none;
+    background-color: transparent;
+  }
+  .main .create-gif .content-container .gifo-status .succuess {
+    text-align: center;
+    margin: auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: none;
+    background-color: transparent;
+  }
+  .main .create-gif .content-container .gifo-status .succuess .my-gifo-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (5%)[2];
+        grid-template-columns: repeat(2, 5%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 3%;
+  }
+  .main .create-gif .content-container .gifo-status .succuess .my-gifo-icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .create-gif .content-container .gifo-status .succuess .my-gifo-icons .icon:hover {
+    background-color: #f3f5f8;
+  }
+  .main .create-gif .content-container .gifo-status .succuess .my-gifo-icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .create-gif .content-container .gifo-status .succuess .my-gifo-icons .link {
+    background-image: url(/assets/icon-link.svg);
   }
   .main .create-gif .steps {
     width: 50%;
@@ -1820,12 +2093,13 @@ body {
             align-items: center;
     cursor: pointer;
   }
-  .main .create-gif .steps .counter-repeat {
+  .main .create-gif .steps .timer {
     position: absolute;
     right: 0;
     width: 130px;
     height: 60px;
     background-color: #572ee5;
+    display: block;
   }
   .main .create-gif .bar {
     width: 60%;

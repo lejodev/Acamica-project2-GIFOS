@@ -32,6 +32,8 @@ export function displayTrendingGifos() {
         .catch(err => console.log(err))
 }
 
+
+
 export function hoverGifMenu(json, parent) {
 
     var gif_menuContainer = document.createElement('div');
@@ -101,6 +103,7 @@ export function hoverGifMenu(json, parent) {
         alert(`clicked ${json.id}`)
         // localStorage.setItem('favs', JSON.stringify(favorites))
     });
+
 
     downloadIcon.addEventListener("click", () => {
         var x = new XMLHttpRequest();
@@ -192,6 +195,8 @@ export function hoverGifMenu(json, parent) {
     }
 }
 
+
+
 let hours = `00`,
     minutes = `00`,
     seconds = `00`,
@@ -251,7 +256,18 @@ export function noResult(parent, image, text) {
     parentContainer.appendChild(noreSultContainer);
 }
 
-function download(data, strFileName, strMimeType) {
+export function downloadListener(node) {
+    node.addEventListener("click", () => {
+        var x = new XMLHttpRequest();
+        x.open("GET", json.images.original.url, true);
+        alert(json.images.original.url)
+        x.responseType = 'blob';
+        x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
+        x.send();
+    });
+}
+
+export function download(data, strFileName, strMimeType) {
     var self = window, // this script is only for browsers anyway...
         defaultMime = "application/octet-stream", // this default mime also triggers iframe downloads
         mimeType = strMimeType || defaultMime,
@@ -363,5 +379,7 @@ function download(data, strFileName, strMimeType) {
     }
     return true;
 }; /* end download() */
+
+
 
 // export default hoverGifMenu;

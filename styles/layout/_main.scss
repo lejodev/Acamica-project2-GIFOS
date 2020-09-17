@@ -299,11 +299,12 @@
                 column-gap: 2vw;
                 row-gap: 5vh;
                 overflow-y: scroll;
-                .myGif {
-                    width: 100%;
-                    height: 32vh;
-                    background-color: darkslategray;
-                }
+                // .myGif {
+                //     width: 100%;
+                //     height: 32vh;
+                //     background-color: darkslategray;
+                // }
+                @import "../components/hoverMenuGrid";
             }
             @import "../components/buttons";
         }
@@ -318,6 +319,7 @@
             .content-container {
                 width: 50%;
                 height: 70vh;
+                position: relative;
                 .format-text {
                     width: 100%;
                     height: 100%;
@@ -345,9 +347,78 @@
                 .make-gif {
                     width: 100%;
                     height: 100%;
+                    position: absolute;
                     background-color: #572ee5;
                     display: none;
                     object-fit: cover;
+                    opacity: 0.3;
+                }
+                .gifo-status {
+                    position: absolute;
+                    z-index: 10;
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    display: flex;
+                    flex-flow: column;
+                    align-items: center;
+                    // justify-content: center;
+                    // align-content: center;
+                    .uploading {
+                        text-align: center;
+                        margin: auto;
+                        width: fit-content;
+                        height: fit-content;
+                        display: none;
+                        background-color: transparent;
+                    }
+                    .succuess {
+                        text-align: center;
+                        margin: auto;
+                        width: fit-content;
+                        height: fit-content;
+                        display: none;
+                        background-color: transparent;
+                        .my-gifo-icons {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 15%;
+                            display: grid;
+                            grid-template-columns: repeat(2, 5%);
+                            grid-template-rows: 100%;
+                            justify-content: flex-end;
+                            align-items: center;
+                            gap: 5%;
+                            padding-right: 3%;
+                            // background-color: turquoise;
+                            // background-color: yellow;
+                            .icon {
+                                height: 2.2em;
+                                width: 100%;
+                                background-color: rgba(255, 255, 255, 0.7);
+                                padding: 0.1em;
+                                border-radius: 6px;
+                                background-repeat: no-repeat;
+                                background-size: auto;
+                                background-position: center;
+                                padding: 20px;
+                                box-sizing: border-box;
+                                &:hover {
+                                    background-color: #f3f5f8;
+                                }
+                            }
+                            .download {
+                                background-image: url(/assets/icon-download.svg);
+                            }
+                            .link {
+                                background-image: url(/assets/icon-link.svg);
+                            }
+                        }
+                    }
+                    // @import '../components/success-gif';
                 }
             }
 
@@ -369,13 +440,13 @@
                     cursor: pointer;
                     // place-items: inherit;
                 }
-                .counter-repeat {
-                    // display: none;
+                .timer {
                     position: absolute;
                     right: 0;
                     width: 130px;
                     height: 60px;
                     background-color: #572ee5;
+                    display: block;
                 }
             }
             .bar {
