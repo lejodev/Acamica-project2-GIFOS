@@ -33,7 +33,52 @@ export function displayTrendingGifos() {
 }
 
 
+function getFavs(json, caller) {
+    var favs = JSON.parse(localStorage.getItem('favs'))
+    var favsIds = [];
+    var myGifs = JSON.parse(localStorage.getItem('myGifos'))
+    // var myGifsIds = [];
 
+    favs.forEach(json => {
+        favsIds.push(json.id);
+    })
+
+    // myGifs.forEach(json => {
+    //     myGifsIds.push(json.id);
+    // })
+
+    if (caller === 'any') {
+        if (favsIds.includes(json.id)) {
+            alert('This GIFO is already in your favorites');
+        } else {
+            favs.push(json);
+            localStorage.setItem('favs', JSON.stringify(favs));
+        }
+    }
+    if (caller === 'favorites') {
+        favs.splice(favsIds.indexOf(json.id), 1);
+        localStorage.setItem('favs', JSON.stringify(favs));
+        // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
+        location.reload();
+        console.log('favs: ' + favs);
+        console.log('favs ids: ' + favsIds);
+    }
+    if (caller === 'myGifs') {
+        // myGifs.splice(favsIds.indexOf(json), 1);
+        // localStorage.setItem('favs', JSON.stringify(favs));
+        // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
+        // location.reload();
+        alert(myGifs.indexOf(json.id))
+        alert(json.id)
+        // console.log(myGifs.length);
+        // myGifs.splice(favsIds.indexOf(json), 1);
+        // console.log(myGifs.length);
+        // localStorage.setItem('myGifos', JSON.stringify(myGifs));
+        console.log('myGifs: ' + myGifs);
+        // console.log('myGifsIds: ' + myGifsIds);
+    }
+
+}
 export function hoverGifMenu(json, parent) {
 
     var gif_menuContainer = document.createElement('div');
@@ -50,8 +95,62 @@ export function hoverGifMenu(json, parent) {
     var icons = document.createElement('div')
     icons.className = 'icons'
 
-    var likeIcon = document.createElement('img')
-    likeIcon.className = 'like icon';
+    var favActiveIcon = document.createElement('img');
+    favActiveIcon.className = 'like-and-like-active icon';
+
+    if (parent.className == 'favContainer') {
+
+        favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
+        favActiveIcon.addEventListener('click', () => {
+            alert(json.id);
+            getFavs(json, 'favorites');
+        });
+        // Click listener to quit from favorites list
+
+    } else if (parent.className == 'myGifosContainer') {
+
+        favActiveIcon.style.backgroundImage = 'url(/assets/icon_trash.svg)';
+        favActiveIcon.addEventListener('click', () => {
+            // alert(json.id);
+            getFavs(json, 'myGifs');
+        })
+        // Click listener to delete from my gifos
+
+    } else {
+
+        favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
+
+        favActiveIcon.addEventListener('click', () => {
+            getFavs(json, 'any');
+            // var favorites = []; // Can go outside HoverMenu function 
+            // var idsArr = []; // Can go outside HoverMenu function 
+            // if (localStorage.favs) {
+            //     favorites = JSON.parse(localStorage.favs);
+            //     favorites.forEach(obj => {
+            //         idsArr.push(obj.id);
+            //     });
+            //     // if (idsArr.includes(json.id)) {
+            //     //     alert('This GIFO is already in your favorites');
+            //     // } else {
+            //     //     favorites.push(json);
+            //     //     localStorage.setItem('favs', JSON.stringify(favorites));
+            //     // }
+            // } else {
+            //     favorites.push(json);
+            //     localStorage.setItem('favs', JSON.stringify(favorites))
+            // }
+
+            // favorites.push(json);
+            alert(`clicked ${json.id}`)
+            // localStorage.setItem('favs', JSON.stringify(favorites))
+        });
+
+    }
+
+    // var favActiveIcon = document.createElement('img')
+    // favActiveIcon.className = 'like-and-like-active icon';
+    // favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
+
     var downloadIcon = document.createElement('img');
     downloadIcon.className = 'download icon'
     var maxIcon = document.createElement('img')
@@ -71,7 +170,7 @@ export function hoverGifMenu(json, parent) {
 
 
     gif_menuContainer.appendChild(trendGif);
-    icons.appendChild(likeIcon)
+    icons.appendChild(favActiveIcon)
     icons.appendChild(downloadIcon)
     icons.appendChild(maxIcon)
 
@@ -80,29 +179,7 @@ export function hoverGifMenu(json, parent) {
     gif_menuContainer.appendChild(menu);
     parent.appendChild(gif_menuContainer);
 
-    likeIcon.addEventListener('click', () => {
-        var favorites = [];
-        var idsArr = [];
-        if (localStorage.favs) {
-            favorites = JSON.parse(localStorage.favs);
-            favorites.forEach(obj => {
-                idsArr.push(obj.id);
-            });
-            if (idsArr.includes(json.id)) {
-                alert('This GIFO is already in your favorites');
-            } else {
-                favorites.push(json);
-                localStorage.setItem('favs', JSON.stringify(favorites));
-            }
-        } else {
-            favorites.push(json);
-            localStorage.setItem('favs', JSON.stringify(favorites))
-        }
 
-        // favorites.push(json);
-        alert(`clicked ${json.id}`)
-        // localStorage.setItem('favs', JSON.stringify(favorites))
-    });
 
 
     downloadIcon.addEventListener("click", () => {
@@ -207,25 +284,25 @@ export function timer() {
 
     // function chronometer() {
 
-        seconds++
+    seconds++
 
-        if (seconds < 10) seconds = `0` + seconds
+    if (seconds < 10) seconds = `0` + seconds
 
-        if (seconds > 59) {
-            seconds = `00`
-            minutes++
+    if (seconds > 59) {
+        seconds = `00`
+        minutes++
 
-            if (minutes < 10) minutes = `0` + minutes
-        }
+        if (minutes < 10) minutes = `0` + minutes
+    }
 
-        if (minutes > 59) {
-            minutes = `00`
-            hours++
+    if (minutes > 59) {
+        minutes = `00`
+        hours++
 
-            if (hours < 10) hours = `0` + hours
-        }
+        if (hours < 10) hours = `0` + hours
+    }
 
-        chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`
+    chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`
 
     // }
 

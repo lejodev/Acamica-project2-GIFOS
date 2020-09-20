@@ -10,6 +10,8 @@ function checkLocalstorage() {
         favorites = JSON.parse(localStorage.favs);
         resultsParentContainer.style.display = 'grid';
         alert('With favorites');
+        setFavorites();
+
     } else {
         alert('No favs');
         var img = '/assets/icon-mis-gifos-sin-contenido.svg';
@@ -28,7 +30,7 @@ function setFavorites() {
         }
         favorites.splice(0, 12);
     } else {
-        for(let i = 0; i < favorites.length; i++) {
+        for (let i = 0; i < favorites.length; i++) {
             hoverGifMenu(favorites[i], resultsParentContainer)
         }
         seeMoreButton.style.display = 'none';
@@ -37,7 +39,6 @@ function setFavorites() {
 
 
 checkLocalstorage();
-setFavorites();
 
 displayTrendingGifos();
 

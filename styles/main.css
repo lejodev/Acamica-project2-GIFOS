@@ -272,8 +272,8 @@ body {
   .main .results .resultsContainer .gif-menuContainer .menu .icons .icon:hover {
     background-color: red;
   }
-  .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .like-and-like-active {
+    display: block;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
     background-image: url(/assets/icon-download.svg);
@@ -748,8 +748,8 @@ body {
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
     background-color: red;
   }
-  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like-and-like-active {
+    display: block;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
     background-image: url(/assets/icon-download.svg);
@@ -1297,8 +1297,8 @@ body {
   .main .results .resultsContainer .gif-menuContainer .menu .icons .icon:hover {
     background-color: red;
   }
-  .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+  .main .results .resultsContainer .gif-menuContainer .menu .icons .like-and-like-active {
+    display: block;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
     background-image: url(/assets/icon-download.svg);
@@ -1549,8 +1549,8 @@ body {
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .icon:hover {
     background-color: red;
   }
-  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+  .main .favGifs .favContainer .gif-menuContainer .menu .icons .like-and-like-active {
+    display: block;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
     background-image: url(/assets/icon-download.svg);
@@ -1779,8 +1779,8 @@ body {
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon:hover {
     background-color: red;
   }
-  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like-and-like-active {
+    display: block;
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
     background-image: url(/assets/icon-download.svg);

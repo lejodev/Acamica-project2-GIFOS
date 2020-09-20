@@ -1,22 +1,13 @@
 import { noResult, displayTrendingGifos, hoverGifMenu } from "./shared.js";
-var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 
-// var url = 'https://api.giphy.com/v1/gifs';
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8';
-// var parentContainer = document.querySelector('.myGifosContainer');
-
-// // var path = `${url}trending?api_key=${apiKey}&limit=5`
-// // console.log(path);
-// fetch(path).then(gifObj => gifObj.json())
-//     .catch(err => {
-//         console.log('Error getting gif');
-//     })
 
 var parentContainer = document.querySelector('.myGifos');
 var gifsContainer = document.querySelector('.myGifosContainer');
 var button = document.querySelector('.button');
 var myGifosIds = [];
 var gifsObjects = [];
+var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 
 button.style.display = 'none';
 
@@ -40,7 +31,7 @@ async function checkLocalstorage() {
     }
 }
 
-button.addEventListener('click', myGifosDisplaying);  // Pending
+button.addEventListener('click', myGifosDisplaying);
 
 function myGifosDisplaying() {
 
@@ -66,8 +57,6 @@ checkLocalstorage();
 displayTrendingGifos();
 console.log('Ckecking asynchrony');
 
-// console.log(gifsObjects);
-
 function geAndSetGifos(arr) {
 
     var gifsarr = [];
@@ -88,13 +77,5 @@ function geAndSetGifos(arr) {
                 hoverGifMenu(obj.data, gifsContainer)
             })
     }))
-
-    // console.log(gifsObjects);
-
-    // let process = (prom) => {
-    //     prom.then(obj => {
-    //         gifsObjects.push(obj)
-    //     })
-    // }
 }
 

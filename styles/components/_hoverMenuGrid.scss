@@ -42,8 +42,9 @@
                         background-color: red;
                     }
                 }
-                .like {
-                    background-image: url(/assets/icon-fav-hover.svg);
+                .like-and-like-active {
+                    // background-image: url(/assets/icon-fav-hover.svg);
+                    display: block;
                 }
                 .download {
                     background-image: url(/assets/icon-download.svg);
