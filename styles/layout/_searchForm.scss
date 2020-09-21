@@ -242,10 +242,18 @@
                 font-size: 1.2rem;
                 color: #572ee5; // Brand
             }
-            p {
+            .trendNames {
                 font-size: 1.2rem;
                 color: #572ee5; //Brand
+                .trend {
+                    display: inline;
+                }
             }
         }
+    }
+}
+.searchInput {
+    &.dark {
+        background-color: #37383c;
     }
 }

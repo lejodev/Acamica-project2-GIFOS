@@ -182,7 +182,6 @@
                 grid-template-columns: repeat(4, 1fr);
                 column-gap: 2vw;
                 row-gap: 5vh;
-                background-color: khaki;
                 overflow-y: scroll;
 
                 // ============================================================
@@ -198,6 +197,7 @@
             background-color: #f3f5f8;
             display: grid;
             grid-template-rows: 35% 65%;
+            
             .center-title {
                 // Make this brand
                 align-self: center;
@@ -230,6 +230,7 @@
             // .rightRow {
             //     background-color: peachpuff;
             // }
+           
         }
         .favGifs {
             display: flex;
@@ -243,7 +244,7 @@
             // background-color: darkcyan;
             .heading {
                 text-align: center;
-                background-color: crimson;
+                // background-color: crimson;
                 h2 {
                     font-family: $titles;
                 }
@@ -292,7 +293,7 @@
             .myGifosContainer {
                 width: 100%;
                 height: 69vh;
-                background-color: darkorange;
+                // background-color: darkorange;
                 padding: 0 8vw; // Make variable
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
@@ -461,5 +462,22 @@
             @import "../components/buttons";
             // }
         }
+
+        // &.dark {
+        //     background-color: #37383C;
+        // }
+    }
+}
+
+main, .create-gif, .myGifos {
+    &.dark {
+        background-color: #37383c;
+    }
+}
+
+.trending-gifos, .favGifs {
+    &.dark {
+        background-color: #222326;
+        color: #fff;
     }
 }

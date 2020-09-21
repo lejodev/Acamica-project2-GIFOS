@@ -1,6 +1,104 @@
 // function test(num1, num2) {
 //     return num1 + num2;
 // }
+var darkModeButton = document.querySelector('.dark');
+let status = 0;
+
+// function switchMode() {
+
+export function setStatus(caller) {
+
+    var switchStatus = 0;
+
+    // 1 Light Mode
+    // 0 Dark Mode
+
+    darkModeButton.addEventListener('click', () => {
+        if (!localStorage.switch) {
+            localStorage.setItem('switch', 0);
+            // alert('with switch');
+        } else {
+            switchStatus = localStorage.getItem('switch');
+            if (switchStatus == 1) {
+                localStorage.setItem('switch', 0);
+                // alert(localStorage.getItem('switch'))
+                // alert('Now dark mode here!')
+                // darkMode(caller);
+            } else {
+                localStorage.setItem('switch', 1);
+                // alert(localStorage.getItem('switch'))
+                // alert('Now in light mode!')
+                // darkMode(caller);
+            }
+        }
+        darkMode(caller)
+    });
+
+    // var switchStatus = localStorage.getItem('switch');
+    // if (switchStatus == 1) {
+    //     localStorage.setItem('switch', 0);
+    //     alert(localStorage.getItem('switch'))
+    //     alert('Now dark mode here!')
+    //     darkMode(caller);
+    // } else {
+    //     localStorage.setItem('switch', 1);
+    //     alert(localStorage.getItem('switch'))
+    //     alert('Now in light mode!')
+    //     darkMode(caller);
+    // }
+
+}
+
+// console.log(status);
+// }
+
+export function darkMode(caller) {
+    // console.log(caller);
+    // console.log(status);
+    // alert(status);
+    var darkModeButton = document.querySelector('.dark');
+    var main = document.querySelector('.main');
+    var trending_gifos = document.querySelector('.trending-gifos');
+    var myGifos = document.querySelector('.myGifos');
+    var header = document.querySelector('.header');
+    var footer = document.querySelector('.footer');
+    var searchInput = document.querySelector('.searchInput');
+    var logo = document.querySelector('.logo');
+    var menu = document.querySelector('.menu');
+
+    // darkModeButton.addEventListener('click', () => {
+    if (localStorage.getItem('switch') == 0) {
+        // alert('Zeroooo');
+        if (caller === 'myGifos') {
+            myGifos.classList.add('dark');
+        }
+        if (caller === 'main') {
+            searchInput.classList.add('dark')
+        }
+        logo.classList.add('dark');
+        header.classList.add('dark');
+        footer.classList.add('dark');
+        main.classList.add('dark');
+        trending_gifos.classList.add('dark');
+        menu.classList.add('dark');
+
+    } else {
+        // alert('Oneeeee');
+        if (caller === 'myGifos') {
+            myGifos.classList.remove('dark');
+        }
+        if (caller === 'main') {
+            searchInput.classList.remove('dark')
+        }
+        logo.classList.remove('dark');
+        header.classList.remove('dark');
+        footer.classList.remove('dark');
+        main.classList.remove('dark');
+        trending_gifos.classList.remove('dark');
+        menu.classList.remove('dark');
+    }
+    // })
+}
 
 export function displayTrendingGifos() {
     var carousel = document.querySelector('.carousel');
@@ -102,7 +200,7 @@ export function hoverGifMenu(json, parent) {
 
         favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
         favActiveIcon.addEventListener('click', () => {
-            alert(json.id);
+            // alert(json.id);
             getFavs(json, 'favorites');
         });
         // Click listener to quit from favorites list

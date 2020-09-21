@@ -1,10 +1,18 @@
-import { hoverGifMenu, displayTrendingGifos } from "./shared.js";
+import { setStatus, darkMode, hoverGifMenu, displayTrendingGifos } from "./shared.js";
 var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
 var resultsPage = document.querySelector('.results');
 var resultsGrid = document.querySelector('.resultsContainer');
 var searchButton = document.querySelector('.searchAction'); // Exportable
+// var darkModeButton = document.querySelector('.dark');
+// var main = document.querySelector('.main');
 
+// darkModeButton.addEventListener('click', () => {
+//     main.classList.toggle('dark')
+// })
+
+setStatus('main');
+darkMode('main');
 
 function dynamicTrendTitles() {
 
@@ -18,13 +26,25 @@ function dynamicTrendTitles() {
         .then(json => {
             var titles;
             json.data.forEach(data => {
-                title += `${data.title.split(' GIF')[0]}, `;
+                // title += `${data.title.split(' GIF')[0]}, `;
+                // console.log(title);
+                var trendTitle = document.createElement('span')
+                trendTitle.className = 'trend';
+                trendTitle.innerText = `${data.title.split(' GIF')[0]}, `;
+                trendTitle.addEventListener('click', () => {
+                    input.value = data.title.split(' GIF')[0];
+                    getSearchPath();
+                })
+                // addEventListener('click', () => {
+                //     alert(data.title.split(' GIF')[0])
+                // })
+                trend.appendChild(trendTitle);
             });
-            console.log(title.split(', '));
-            console.log(title.split(',').length);
-            titles = title;
-            trend.textContent = titles;
-            console.log(title);
+            // console.log(title.split(', '));
+            // console.log(title.split(',').length);
+            // titles = title;
+            // trend.textContent = titles;
+            // console.log(title);
         })
 }
 dynamicTrendTitles();

@@ -1,26 +1,24 @@
-import { noResult, hoverGifMenu, displayTrendingGifos } from "./shared.js";
+import { setStatus, darkMode, noResult, hoverGifMenu, displayTrendingGifos } from "./shared.js";
 
 var seeMoreButton = document.querySelector('.button');
 var resultsParentContainer = document.querySelector('.favContainer');
 var parentContainer = document.querySelector('.favGifs');
 var favorites = [];
 
+setStatus('favorites');
+darkMode('favorites');
+
 function checkLocalstorage() {
     if (localStorage.favs) {
         favorites = JSON.parse(localStorage.favs);
         resultsParentContainer.style.display = 'grid';
-        alert('With favorites');
         setFavorites();
 
     } else {
-        alert('No favs');
         var img = '/assets/icon-mis-gifos-sin-contenido.svg';
         var text = 'Sin contenido';
         noResult(parentContainer, img, text);
     }
-    // for (let i = 0; i < favorites.length; i++) {
-    //     console.log(favorites[i].title);
-    // }
 }
 seeMoreButton.addEventListener('click', setFavorites)
 function setFavorites() {
@@ -37,11 +35,6 @@ function setFavorites() {
     }
 }
 
-
 checkLocalstorage();
 
 displayTrendingGifos();
-
-
-
-// export default hoverGifMenu;

@@ -1,4 +1,4 @@
-import { noResult, displayTrendingGifos, hoverGifMenu } from "./shared.js";
+import { setStatus, darkMode, noResult, displayTrendingGifos, hoverGifMenu } from "./shared.js";
 
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8';
 
@@ -11,6 +11,9 @@ var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 
 button.style.display = 'none';
 
+setStatus('myGifos');
+darkMode('myGifos');
+
 async function checkLocalstorage() {
     if (localStorage.myGifos) {
 
@@ -20,7 +23,6 @@ async function checkLocalstorage() {
 
     } else {
 
-        alert('No myGifos');
         gifsContainer.style.display = 'none';
         button.style.display = 'none';
         var img = '/assets/icon-mis-gifos-sin-contenido.svg';
@@ -38,7 +40,7 @@ function myGifosDisplaying() {
     if (myGifosIds.length > 8) {
 
         console.log(myGifosIds.length);
-        alert('Display my gifs (Greater than 12)');
+        // alert('Display my gifs (Greater than 12)');
         console.log(myGifosIds);
         var newIdsArr = myGifosIds.splice(0, 8);
         console.log('new = ' + newIdsArr);
@@ -46,7 +48,7 @@ function myGifosDisplaying() {
         
     } else {
 
-        alert('Display my gifs (Lower than 12)');
+        // alert('Display my gifs (Lower than 12)');
         geAndSetGifos(myGifosIds);
         button.style.display = 'none';
 

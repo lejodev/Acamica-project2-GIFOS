@@ -11,8 +11,9 @@
 
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="assets/logo-desktop.svg" alt="">
+        <div class="home">
+            <a class="logo">
+            </a>
         </div>
         <input type="checkbox" id="input">
         <label for="input" class="burger">
@@ -20,14 +21,14 @@
         </label>
         <!-- <div class="burger"></div> -->
         <nav class="menu">
-            <ul class="links">
-                <li>Modo Nocturno</li>
+            <div class="links">
+                <span class="link dark">Modo Nocturno</span>
                 <hr>
-                <li> <a href="favorites.html">Favoritos</a></li>
+                <a href="favorites.html" class="link">Favoritos</a>
                 <hr>
-                <li> <a href="myGifos.html"> Mis GIFOS </a></li>
+                <a href="myGifos.html" class="link"> Mis GIFOS </a>
                 <hr>
-            </ul>
+            </div>
         </nav>
         <a href="createGif.html">
             <img class="createGif" src="assets/button-crear-gifo.svg" alt="">
@@ -58,7 +59,9 @@
             </div>
             <div class="trending">
                 <h2 class="trending-title">Trending:</h2>
-                <p class="trendNames">Reactions, Entetainment, Sports, Stickers, Artists</p>
+                <div class="trendNames">
+                    <span class="trend"></span>
+                </div>
             </div>
         </section>
         <section class="results">

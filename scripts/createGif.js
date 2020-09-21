@@ -1,4 +1,4 @@
-import { timer, downloadListener, download } from "./shared.js";
+import { setStatus, darkMode, timer, downloadListener, download } from "./shared.js";
 var url = 'https://upload.giphy.com/v1/gifs'; // Exportable
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
 var button_start = document.querySelector('.button');
@@ -28,6 +28,9 @@ button_stop.style.display = 'none';
 button_upload.style.display = 'none';
 // chronometerContainer.style.visibility = 'hidden';
 chronometerContainer.style.display = 'none';
+
+setStatus('createGifs');
+darkMode('createGifs');
 
 button_start.addEventListener('click', () => {
     console.log('button_start');
