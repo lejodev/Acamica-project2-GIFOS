@@ -4,7 +4,7 @@ const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
 var resultsPage = document.querySelector('.results');
 var resultsGrid = document.querySelector('.resultsContainer');
 var searchButton = document.querySelector('.searchAction'); // Exportable
-// var darkModeButton = document.querySelector('.dark');
+var darkModeButton = document.querySelector('.dark-mode');
 // var main = document.querySelector('.main');
 
 // darkModeButton.addEventListener('click', () => {
@@ -75,6 +75,13 @@ function autocomplete() {
 // }
 
 // Function with async/await aproach
+
+// if (darkModeButton.innerText === 'MODO NOCTURNO') {
+//     searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+// } else {
+//     searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+// }
+
 var suggestionsList = document.querySelector('.suggestions');
 async function setSuggestions(query) {
 
@@ -94,8 +101,21 @@ async function setSuggestions(query) {
             var li = document.createElement('li')
             var search = document.createElement('div');
             var text = document.createElement('div');
-            search.className = 'image';
+            search.className = 'searchAction';
             text.className = 'text';
+            // if (darkModeButton.innerText === 'DARK MODE') {
+            //     alert('In dark mode');
+            // } else {
+            //     alert('No dark mode');
+            // }
+            // if
+            // if (localStorage.switch) {
+            //     localStorage.getItem('switch') == 0 ? alert('Zerosky') : alert('Unosky');
+            // }
+            // if (localStorage.getItem('switch') == 0) {
+            //     text.classList.add('dark');
+            //     search.classList.add('dark');
+            // }
             text.innerHTML = autocomplete.name;
             li.appendChild(search);
             li.appendChild(text);
@@ -125,7 +145,11 @@ var q = '';
 searchButton.addEventListener('click', () => {
     input.value = '';
     suggestionsList.innerText = '';
-    searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+    if (localStorage.switch) {
+        localStorage.getItem('switch') == 0? searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")' : searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")'
+    } else {
+        searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+    }
     resultsPage.style.display = 'none';
     //=====================================================================================
 });

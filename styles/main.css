@@ -84,8 +84,11 @@ body {
     position: absolute;
     bottom: -15px;
   }
-  .header #input:checked ~ .burger .stick {
+  .header .burger .stick.dark, .header .burger .stick::before, .header .burger .stick::after {
     background-color: #fff;
+  }
+  .header #input:checked ~ .burger .stick {
+    background-color: #37383c;
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
@@ -202,18 +205,53 @@ body {
   .header .menu .links hr {
     display: none;
   }
-  .header .createGif {
+  .header .createGif-btn {
+    text-decoration: none;
+  }
+  .header .createGif-btn .createGif {
     margin: 20px;
-    border: 1px solid #572ee5;
+    border: 1px solid #9CAFC3;
     border-radius: 50%;
     padding: 20px;
+    height: 4rem;
+    width: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: #9CAFC3;
   }
-  .header .createGif:hover {
-    background-color: aquamarine;
+  .header .createGif-btn .createGif:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .header .createGif-btn .createGif.btn_active {
+    background-color: #9cafc3;
+    color: #fff;
+  }
+  .header .createGif-btn .createGif.dark {
+    color: #fff;
+  }
+  .header .createGif-btn .createGif.dark:hover {
+    background-color: #fff;
+    color: #9CAFC3;
   }
 }
 
 .header.dark {
+  border-top: 5px solid #000;
   background-color: #37383c;
 }
 
@@ -457,7 +495,20 @@ body {
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .results .button:hover, .main .results .film:hover, .main .results .stop:hover, .main .results .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .results .button.dark, .main .results .film.dark, .main .results .stop.dark, .main .results .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .results .button.dark:hover, .main .results .film.dark:hover, .main .results .stop.dark:hover, .main .results .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
 }
 
@@ -522,6 +573,9 @@ body {
     border: 1px solid #572ee5;
     border-radius: 20px;
   }
+  .main .search .imgForm .form .searchBox.dark {
+    border: 1px solid #fff;
+  }
   .main .search .imgForm .form .searchBox .searchInput {
     border-style: none;
     width: 100%;
@@ -550,9 +604,8 @@ body {
     -ms-grid-columns: 10% 90%;
         grid-template-columns: 10% 90%;
   }
-  .main .search .imgForm .form .searchBox .suggestions li .image {
+  .main .search .imgForm .form .searchBox .suggestions li .searchAction {
     height: 100%;
-    background-image: url(/assets/icon-search.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -636,6 +689,9 @@ body {
     border: 1px solid #572ee5;
     border-radius: 20px;
   }
+  .main .search .imgForm .form .searchBox.dark {
+    border: 1px solid #fff;
+  }
   .main .search .imgForm .form .searchBox .searchInput {
     border-style: none;
     width: 100%;
@@ -672,10 +728,12 @@ body {
   }
   .main .search .imgForm .form .searchBox .suggestions li .image {
     height: 100%;
-    background-image: url(/assets/icon-search.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .image.dark {
+    background-image: url(/assets/icon-search-mod-noc.svg);
   }
   .main .search .imgForm .form .searchBox .suggestions li .text {
     padding-left: 20px;
@@ -686,6 +744,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
     height: 100%;
+    color: #9cafc3;
   }
   .main .search .trending {
     height: 100%;
@@ -709,6 +768,27 @@ body {
 @media (max-width: 599px) {
   .main .searchInput.dark {
     background-color: #37383c;
+  }
+  .main .searchAction.dark {
+    background-image: url("/assets/icon-search-mod-noc.svg");
+  }
+  .main .title.dark {
+    color: #fff;
+  }
+  .main .title .full-width.dark {
+    color: #fff;
+  }
+  .main .center-title.dark {
+    color: #fff;
+  }
+  .main .center-title p {
+    color: #fff;
+  }
+  .main .trending .trending-title.dark {
+    color: #fff;
+  }
+  .main .trending .trendNames.dark {
+    color: #fff;
   }
   .main .favGifs {
     width: 100%;
@@ -937,7 +1017,20 @@ body {
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .favGifs .button:hover, .main .favGifs .film:hover, .main .favGifs .stop:hover, .main .favGifs .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .favGifs .button.dark, .main .favGifs .film.dark, .main .favGifs .stop.dark, .main .favGifs .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .favGifs .button.dark:hover, .main .favGifs .film.dark:hover, .main .favGifs .stop.dark:hover, .main .favGifs .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
   .main .myGifos {
     width: 100%;
@@ -972,18 +1065,216 @@ body {
     row-gap: 4vh;
     overflow-y: scroll;
   }
-  .main .myGifos .myGifosContainer .myGif {
+}
+
+@media (max-width: 599px) and (min-width: 600px) {
+  .main .myGifos .myGifosContainer .gif-menuContainer {
+    position: relative;
     width: 100%;
-    height: 18vh;
-    background-color: lightcoral;
+    height: 32vh;
+    margin-right: 5%;
   }
-  .main .myGifos .button {
-    padding: 2vh 3vw;
-    margin: 3vh 0;
+  .main .myGifos .myGifosContainer .gif-menuContainer .trendGif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (15%)[3];
+        grid-template-columns: repeat(3, 15%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: #fff;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like-and-like-active {
+    display: block;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer:hover .menu {
+    position: absolute;
+  }
+}
+
+@media (max-width: 599px) and (max-width: 599px) {
+  .main .myGifos .myGifosContainer .gif-menuContainer {
+    position: relative;
+    width: 100%;
+    height: 32vh;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .trendGif {
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+    margin-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu {
+    width: 100%;
+    height: 100%;
+    background-color: #562ee5a4;
+    display: none;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons {
+    width: 100%;
+    height: 25%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (10%)[3];
+        grid-template-columns: repeat(3, 10%);
+    -ms-grid-rows: 100%;
+        grid-template-rows: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 5%;
+    padding-right: 5%;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon {
+    height: 2.2em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.1em;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .icon:hover {
+    background-color: red;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like {
+    background-image: url(/assets/icon-fav-hover.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
+    background-image: url(/assets/icon-download.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
+    background-image: url(/assets/icon-max.svg);
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
+    width: 100%;
+    height: 75%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    bottom: 0;
+    padding-left: 5%;
+    padding-bottom: 11%;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .user {
+    margin: 0;
+    padding: 2% 0;
+  }
+  .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo .title {
+    margin: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .main .myGifos .button, .main .myGifos .film, .main .myGifos .stop, .main .myGifos .upload {
+    padding: 3vh 2vw;
+    margin: 4vh 0;
     border: 1px solid #572ee5;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-    border-radius: 2rem;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .myGifos .button:hover, .main .myGifos .film:hover, .main .myGifos .stop:hover, .main .myGifos .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .myGifos .button.dark, .main .myGifos .film.dark, .main .myGifos .stop.dark, .main .myGifos .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .myGifos .button.dark:hover, .main .myGifos .film.dark:hover, .main .myGifos .stop.dark:hover, .main .myGifos .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
   .main .trending-gifos {
     width: 100%;
@@ -1074,6 +1365,9 @@ body {
     border: 1px solid #572ee5;
     border-radius: 20px;
   }
+  .main .search .imgForm .form .searchBox.dark {
+    border: 1px solid #fff;
+  }
   .main .search .imgForm .form .searchBox .searchInput {
     border-style: none;
     width: 100%;
@@ -1102,9 +1396,8 @@ body {
     -ms-grid-columns: 10% 90%;
         grid-template-columns: 10% 90%;
   }
-  .main .search .imgForm .form .searchBox .suggestions li .image {
+  .main .search .imgForm .form .searchBox .suggestions li .searchAction {
     height: 100%;
-    background-image: url(/assets/icon-search.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -1188,6 +1481,9 @@ body {
     border: 1px solid #572ee5;
     border-radius: 20px;
   }
+  .main .search .imgForm .form .searchBox.dark {
+    border: 1px solid #fff;
+  }
   .main .search .imgForm .form .searchBox .searchInput {
     border-style: none;
     width: 100%;
@@ -1224,10 +1520,12 @@ body {
   }
   .main .search .imgForm .form .searchBox .suggestions li .image {
     height: 100%;
-    background-image: url(/assets/icon-search.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .image.dark {
+    background-image: url(/assets/icon-search-mod-noc.svg);
   }
   .main .search .imgForm .form .searchBox .suggestions li .text {
     padding-left: 20px;
@@ -1238,6 +1536,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
     height: 100%;
+    color: #9cafc3;
   }
   .main .search .trending {
     height: 100%;
@@ -1262,6 +1561,27 @@ body {
   .main .searchInput.dark {
     background-color: #37383c;
   }
+  .main .searchAction.dark {
+    background-image: url("/assets/icon-search-mod-noc.svg");
+  }
+  .main .title.dark {
+    color: #fff;
+  }
+  .main .title .full-width.dark {
+    color: #fff;
+  }
+  .main .center-title.dark {
+    color: #fff;
+  }
+  .main .center-title p {
+    color: #fff;
+  }
+  .main .trending .trending-title.dark {
+    color: #fff;
+  }
+  .main .trending .trendNames.dark {
+    color: #fff;
+  }
   .main .results {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1279,6 +1599,9 @@ body {
     text-align: center;
     font-family: "Montserrat", sans-serif;
     color: #572ee5;
+  }
+  .main .results .heading.dark {
+    color: #fff;
   }
   .main .results .resultsContainer {
     width: 100%;
@@ -1489,7 +1812,20 @@ body {
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .results .button:hover, .main .results .film:hover, .main .results .stop:hover, .main .results .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .results .button.dark, .main .results .film.dark, .main .results .stop.dark, .main .results .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .results .button.dark:hover, .main .results .film.dark:hover, .main .results .stop.dark:hover, .main .results .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
   .main .trending-gifos {
     position: relative;
@@ -1507,7 +1843,7 @@ body {
         align-self: center;
     text-align: center;
   }
-  .main .trending-gifos .center-title h2 span {
+  .main .trending-gifos .center-title .title .uppercase-title {
     color: #572ee5;
   }
   .main .favGifs {
@@ -1738,7 +2074,20 @@ body {
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .favGifs .button:hover, .main .favGifs .film:hover, .main .favGifs .stop:hover, .main .favGifs .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .favGifs .button.dark, .main .favGifs .film.dark, .main .favGifs .stop.dark, .main .favGifs .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .favGifs .button.dark:hover, .main .favGifs .film.dark:hover, .main .favGifs .stop.dark:hover, .main .favGifs .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
   .main .myGifos {
     display: -webkit-box;
@@ -1965,7 +2314,20 @@ body {
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .myGifos .button:hover, .main .myGifos .film:hover, .main .myGifos .stop:hover, .main .myGifos .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .myGifos .button.dark, .main .myGifos .film.dark, .main .myGifos .stop.dark, .main .myGifos .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .myGifos .button.dark:hover, .main .myGifos .film.dark:hover, .main .myGifos .stop.dark:hover, .main .myGifos .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
   .main .create-gif {
     width: 100%;
@@ -2013,6 +2375,11 @@ body {
   }
   .main .create-gif .content-container .format-text h2 .toUpperCase {
     text-transform: uppercase;
+    color: #50e3c2;
+    display: inline;
+  }
+  .main .create-gif .content-container .format-text .paragraph {
+    font-family: "Montserrat", sans-serif;
     color: #50e3c2;
     display: inline;
   }
@@ -2137,6 +2504,10 @@ body {
             align-items: center;
     cursor: pointer;
   }
+  .main .create-gif .steps .step.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
   .main .create-gif .steps .timer {
     position: absolute;
     right: 0;
@@ -2151,6 +2522,9 @@ body {
     background-color: #572ee5;
     border-radius: 5rem;
   }
+  .main .create-gif .bar.dark {
+    background-color: #50e3c2;
+  }
   .main .create-gif .button, .main .create-gif .film, .main .create-gif .stop, .main .create-gif .upload {
     padding: 3vh 2vw;
     margin: 4vh 0;
@@ -2159,15 +2533,44 @@ body {
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+  }
+  .main .create-gif .button:hover, .main .create-gif .film:hover, .main .create-gif .stop:hover, .main .create-gif .upload:hover {
+    background-color: #572ee5;
+    color: #fff;
+  }
+  .main .create-gif .button.dark, .main .create-gif .film.dark, .main .create-gif .stop.dark, .main .create-gif .upload.dark {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+  .main .create-gif .button.dark:hover, .main .create-gif .film.dark:hover, .main .create-gif .stop.dark:hover, .main .create-gif .upload.dark:hover {
+    background-color: #fff;
+    color: #000;
   }
 }
 
-main.dark, .create-gif.dark, .myGifos.dark {
+.heading.dark {
+  color: #fff;
+}
+
+.title.dark {
+  color: #fff;
+}
+
+main.dark,
+.create-gif.dark,
+.myGifos.dark {
   background-color: #37383c;
 }
 
-.trending-gifos.dark, .favGifs.dark {
+.trending-gifos .center-title .dark,
+.favGifs .center-title .dark {
+  color: #fff;
+}
+
+.trending-gifos.dark,
+.favGifs.dark {
   background-color: #222326;
   color: #fff;
 }
@@ -2520,6 +2923,7 @@ main.dark, .create-gif.dark, .myGifos.dark {
 .footer.dark {
   background-color: #37383c;
   color: #fff;
+  border-bottom: 5px solid #000;
 }
 
 .noResult {

@@ -1,8 +1,7 @@
 // function test(num1, num2) {
 //     return num1 + num2;
 // }
-var darkModeButton = document.querySelector('.dark');
-let status = 0;
+var darkModeButton = document.querySelector('.dark-mode');
 
 // function switchMode() {
 
@@ -56,7 +55,7 @@ export function darkMode(caller) {
     // console.log(caller);
     // console.log(status);
     // alert(status);
-    var darkModeButton = document.querySelector('.dark');
+    // var darkModeButton = document.querySelector('.dark');
     var main = document.querySelector('.main');
     var trending_gifos = document.querySelector('.trending-gifos');
     var myGifos = document.querySelector('.myGifos');
@@ -65,37 +64,109 @@ export function darkMode(caller) {
     var searchInput = document.querySelector('.searchInput');
     var logo = document.querySelector('.logo');
     var menu = document.querySelector('.menu');
+    var title_full_width = document.querySelector('.full-width');
+    var title = document.querySelectorAll('.title');
+    var searchBox = document.querySelector('.searchBox');
+    var searchAction = document.querySelectorAll('.searchAction');
+    var trending_title = document.querySelector('.trending-title');
+    var trend = document.querySelector('.trendNames');
+    var see_more_button = document.querySelectorAll('.button');
+    var burger = document.querySelector('.stick');
+    var createGif_button = document.querySelector('.createGif');
+    var step = document.querySelectorAll('.step');
+    var bar = document.querySelector('.bar');
+
+    var image = document.querySelector('.image');
+    var text = document.querySelector('.text');
 
     // darkModeButton.addEventListener('click', () => {
     if (localStorage.getItem('switch') == 0) {
+        darkModeButton.innerHTML = 'MODO DIURNO';
         // alert('Zeroooo');
         if (caller === 'myGifos') {
             myGifos.classList.add('dark');
+            trending_gifos.classList.add('dark');
         }
         if (caller === 'main') {
-            searchInput.classList.add('dark')
+            // image.classList.add('dark');
+            // text.classList.add('dark');
+            trending_title.classList.add('dark');
+            trend.classList.add('dark');
+            searchAction.forEach(obj => {
+                obj.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+            })
+            title.forEach(eachTitle => {
+                eachTitle.classList.add('dark');
+            })
+            title_full_width.classList.add('dark');
+            searchInput.classList.add('dark');
+            searchBox.classList.add('dark');
+            trending_gifos.classList.add('dark');
         }
+        if (caller === 'favorites') {
+            trending_gifos.classList.add('dark');
+        }
+        if (caller === 'createGifs') {
+            // createGif_button.classList.add('dark');
+            step.forEach(step => {
+                step.classList.add('dark');
+            });
+            bar.classList.add('dark');
+        }
+        createGif_button.classList.add('dark');
         logo.classList.add('dark');
         header.classList.add('dark');
         footer.classList.add('dark');
         main.classList.add('dark');
-        trending_gifos.classList.add('dark');
         menu.classList.add('dark');
+        see_more_button.forEach(button => {
+            button.classList.add('dark')
+        });
+        burger.classList.add('dark');
 
     } else {
+        darkModeButton.innerHTML = 'MODO NOCTURNO';
         // alert('Oneeeee');
         if (caller === 'myGifos') {
             myGifos.classList.remove('dark');
+            trending_gifos.classList.remove('dark');
         }
         if (caller === 'main') {
-            searchInput.classList.remove('dark')
+            // image.classList.remove('dark');
+            // text.classList.remove('dark');
+            trending_title.classList.remove('dark');
+            trend.classList.remove('dark');
+            // searchAction.classList.remove('dark');
+            // searchAction.style.backgroundImage = 'url("/assets/icon-search.svg")'
+            searchAction.forEach(obj => {
+                obj.style.backgroundImage = 'url("/assets/icon-search.svg")';
+            })
+            title.forEach(eachTitle => {
+                eachTitle.classList.remove('dark');
+            })
+            title_full_width.classList.remove('dark');
+            searchInput.classList.remove('dark');
+            searchBox.classList.remove('dark');
+            trending_gifos.classList.remove('dark');
         }
+        if (caller === 'favorites') {
+            trending_gifos.classList.remove('dark');
+        }
+        if (caller === 'createGifs') {
+            step.forEach(step => {
+                step.classList.remove('dark');
+            });
+        }
+        createGif_button.classList.remove('dark');
         logo.classList.remove('dark');
         header.classList.remove('dark');
         footer.classList.remove('dark');
         main.classList.remove('dark');
-        trending_gifos.classList.remove('dark');
         menu.classList.remove('dark');
+        see_more_button.forEach(button => {
+            button.classList.remove('dark')
+        })
+        burger.classList.remove('dark');
     }
     // })
 }

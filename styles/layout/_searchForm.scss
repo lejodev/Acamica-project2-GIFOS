@@ -1,4 +1,4 @@
-@import '../base/typography';
+@import "../base/typography";
 @include phone {
     .search {
         width: 100%;
@@ -43,6 +43,9 @@
                     box-sizing: border-box;
                     border: 1px solid #572ee5;
                     border-radius: 20px;
+                    &.dark {
+                        border: 1px solid #fff;
+                    }
                     // background-color: salmon;
                     .searchInput {
                         // background-color: teal;
@@ -72,9 +75,9 @@
                             padding: 0.5rem 0;
                             display: grid;
                             grid-template-columns: 10% 90%;
-                            .image {
+                            .searchAction {
                                 height: 100%;
-                                background-image: url(/assets/icon-search.svg);
+                                // background-image: url(/assets/icon-search.svg);
                                 background-repeat: no-repeat;
                                 background-size: contain;
                                 background-position: center;
@@ -141,7 +144,13 @@
             font-size: 3rem;
             color: #572ee5; // Brand
             font-family: $titles;
+            // &.dark {
+            //     color: #fff;
+            // }
             .full-width {
+                // &.dark {
+                //     color: #fff;
+                // }
                 display: inline-block;
                 width: 100%;
             }
@@ -170,6 +179,9 @@
                     box-sizing: border-box;
                     border: 1px solid #572ee5;
                     border-radius: 20px;
+                    &.dark {
+                        border: 1px solid #fff;
+                    }
                     // background-color: salmon;
                     .searchInput {
                         // background-color: teal;
@@ -196,9 +208,13 @@
                         background-position: center;
                         background-size: contain;
                         cursor: pointer;
+                        // &.dark {
+                        //     background-image: url("/assets/icon-search-mod-noc.svg");
+                        // }
                     }
                     .suggestions {
                         display: none;
+                        // visibility: hidden;
                         width: 100%;
                         list-style: none;
                         // background-color: maroon;
@@ -214,18 +230,21 @@
                             cursor: pointer;
                             .image {
                                 height: 100%;
-                                background-image: url(/assets/icon-search.svg);
+                                // background-image: url(/assets/icon-search.svg);
                                 background-repeat: no-repeat;
                                 background-size: contain;
                                 background-position: center;
                                 // background-color: lime;
+                                &.dark {
+                                    background-image: url(/assets/icon-search-mod-noc.svg);
+                                }
                             }
                             .text {
                                 padding-left: 20px;
                                 display: flex;
                                 align-items: center;
                                 height: 100%;
-                                // background-color: olive;
+                                color: #9cafc3;
                             }
                         }
                     }
@@ -241,10 +260,16 @@
                 font-family: $titles;
                 font-size: 1.2rem;
                 color: #572ee5; // Brand
+                // &.dark {
+                //     color: #fff;
+                // }
             }
             .trendNames {
                 font-size: 1.2rem;
                 color: #572ee5; //Brand
+                // &.dark {
+                //     color: #fff;
+                // }
                 .trend {
                     display: inline;
                 }
@@ -252,8 +277,48 @@
         }
     }
 }
+
 .searchInput {
     &.dark {
         background-color: #37383c;
+    }
+}
+
+.searchAction {
+    &.dark {
+        background-image: url("/assets/icon-search-mod-noc.svg");
+    }
+}
+
+.title {
+    &.dark {
+        color: #fff;
+    }
+    .full-width {
+        &.dark {
+            color: #fff;
+        }
+    }
+}
+
+.center-title {
+    &.dark {
+        color: #fff;
+    }
+    p {
+        color: #fff;
+    }
+}
+
+.trending {
+    .trending-title {
+        &.dark {
+            color: #fff;
+        }
+    }
+    .trendNames {
+        &.dark {
+            color: #fff;
+        }
     }
 }

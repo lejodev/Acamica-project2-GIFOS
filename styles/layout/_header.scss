@@ -61,10 +61,15 @@
                     position: absolute;
                     bottom: -15px;
                 }
+                &.dark,
+                &::before,
+                &::after {
+                    background-color: #fff;
+                }
             }
         }
         #input:checked ~ .burger .stick {
-            background-color: #fff;
+            background-color: #37383c;
             transition: 0.5s;
             &::before {
                 transform: translateY(15px) rotate(-45deg);
@@ -142,7 +147,6 @@
                     background-image: url(/assets/logo-desktop-modo-noc.svg);
                 }
             }
-
         }
         input,
         label {
@@ -165,13 +169,43 @@
                 }
             }
         }
-        .createGif {
-            margin: 20px;
-            border: 1px solid #572ee5;
-            border-radius: 50%;
-            padding: 20px;
-            &:hover {
-                background-color: aquamarine;
+
+        .createGif-btn {
+            text-decoration: none;
+            .createGif {
+                margin: 20px;
+                border: 1px solid #9CAFC3;
+                border-radius: 50%;
+                padding: 20px;
+                height: 4rem;
+                width: 4rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Courier New', Courier, monospace;
+                text-decoration: none;
+                font-size: 2.5rem;
+                color: #9CAFC3;
+
+                // &:hover {
+                //     background-color: aquamarine;
+                // }
+                &:hover {
+                    background-color: #572ee5;
+                    color: #fff;
+                }
+                &.btn_active {
+                    background-color: #9cafc3;
+                    color: #fff;
+                }
+                &.dark {
+                    color: #fff;
+                    &:hover {
+                        background-color: #fff;
+                        color: #9CAFC3;
+                    }
+                }
             }
         }
     }
@@ -179,6 +213,7 @@
 
 .header {
     &.dark {
+        border-top: 5px solid #000;
         background-color: #37383c;
         .menu {
             .links {

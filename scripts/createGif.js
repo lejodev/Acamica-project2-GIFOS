@@ -20,6 +20,7 @@ var chronometerDisplay = document.querySelector('.data-chronometer');
 var chronometerContainer = document.querySelector('.timer');
 var download_icon = document.querySelector('.download');
 var linkIcon = document.querySelector('.link');
+var createGif_button = document.querySelector('.createGif');
 
 var iniciado = false;
 
@@ -28,6 +29,7 @@ button_stop.style.display = 'none';
 button_upload.style.display = 'none';
 // chronometerContainer.style.visibility = 'hidden';
 chronometerContainer.style.display = 'none';
+createGif_button.classList.toggle('btn_active');
 
 setStatus('createGifs');
 darkMode('createGifs');

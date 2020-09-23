@@ -6,5 +6,18 @@
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif; // import proper font
     text-transform: uppercase;
+    color: #572ee5;
     cursor: pointer;
+    &:hover {
+        background-color: #572ee5;
+        color: #fff;
+    }
+    &.dark {
+        border: 1px solid #fff;
+        color: #fff;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
 }
