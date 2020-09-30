@@ -8,15 +8,28 @@ var favorites = [];
 setStatus('favorites');
 darkMode('favorites');
 
+var img = '/assets/icon-mis-gifos-sin-contenido.svg';
+var text = '"Guarda tu primer gifo en favoritoa para que se muestre aquí!"';
+
 function checkLocalstorage() {
     if (localStorage.favs) {
+
         favorites = JSON.parse(localStorage.favs);
+
+        if (favorites.length === 0) {
+
+            seeMoreButton.style.display = 'none';
+            noResult(parentContainer, img, text);
+
+        }
+
         resultsParentContainer.style.display = 'grid';
+        
         setFavorites();
 
     } else {
-        var img = '/assets/icon-mis-gifos-sin-contenido.svg';
-        var text = 'Sin contenido';
+
+        seeMoreButton.style.display = 'none';
         noResult(parentContainer, img, text);
     }
 }

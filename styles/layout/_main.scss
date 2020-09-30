@@ -18,11 +18,11 @@
             display: none;
             .heading {
                 text-align: center;
-                background-color: crimson;
+                // background-color: crimson;
             }
             .resultsContainer {
                 width: 100vw;
-                height: 106vh;
+                // height: 106vh;
                 // background-color: lightblue;
                 padding: 0 8vw; // Make variable
                 display: grid;
@@ -52,7 +52,7 @@
             }
             .favContainer {
                 width: 100%;
-                height: 128vh;
+                // height: 128vh;
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 6vw;
@@ -172,7 +172,8 @@
             }
             .resultsContainer {
                 width: 100%;
-                height: 106vh;
+                // height: 106vh;
+                height: fit-content;
                 padding: 0 8vw; // Make variable
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
@@ -254,7 +255,7 @@
             // }
             .favContainer {
                 width: 100%;
-                height: 106vh;
+                // height: 106vh;
                 // background-color: lightblue;
                 padding: 0 8vw; // Make variable
                 display: grid;
@@ -262,7 +263,7 @@
                 column-gap: 2vw;
                 row-gap: 5vh;
                 // background-color: darkslategrey;
-                overflow-y: scroll;
+                // overflow-y: scroll;
                 display: none;
 
                 // .favGif {
@@ -286,18 +287,18 @@
             align-items: center;
             .heading {
                 text-align: center;
-                background-color: crimson;
+                // background-color: crimson;
             }
             .myGifosContainer {
                 width: 100%;
-                height: 69vh;
+                // height: 69vh;
                 // background-color: darkorange;
                 padding: 0 8vw; // Make variable
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 column-gap: 2vw;
                 row-gap: 5vh;
-                overflow-y: scroll;
+                // overflow-y: scroll;
                 // .myGif {
                 //     width: 100%;
                 //     height: 32vh;
@@ -309,120 +310,226 @@
         }
         .create-gif {
             width: 100%;
-            // height: 75vh;
-            // background-color: dodgerblue;
-            // padding: 0 10vw;
             display: flex;
             flex-flow: column;
             align-items: center;
-            .content-container {
-                width: 50%;
-                height: 70vh;
-                position: relative;
-                .format-text {
-                    width: 100%;
+            // height: 75vh;
+            // background-color: dodgerblue;
+            // padding: 0 10vw;
+            .camera-light {
+                // background-color: yellow;
+                height: 28vh;
+                display: flex;
+                position: absolute;
+                left: 8vw;
+                bottom: 35vh;
+                justify-content: space-evenly;
+                .camera {
+                    width: 10vw;
                     height: 100%;
-                    // background-color: dimgray;
-                    border: 1px solid #572ee5;
-                    display: flex;
-                    flex-flow: column nowrap;
-                    align-items: center;
-                    justify-content: center;
-                    h2 {
-                        color: #572ee5;
-                        span {
-                            text-align: center;
-                            display: inline-block;
-                            width: 100%;
-                        }
-                        .toUpperCase {
-                            text-transform: uppercase;
-                            color: #50e3c2;
-                            display: inline;
-                        }
+                    background-image: url(/assets/camara.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    &.dark {
+                        background-image: url(/assets/camara-modo-noc.svg);
                     }
-                    .paragraph {
-                        font-family: $titles;
-                            color: #50e3c2;
-                            display: inline;
-                    }
+                }
+                .light {
+                    width: 5.5vw;
+                    height: 100%;
+                    background-image: url(/assets/element-luz-camara.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+            }
+
+            .outer-frame {
+                width: 50%;
+                height: 65vh;
+                // background-color:aqua;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #572ee5;
+                padding: 0.5rem;
+                .inner-frame {
+                    height: 3rem;
+                    width: 3rem;
+                    // border: 1px solid #000;
                     // margin: auto;
                 }
-                .make-gif {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    background-color: #572ee5;
-                    display: none;
-                    object-fit: cover;
-                    opacity: 0.3;
-                }
-                .gifo-status {
-                    position: absolute;
-                    z-index: 10;
-                    display: none;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    display: flex;
-                    flex-flow: column;
-                    align-items: center;
-                    // justify-content: center;
-                    // align-content: center;
-                    .uploading {
-                        text-align: center;
-                        margin: auto;
-                        width: fit-content;
-                        height: fit-content;
-                        display: none;
-                        background-color: transparent;
+                .sup-inner-frame {
+                    // position: absolute;
+                    // height: 3rem;
+                    // width: 3rem;
+                    // border: 1px solid #000;
+                    // background-color: brown;
+                    &::after {
+                        content: '';
+                        height: 5%;
+                        width: 3rem;
+                        border-top: 1px solid #000;
+                        border-right: 1px solid #000;
+                        position: absolute;
+                        right: 28%;
                     }
-                    .succuess {
-                        text-align: center;
-                        margin: auto;
-                        width: fit-content;
-                        height: fit-content;
-                        display: none;
-                        background-color: transparent;
-                        .my-gifo-icons {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 15%;
-                            display: grid;
-                            grid-template-columns: repeat(2, 5%);
-                            grid-template-rows: 100%;
-                            justify-content: flex-end;
-                            align-items: center;
-                            gap: 5%;
-                            padding-right: 3%;
-                            // background-color: turquoise;
-                            // background-color: yellow;
-                            .icon {
-                                height: 2.2em;
+                    &::before {
+                        content: '';
+                        height: 5%;
+                        width: 3rem;
+                        border-top: 1px solid #000;
+                        border-left: 1px solid #000;
+                        position: absolute;
+                        left: 28%;
+                    }
+                }
+                .content-container {
+                    width: 78%;
+                    height: 50vh;
+                    position: relative;
+                    .format-text {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        align-items: center;
+                        justify-content: center;
+                        h2 {
+                            color: #572ee5;
+                            span {
+                                text-align: center;
+                                display: inline-block;
                                 width: 100%;
-                                background-color: rgba(255, 255, 255, 0.7);
-                                padding: 0.1em;
-                                border-radius: 6px;
-                                background-repeat: no-repeat;
-                                background-size: auto;
-                                background-position: center;
-                                padding: 20px;
-                                box-sizing: border-box;
-                                &:hover {
-                                    background-color: #f3f5f8;
-                                }
                             }
-                            .download {
-                                background-image: url(/assets/icon-download.svg);
-                            }
-                            .link {
-                                background-image: url(/assets/icon-link.svg);
+                            .toUpperCase {
+                                text-transform: uppercase;
+                                color: #50e3c2;
+                                display: inline;
                             }
                         }
+                        .paragraph {
+                            font-family: $titles;
+                            color: #50e3c2;
+                            display: inline;
+                        }
+                        // margin: auto;
                     }
-                    // @import '../components/success-gif';
+                    .make-gif {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        // background-color: #572ee5;
+                        display: none;
+                        object-fit: cover;
+                        // opacity: 0.3;
+                    }
+                    .gifo-status {
+                        position: absolute;
+                        z-index: 10;
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        display: flex;
+                        flex-flow: column;
+                        align-items: center;
+                        
+                        // justify-content: center;
+                        // align-content: center;
+                        .uploading {
+                            text-align: center;
+                            margin: auto;
+                            width: fit-content;
+                            height: fit-content;
+                            display: none;
+                            background-color: transparent;
+                            opacity: 3;
+                        }
+                        .succuess {
+                            text-align: center;
+                            margin: auto;
+                            width: fit-content;
+                            height: fit-content;
+                            display: none;
+                            background-color: transparent;
+                            .my-gifo-icons {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 15%;
+                                display: grid;
+                                grid-template-columns: repeat(2, 5%);
+                                grid-template-rows: 100%;
+                                justify-content: flex-end;
+                                align-items: center;
+                                gap: 5%;
+                                padding-right: 3%;
+                                // background-color: turquoise;
+                                // background-color: yellow;
+                                .icon {
+                                    height: 2.2em;
+                                    width: 100%;
+                                    background-color: rgba(255, 255, 255, 0.7);
+                                    padding: 0.1em;
+                                    border-radius: 6px;
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                    padding: 20px;
+                                    box-sizing: border-box;
+                                    &:hover {
+                                        background-color: #f3f5f8;
+                                    }
+                                }
+                                .download {
+                                    background-image: url(/assets/icon-download.svg);
+                                }
+                                .copy-link {
+                                    background-image: url(/assets/icon-link.svg);
+                                }
+                            }
+                        }
+                        // @import '../components/success-gif';
+                    }
+                }
+                .inf-inner-frame {
+                    &::after {
+                        content: '';
+                        height: 5%;
+                        width: 3rem;
+                        border-bottom: 1px solid #000;
+                        border-right: 1px solid #000;
+                        position: absolute;
+                        right: 28%;
+                    }
+                    &::before {
+                        content: '';
+                        height: 5%;
+                        width: 3rem;
+                        border-bottom: 1px solid #000;
+                        border-left: 1px solid #000;
+                        position: absolute;
+                        left: 28%;
+                    }
+                }
+            }
+
+            .tape {
+                width: 11vw;
+                height: 11vw;
+                position: absolute;
+                right: 8vw;
+                bottom: 5vh;
+                background-image: url(/assets/pelicula.svg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                &.dark {
+                    background-image: url(/assets/pelicula-modo-noc.svg);
                 }
             }
 

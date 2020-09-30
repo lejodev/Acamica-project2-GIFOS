@@ -1,9 +1,11 @@
-import { setStatus, darkMode, hoverGifMenu, displayTrendingGifos } from "./shared.js";
+import { noResult, setStatus, darkMode, hoverGifMenu, displayTrendingGifos } from "./shared.js";
 var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
 var resultsPage = document.querySelector('.results');
 var resultsGrid = document.querySelector('.resultsContainer');
 var searchButton = document.querySelector('.searchAction'); // Exportable
+var resultsTitle = document.querySelector('.heading');
+
 var darkModeButton = document.querySelector('.dark-mode');
 // var main = document.querySelector('.main');
 
@@ -54,33 +56,19 @@ input.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
         // alert('enter');
         e.preventDefault();
+        suggestionsList.style = 'display : none';
         getSearchPath();
     }
 });
 input.addEventListener('input', autocomplete);
 function autocomplete() {
-    // searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
     if (input.value) {
         searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
     } else {
         searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
     }
     setSuggestions(input.value);
-    // setIcon;
 }
-// function setIcon() {
-//     if(input.value) {
-//         searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
-//     }
-// }
-
-// Function with async/await aproach
-
-// if (darkModeButton.innerText === 'MODO NOCTURNO') {
-//     searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
-// } else {
-//     searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
-// }
 
 var suggestionsList = document.querySelector('.suggestions');
 async function setSuggestions(query) {
@@ -103,19 +91,6 @@ async function setSuggestions(query) {
             var text = document.createElement('div');
             search.className = 'searchAction';
             text.className = 'text';
-            // if (darkModeButton.innerText === 'DARK MODE') {
-            //     alert('In dark mode');
-            // } else {
-            //     alert('No dark mode');
-            // }
-            // if
-            // if (localStorage.switch) {
-            //     localStorage.getItem('switch') == 0 ? alert('Zerosky') : alert('Unosky');
-            // }
-            // if (localStorage.getItem('switch') == 0) {
-            //     text.classList.add('dark');
-            //     search.classList.add('dark');
-            // }
             text.innerHTML = autocomplete.name;
             li.appendChild(search);
             li.appendChild(text);
@@ -125,6 +100,7 @@ async function setSuggestions(query) {
             li.addEventListener('click', () => {
                 input.value = li.innerText;
                 getSearchPath();
+                suggestionsList.style = 'display : none';
             })
         })
     });
@@ -132,27 +108,16 @@ async function setSuggestions(query) {
     console.log(input.value);
 }
 
-// searchButton.addEventListener('click', getSearchPath) // Exportable
-
-// while (input.value != '') {
-//     searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
-// }
 var searchOffsetCounter = 0; // Exportable
 var seeMoreButton = document.querySelector('.button'); // Exportable
-
-// This function gets the path and sends it to the *search* function
 var q = '';
+
 searchButton.addEventListener('click', () => {
     input.value = '';
     suggestionsList.innerText = '';
-    if (localStorage.switch) {
-        localStorage.getItem('switch') == 0? searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")' : searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")'
-    } else {
-        searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
-    }
-    resultsPage.style.display = 'none';
-    //=====================================================================================
+    searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
 });
+
 function getSearchPath() { // Exportable
     if (input.value) {
         resultsGrid.innerHTML = ''
@@ -165,9 +130,6 @@ function getSearchPath() { // Exportable
         alert('empty input');
     }
 }
-// getSearchPath();
-
-
 let queryCounter = 0; // Exportable
 var offset = 1; // Exportable
 
@@ -182,120 +144,35 @@ function seeMorePath() { // Exportable
 // Function with fetch default promises aproach
 function search(endpoint) { // Exportable and change name
 
-    var resultsTitle = document.querySelector('.heading');
     resultsTitle.innerHTML = input.value;
-    resultsPage.style = 'display:flex'
 
     var path = endpoint;
 
     if (input.value) {
 
-        fetch(path).then(raw => raw.json()).then(json => {
-            (json.data.length < 12) ? (seeMoreButton.style.display = 'none') : (seeMoreButton.style.display = 'block')
-            json.data.forEach(obj => {
-                hoverGifMenu(obj, resultsGrid);
+        fetch(path).then(raw => raw.json())
+            .then(json => {
+                if (json.data.length === 0) {
+                    alert('Incorrect')
+                    var img = '/assets/icon-busqueda-sin-resultado.svg';
+                    var text = 'Intenta con otra búsqueda';
+                    resultsPage.style = 'display:block'
+                    seeMoreButton.style.display = 'none'
+                    resultsTitle.innerHTML = 'LOREM IMPSUM'
+                    noResult(resultsPage, img, text)
+                } else {
+                    (json.data.length < 12) ? (seeMoreButton.style.display = 'none') : (seeMoreButton.style.display = 'block')
+                    json.data.forEach(obj => {
+                        console.log(obj.length);
+                        resultsPage.style = 'display:flex'
+
+                        hoverGifMenu(obj, resultsGrid);
+
+                    })
+                }
             })
-        })
     } else {
         alert('empty')
     }
 }
 displayTrendingGifos();
-
-// localStorage.clear();
-
-// search()
-
-// function displayTrendingGifos() {
-//     // var carousel = document.querySelector('.carousel');
-
-
-//     var path = `${url}trending?api_key=${apiKey}&limit=10`;
-
-//     fetch(path).then(rawResponse => rawResponse.json())
-//         .then(res => {
-//             res.data.forEach(obj => {
-//                 localStorage.set
-//                 // hoverMenuCarousel(obj.images.original.url, obj.title, obj.username, carousel);
-//                 hoverGifMenu(obj, carousel);
-//             })
-//         })
-//         .catch(err => console.log(err))
-// }
-// localStorage.clear()
-// var carousel = document.querySelector('.carousel');
-
-// ==================================== TEST =======================================
-
-// function hoverGifMenu(json, parent) {
-
-//     var gif_menuContainer = document.createElement('div');
-//     gif_menuContainer.className = 'gif-menuContainer'
-
-//     var trendGif = document.createElement('img');
-//     trendGif.className = 'trendGif';
-//     trendGif.setAttribute('src', json.images.original.url);
-
-//     var menu = document.createElement('div');
-//     menu.className = 'menu';
-
-//     var icons = document.createElement('div')
-//     icons.className = 'icons'
-
-//     var likeIcon = document.createElement('img')
-//     likeIcon.className = 'like icon';
-//     var downloadIcon = document.createElement('img');
-//     downloadIcon.className = 'download icon'
-//     var maxIcon = document.createElement('img')
-//     maxIcon.className = 'expand icon'
-
-//     var gifInfo = document.createElement('div');
-//     gifInfo.className = 'gifInfo'
-//     var gifUser = document.createElement('div');
-//     gifUser.className = 'user';
-//     gifUser.innerHTML = json.username;
-//     var gifTitle = document.createElement('div');
-//     gifTitle.className = 'title'
-//     gifTitle.innerHTML = json.title;
-
-//     gifInfo.appendChild(gifUser);
-//     gifInfo.appendChild(gifTitle);
-
-
-//     gif_menuContainer.appendChild(trendGif);
-//     icons.appendChild(likeIcon)
-//     icons.appendChild(downloadIcon)
-//     icons.appendChild(maxIcon)
-
-//     likeIcon.addEventListener('click', () => {
-//         var favorites = [];
-//         var idsArr = [];
-//         if(localStorage.favs) {
-//             favorites = JSON.parse(localStorage.favs);
-//             favorites.forEach(obj => {
-//                 idsArr.push(obj.id);
-//             });
-//             if (idsArr.includes(json.id)) {
-//                 alert('This GIFO is already in your favorites');
-//             } else {
-//                 favorites.push(json);
-//                 localStorage.setItem('favs', JSON.stringify(favorites));
-//             }
-//         }else {
-//             favorites.push(json);
-//             localStorage.setItem('favs', JSON.stringify(favorites))
-//         }
-
-//         // favorites.push(json);
-//         alert(`clicked ${json.id}`)
-//         // localStorage.setItem('favs', JSON.stringify(favorites))
-//     })
-
-//     menu.appendChild(icons);
-//     menu.appendChild(gifInfo);
-//     gif_menuContainer.appendChild(menu);
-//     parent.appendChild(gif_menuContainer);
-// }
-
-// module.exports = hoverGifMenu;
-// localStorage.clear()

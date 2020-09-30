@@ -53,33 +53,42 @@
 
     <main class="main">
         <section class="create-gif">
-            <div class="content-container">
-                <div class="intro format-text">
-                    <h2 class="title">
-                        <span> Aqui podrás </span>
-                        <span> crear tus propios <span class="toUpperCase">gifos </span></span>
-                    </h2>
-                    <p class="paragraph">
-                        <span>¡Crea tu GIFO en sólo 3 pasos!</span>
-                        <span>(Sólo necesitas una cámara para grabar un video)</span>
-                    </p>
-                </div>
-                <video src="" class="make-gif"></video>
-                <div class="gifo-status">
-                    <div class="uploading">
-                        <img src="assets/loader.svg" alt="">
-                        <div class="text">Subiendo GIFO</div>
-                    </div>
-                    <div class="succuess">
-                        <div class="my-gifo-icons">
-                            <div class="icon download"></div>
-                            <div class="icon link"></div>
-                        </div>
-                        <img src="assets/check.svg" alt="">
-                        <div class="text">GIFO Subido con exito</div>
-                    </div>
-                </div>
+            <div class="camera-light">
+                <div class="camera"></div>
+                <div class="light"></div>
             </div>
+            <div class="outer-frame">
+                <div class="sup-inner-frame inner-frame"></div>
+                <div class="content-container">
+                    <div class="intro format-text">
+                        <h2 class="title">
+                            <span> Aqui podrás </span>
+                            <span> crear tus propios <span class="toUpperCase">gifos </span></span>
+                        </h2>
+                        <p class="paragraph">
+                            <span>¡Crea tu GIFO en sólo 3 pasos!</span>
+                            <span>(Sólo necesitas una cámara para grabar un video)</span>
+                        </p>
+                    </div>
+                    <video src="" class="make-gif"></video>
+                    <div class="gifo-status">
+                        <div class="uploading">
+                            <img src="assets/loader.svg" alt="">
+                            <div class="text">Subiendo GIFO</div>
+                        </div>
+                        <div class="succuess">
+                            <div class="my-gifo-icons">
+                                <div class="icon download"></div>
+                                <div class="icon copy-link"></div>
+                            </div>
+                            <img src="assets/check.svg" alt="">
+                            <div class="text">GIFO Subido con exito</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inf-inner-frame inner-frame"></div>
+            </div>
+            <div class="tape"></div>
             <div class="steps counter-repeat">
                 <div class="one step">1</div>
                 <div class="two step">2</div>
@@ -97,11 +106,13 @@
     </main>
 
     <footer class="footer">
-        <div class="shareIcons">
+        <div class="share">
             <p>Compartir en:</p>
-            <img src="assets/icon_facebook.svg" alt="facebook">
-            <img src="assets/icon-twitter.svg" alt="twitter">
-            <img src="assets/icon_instagram.svg" alt="instagram">
+            <div class="shareIcons">
+                <img src="assets/icon_facebook.svg" alt="facebook">
+                <img src="assets/icon-twitter.svg" alt="twitter">
+                <img src="assets/icon_instagram.svg" alt="instagram">
+            </div>
         </div>
         <div class="copyright">© GIFOS 2020 All Rights Reserved.</div>
     </footer>

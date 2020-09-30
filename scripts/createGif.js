@@ -19,8 +19,9 @@ var myGifos = [];
 var chronometerDisplay = document.querySelector('.data-chronometer');
 var chronometerContainer = document.querySelector('.timer');
 var download_icon = document.querySelector('.download');
-var linkIcon = document.querySelector('.link');
+var linkIcon = document.querySelector('.copy-link');
 var createGif_button = document.querySelector('.createGif');
+var dark_mode = document.querySelector('.dark-mode');
 
 var iniciado = false;
 
@@ -48,9 +49,16 @@ button_start.addEventListener('click', () => {
 step2.addEventListener('click', () => {
     if (iniciado) {
         console.log('step2');
-        step1.style.backgroundColor = '#fff';
-        step1.style.color = '#572ee5';
+        step1.style.backgroundColor = 'unset';
         step2.style.backgroundColor = '#572ee5';
+        if (dark_mode.innerHTML === 'MODO NOCTURO') {
+            step2.style.backgroundColor = '#572ee5';
+            alert('Mode nocturne')
+        } else {
+            alert('Mode die jio jio jio')
+            step2.style.backgroundColor = '#572ee5';
+        }
+        step1.style.color = '#572ee5';
         step2.style.color = '#fff';
         button_film.style.display = 'block';
         button_film.addEventListener('click', getStreamAndRecord);
@@ -110,6 +118,7 @@ function getStreamAndRecord() {
                 button_upload.onclick = () => {
                     chronometerContainer.style.display = 'none';
                     chronometerDisplay.style.display = 'none';
+                    button_upload.style.display = 'none';
                     upload(form);
                 }
                 // upload(form)
@@ -123,6 +132,7 @@ function upload(formObj) {
     var endpoint = `${url}?api_key=${apiKey}`;
     console.log(endpoint);
     gifo_status_uploading.style.display = 'block';
+    video_container.style.opacity = '0.3';
     fetch(endpoint, {
         // mode : 'no-cors',
         method: 'POST',
@@ -130,7 +140,7 @@ function upload(formObj) {
     }).then(resp => {
         console.log('status = ' + resp.status);
         console.log(resp);
-        step2.style.backgroundColor = '#FFF';
+        step2.style.backgroundColor = 'unset';
         step2.style.color = '#572ee5';
         step3.style.backgroundColor = '#572ee5';
         step3.style.color = '#FFF';
@@ -147,7 +157,7 @@ function upload(formObj) {
 
         // ====================================================================
         // download_icon.addEventListener('click', () => {
-            downloadFromId(id)
+        downloadFromId(id)
         // })
         // ====================================================================
 

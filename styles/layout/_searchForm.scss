@@ -203,7 +203,7 @@
                         // background-color: tan;
                         width: 100%;
                         height: 100%;
-                        background-image: url("/assets/icon-search.svg");
+                        // background-image: url("/assets/icon-search.svg");
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: contain;
@@ -284,11 +284,11 @@
     }
 }
 
-.searchAction {
-    &.dark {
-        background-image: url("/assets/icon-search-mod-noc.svg");
-    }
-}
+// .searchAction {
+//     &.dark {
+//         background-image: url("/assets/icon-search-mod-noc.svg");
+//     }
+// }
 
 .title {
     &.dark {
@@ -320,5 +320,11 @@
         &.dark {
             color: #fff;
         }
+    }
+}
+ .searchAction {
+    background-image: url("/assets/icon-search.svg");
+    &.dark {
+        background-image: url(/assets/icon-search-mod-noc.svg);
     }
 }

@@ -71,7 +71,8 @@
                         background-repeat: no-repeat;
                     }
                     .dislike {
-                        background-image: url("/assets/icon-fav-hover.svg");
+                        // background-image: url("/assets/icon-fav-hover.svg");
+                        content: '';
                         // background-color: antiquewhite;
                     }
                     .download {

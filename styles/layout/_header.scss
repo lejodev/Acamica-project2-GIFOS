@@ -5,13 +5,14 @@
         height: 15vh;
         display: grid;
         box-sizing: border-box;
+        padding: 0 5vw;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
             "logo burger"
             "menu menu";
         .home {
             padding-top: 2vh;
-            padding-left: 3vw;
+            // padding-left: 3vw;
             grid-area: logo;
             .logo {
                 display: inline-block;
@@ -87,6 +88,7 @@
         .menu {
             position: absolute;
             top: 15vh;
+            left: 0;
             grid-area: menu;
             background-color: #562ee5da;
             height: 80vh;
@@ -163,6 +165,9 @@
                     color: #572ee5;
                     text-decoration: none;
                     margin: 0 1rem;
+                    &:hover {
+                        border-bottom: 4px solid #572ee5;
+                    }
                 }
                 hr {
                     display: none;

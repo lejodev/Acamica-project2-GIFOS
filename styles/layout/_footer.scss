@@ -7,15 +7,23 @@
         align-items: center;
         justify-content: space-evenly;
         border-bottom: 5px solid #572ee5;
-        p {
-            margin-bottom: -3%;
-        }
-        .shareIcons {
+        .share {
             width: 20vw;
             display: flex;
-            flex-flow: row;
-            margin-top: 0;
-            justify-content: space-around;
+            flex-flow: column;
+            align-items: center;
+            p {
+                margin-bottom: -3%;
+                margin: 2vh 0;
+            }
+            .shareIcons {
+                margin: 2vh 0;
+                width: 20vw;
+                display: flex;
+                flex-flow: row;
+                margin-top: 0;
+                justify-content: space-around;
+            }
         }
     }
 }
@@ -31,12 +39,21 @@
         justify-content: space-between;
         border-bottom: 5px solid #572ee5;
         box-sizing: border-box;
-        .shareIcons {
+        .share {
             display: flex;
+            // background-color: #fff;
             align-items: center;
-            justify-self: start;
-            img {
-                margin-left: 1vw;
+            justify-content: center;
+            justify-items: center;
+            // p {
+            //     // margin-bottom: -3%;
+            // }
+            .shareIcons {
+                width: 10vw;
+                display: flex;
+                flex-flow: row;
+                margin-top: 0;
+                justify-content: space-around;
             }
         }
     }

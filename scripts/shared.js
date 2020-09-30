@@ -75,6 +75,8 @@ export function darkMode(caller) {
     var createGif_button = document.querySelector('.createGif');
     var step = document.querySelectorAll('.step');
     var bar = document.querySelector('.bar');
+    var camera = document.querySelector('.camera');
+    var tape = document.querySelector('.tape')
 
     var image = document.querySelector('.image');
     var text = document.querySelector('.text');
@@ -93,7 +95,7 @@ export function darkMode(caller) {
             trending_title.classList.add('dark');
             trend.classList.add('dark');
             searchAction.forEach(obj => {
-                obj.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+                obj.classList.add('dark');
             })
             title.forEach(eachTitle => {
                 eachTitle.classList.add('dark');
@@ -105,6 +107,9 @@ export function darkMode(caller) {
         }
         if (caller === 'favorites') {
             trending_gifos.classList.add('dark');
+            title.forEach(eachTitle => {
+                eachTitle.classList.add('dark');
+            })
         }
         if (caller === 'createGifs') {
             // createGif_button.classList.add('dark');
@@ -112,7 +117,12 @@ export function darkMode(caller) {
                 step.classList.add('dark');
             });
             bar.classList.add('dark');
+            camera.classList.add('dark');
+            tape.classList.add('dark')
         }
+        title.forEach(eachTitle => {
+            eachTitle.classList.add('dark');
+        })
         createGif_button.classList.add('dark');
         logo.classList.add('dark');
         header.classList.add('dark');
@@ -139,7 +149,8 @@ export function darkMode(caller) {
             // searchAction.classList.remove('dark');
             // searchAction.style.backgroundImage = 'url("/assets/icon-search.svg")'
             searchAction.forEach(obj => {
-                obj.style.backgroundImage = 'url("/assets/icon-search.svg")';
+                // obj.style.backgroundImage = 'url("/assets/icon-search.svg")';
+                obj.classList.remove('dark');
             })
             title.forEach(eachTitle => {
                 eachTitle.classList.remove('dark');
@@ -151,12 +162,22 @@ export function darkMode(caller) {
         }
         if (caller === 'favorites') {
             trending_gifos.classList.remove('dark');
+            title.forEach(eachTitle => {
+                eachTitle.classList.remove('dark');
+            })
         }
         if (caller === 'createGifs') {
             step.forEach(step => {
                 step.classList.remove('dark');
             });
+            bar.classList.remove('dark');
+            camera.classList.remove('dark');
+            tape.classList.remove('dark');
         }
+        title.forEach(eachTitle => {
+            eachTitle.classList.remove('dark');
+        })
+        
         createGif_button.classList.remove('dark');
         logo.classList.remove('dark');
         header.classList.remove('dark');
@@ -203,9 +224,17 @@ export function displayTrendingGifos() {
 
 
 function getFavs(json, caller) {
-    var favs = JSON.parse(localStorage.getItem('favs'))
+    if(!localStorage.favs) {
+        localStorage.setItem('favs')
+    }
+
+    if (!localStorage.myGifos) {
+        localStorage.setItem('myGifos')
+    }
+
+    var favs = JSON.parse(localStorage.getItem('favs'));
     var favsIds = [];
-    var myGifs = JSON.parse(localStorage.getItem('myGifos'))
+    var myGifs = JSON.parse(localStorage.getItem('myGifos'));
     // var myGifsIds = [];
 
     favs.forEach(json => {
@@ -236,14 +265,20 @@ function getFavs(json, caller) {
         // myGifs.splice(favsIds.indexOf(json), 1);
         // localStorage.setItem('favs', JSON.stringify(favs));
         // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
-        // location.reload();
+        // alert(myGifs.indexOf(json.id))
+        // alert(json.id)
+        // alert(myGifs.length)
+        // console.log(myGifs.length);
+        // alert(favsIds.length)
+        // myGifs.splice(favsIds.indexOf(json.id), 1);
+        // // console.log(myGifs.length);
         alert(myGifs.indexOf(json.id))
-        alert(json.id)
-        // console.log(myGifs.length);
-        // myGifs.splice(favsIds.indexOf(json), 1);
-        // console.log(myGifs.length);
-        // localStorage.setItem('myGifos', JSON.stringify(myGifs));
-        console.log('myGifs: ' + myGifs);
+        console.log(myGifs);
+        myGifs.splice(myGifs.indexOf(json.id), 1);
+        console.log(myGifs);
+        localStorage.setItem('myGifos', JSON.stringify(myGifs));
+        location.reload();
+        // console.log('myGifs: ' + myGifs);
         // console.log('myGifsIds: ' + myGifsIds);
     }
 
@@ -280,7 +315,7 @@ export function hoverGifMenu(json, parent) {
 
         favActiveIcon.style.backgroundImage = 'url(/assets/icon_trash.svg)';
         favActiveIcon.addEventListener('click', () => {
-            // alert(json.id);
+            alert(json.id);
             getFavs(json, 'myGifs');
         })
         // Click listener to delete from my gifos
@@ -290,24 +325,25 @@ export function hoverGifMenu(json, parent) {
         favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
 
         favActiveIcon.addEventListener('click', () => {
+            var favorites = []; // Can go outside HoverMenu function 
+            var idsArr = []; // Can go outside HoverMenu function 
+            if (localStorage.favs) {
+                favorites = JSON.parse(localStorage.favs);
+                favorites.forEach(obj => {
+                    idsArr.push(obj.id);
+                });
+                // if (idsArr.includes(json.id)) {
+                //     alert('This GIFO is already in your favorites');
+                // } else {
+                //     favorites.push(json);
+                //     localStorage.setItem('favs', JSON.stringify(favorites));
+                // }
+            } else {
+                favorites.push(json);
+                localStorage.setItem('favs', JSON.stringify(favorites))
+                favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
+            }
             getFavs(json, 'any');
-            // var favorites = []; // Can go outside HoverMenu function 
-            // var idsArr = []; // Can go outside HoverMenu function 
-            // if (localStorage.favs) {
-            //     favorites = JSON.parse(localStorage.favs);
-            //     favorites.forEach(obj => {
-            //         idsArr.push(obj.id);
-            //     });
-            //     // if (idsArr.includes(json.id)) {
-            //     //     alert('This GIFO is already in your favorites');
-            //     // } else {
-            //     //     favorites.push(json);
-            //     //     localStorage.setItem('favs', JSON.stringify(favorites));
-            //     // }
-            // } else {
-            //     favorites.push(json);
-            //     localStorage.setItem('favs', JSON.stringify(favorites))
-            // }
 
             // favorites.push(json);
             alert(`clicked ${json.id}`)
@@ -366,7 +402,7 @@ export function hoverGifMenu(json, parent) {
         alert('Mobile touched');
     });
 
-    var downloadIcon = document.querySelector('.download');
+    // var downloadIcon = document.querySelector('.download');
 
 
     function setFullImage() {
@@ -398,8 +434,39 @@ export function hoverGifMenu(json, parent) {
 
         var likeIcon = document.createElement('img')
         likeIcon.className = 'dislike icon';
+
+        if (parent.className == 'favContainer') {
+            alert(json.id)
+            likeIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
+        }
+        else {
+            likeIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
+
+        }
+        
+        likeIcon.addEventListener('click' , () => {
+            // if (parent.className == 'favContainer') {
+            //     alert(json.id)
+            //     likeIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
+            // }
+            // else {
+            //     likeIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
+
+            // }
+            getFavs(json, 'any');
+        })
+
         var downloadIcon = document.createElement('img');
         downloadIcon.className = 'download icon'
+
+        downloadIcon.addEventListener("click", () => {
+            var x = new XMLHttpRequest();
+            x.open("GET", json.images.original.url, true);
+            alert(json.images.original.url)
+            x.responseType = 'blob';
+            x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
+            x.send();
+        });
 
         // var gifInfo = document.createElement('div');
         // gifInfo.className = 'gifInfo'

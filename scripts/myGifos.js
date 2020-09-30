@@ -14,10 +14,17 @@ button.style.display = 'none';
 setStatus('myGifos');
 darkMode('myGifos');
 
+var img = '/assets/icon-mis-gifos-sin-contenido.svg';
+var text = '¡Anímate a crear tu primer GIFO!';
+
 async function checkLocalstorage() {
     if (localStorage.myGifos) {
 
         myGifosIds = JSON.parse(localStorage.getItem('myGifos'));
+        if (myGifosIds.length === 0) {
+            noResult(parentContainer, img, text);
+            button.style.display = 'none';
+        }
         button.style.display = 'block';
         myGifosDisplaying();
 
@@ -25,8 +32,7 @@ async function checkLocalstorage() {
 
         gifsContainer.style.display = 'none';
         button.style.display = 'none';
-        var img = '/assets/icon-mis-gifos-sin-contenido.svg';
-        var text = 'Sin contenido';
+
         noResult(parentContainer, img, text);
         button.style.display = 'none';
 
@@ -44,40 +50,64 @@ function myGifosDisplaying() {
         console.log(myGifosIds);
         var newIdsArr = myGifosIds.splice(0, 8);
         console.log('new = ' + newIdsArr);
-        geAndSetGifos(newIdsArr);
-        
+        getAndSetGifos(newIdsArr);
+
     } else {
 
         // alert('Display my gifs (Lower than 12)');
-        geAndSetGifos(myGifosIds);
+        getAndSetGifos(myGifosIds);
         button.style.display = 'none';
 
     }
 }
-checkLocalstorage();
 
+checkLocalstorage();
 displayTrendingGifos();
+
 console.log('Ckecking asynchrony');
 
-function geAndSetGifos(arr) {
+function getAndSetGifos(gifsIds) {
+    var gifsPromises = gifsIds.map(gifId => fetch(`${url}${gifId}?api_key=${apiKey}`));
 
-    var gifsarr = [];
-    var promises = [];
+    console.log('BEFORE ALL')
 
-    arr.forEach(id => {
-        var path = `${url}${id}?api_key=${apiKey}`;
-        var respPromise = fetch(path);
-        promises.push(respPromise);
-    })
+    Promise.all(gifsPromises).then(async (promisesResolveArray) => {
+        for (const resolve of promisesResolveArray) {
+            console.log('Bef JSON' + resolve.url)
+            let gifObject = await resolve.json();
+            console.log('ID GIF: ' + gifObject.data.id)
+            hoverGifMenu(gifObject.data, gifsContainer);
+        }
+    });
 
-    console.log(`Promises = ${promises}`);
 
-    Promise.all(promises.map( prom => {
-        prom.then(resp => resp.json())
-            .then(obj => {
-                console.log(obj.data.id);
-                hoverGifMenu(obj.data, gifsContainer)
-            })
-    }))
+    // ------------------------old way -----------------------
+    // var gifsarr = [];
+    // var promises = [];
+
+    // var promesasGifs_long_way = gifsIds.map((gifId) => {
+    //     var path = `${url}${gifId}?api_key=${apiKey}`;        
+    //     return fetch(`${url}${gifId}?api_key=${apiKey}`);
+    // });
+
+    // gifsIds.forEach(gifId => {
+    //     var path = `${url}${gifId}?api_key=${apiKey}`;
+    //     var respPromise = fetch(path);
+    //     promises.push(respPromise);
+    // })
+
+
+    // console.table(gifsIds);
+
+
+    //Promise.all(promises);
+
+    // Promise.all(promises.map(prom => {
+    //     prom.then(resp => resp.json())
+    //         .then(obj => {
+    //             console.log(obj.data.id);
+    //             hoverGifMenu(obj.data, gifsContainer)
+    //         })
+    // }))
 }
 
