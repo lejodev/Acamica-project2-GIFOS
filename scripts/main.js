@@ -1,84 +1,90 @@
 import { noResult, setStatus, darkMode, hoverGifMenu, displayTrendingGifos } from "./shared.js";
-var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
+
+
+const url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
-var resultsPage = document.querySelector('.results');
-var resultsGrid = document.querySelector('.resultsContainer');
-var searchButton = document.querySelector('.searchAction'); // Exportable
-var resultsTitle = document.querySelector('.heading');
 
-var darkModeButton = document.querySelector('.dark-mode');
-// var main = document.querySelector('.main');
+var resultsPage;
+var resultsGrid;
+var searchButton;
+var resultsTitle;
+var inputSearchGifos;
+var suggestionsList;
+var seeMoreButton;
 
-// darkModeButton.addEventListener('click', () => {
-//     main.classList.toggle('dark')
-// })
+var q = '';
+let queryCounter = 0; // Exportable
 
-setStatus('main');
-darkMode('main');
+init();
 
-function dynamicTrendTitles() {
+function init() {
+    assignQuerySelectors();
+    registerEventListeners();
+    
+    setStatus('main');
+    darkMode('main');    
+    displayTrendingGifos();
+    dynamicTrendTitles();
+}
 
-    var trend = document.querySelector('.trendNames')
+function assignQuerySelectors() {
+    resultsPage = document.querySelector('.results');
+    resultsGrid = document.querySelector('.resultsContainer');
+    searchButton = document.querySelector('.searchAction'); // Exportable
+    resultsTitle = document.querySelector('.heading');
+    inputSearchGifos = document.querySelector('.searchInput');
+    suggestionsList = document.querySelector('.suggestions');
+    seeMoreButton = document.querySelector('.button'); // Exportable
+}
 
-    var path = `${url}trending?api_key=${apiKey}&limit=5`
 
-    var title = ''
+function registerEventListeners() {
+    inputSearchGifos.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+            // alert('enter');
+            e.preventDefault();
+            suggestionsList.style = 'display : none';
+            getSearchPath();
+        }
+    });
+    
+    inputSearchGifos.addEventListener('input', () => {
+        if (inputSearchGifos.value) {
+            searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
+        } else {
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+        }
+        setSuggestions(inputSearchGifos.value);
+    });
+
+    searchButton.addEventListener('click', () => {
+        inputSearchGifos.value = '';
+        suggestionsList.innerText = '';
+        searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+    });
+}
+
+function dynamicTrendTitles() { 
+    var trend = document.querySelector('.trendNames');
+    var path = `${url}trending?api_key=${apiKey}&limit=5`;    
 
     fetch(path).then(rawResponse => rawResponse.json())
         .then(json => {
             var titles;
             json.data.forEach(data => {
-                // title += `${data.title.split(' GIF')[0]}, `;
-                // console.log(title);
                 var trendTitle = document.createElement('span')
                 trendTitle.className = 'trend';
                 trendTitle.innerText = `${data.title.split(' GIF')[0]}, `;
                 trendTitle.addEventListener('click', () => {
-                    input.value = data.title.split(' GIF')[0];
+                    inputSearchGifos.value = data.title.split(' GIF')[0];
                     getSearchPath();
                 })
-                // addEventListener('click', () => {
-                //     alert(data.title.split(' GIF')[0])
-                // })
                 trend.appendChild(trendTitle);
             });
-            // console.log(title.split(', '));
-            // console.log(title.split(',').length);
-            // titles = title;
-            // trend.textContent = titles;
-            // console.log(title);
         })
 }
-dynamicTrendTitles();
 
-var input = document.querySelector('.searchInput');
-input.addEventListener('keydown', (e) => {
-    if (e.keyCode === 13) {
-        // alert('enter');
-        e.preventDefault();
-        suggestionsList.style = 'display : none';
-        getSearchPath();
-    }
-});
-input.addEventListener('input', autocomplete);
-function autocomplete() {
-    if (input.value) {
-        searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
-    } else {
-        searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
-    }
-    setSuggestions(input.value);
-}
-
-var suggestionsList = document.querySelector('.suggestions');
 async function setSuggestions(query) {
-
-    // if(query === ' ') {
-    //     alert('empty query');
-    //     searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
-    // } else {
-    //     alert('filled query')
-    // }
     suggestionsList.style = 'display : block';
     var path = `${url}search/tags?api_key=${apiKey}&q=${query}&limit=5`
 
@@ -93,36 +99,25 @@ async function setSuggestions(query) {
             text.className = 'text';
             text.innerHTML = autocomplete.name;
             li.appendChild(search);
-            li.appendChild(text);
-            // li.addEventListener('click', getSearchPath);
+            li.appendChild(text);            
             suggestionsList.appendChild(li);
             console.log(autocomplete.name);
             li.addEventListener('click', () => {
-                input.value = li.innerText;
+                inputSearchGifos.value = li.innerText;
                 getSearchPath();
                 suggestionsList.style = 'display : none';
             })
         })
     });
     suggestionsList.innerHTML = '';
-    console.log(input.value);
+    console.log(inputSearchGifos.value);
 }
 
-var searchOffsetCounter = 0; // Exportable
-var seeMoreButton = document.querySelector('.button'); // Exportable
-var q = '';
-
-searchButton.addEventListener('click', () => {
-    input.value = '';
-    suggestionsList.innerText = '';
-    searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
-});
-
 function getSearchPath() { // Exportable
-    if (input.value) {
+    if (inputSearchGifos.value) {
         resultsGrid.innerHTML = ''
-        var path = `${url}search?api_key=${apiKey}&q=${input.value}&limit=12`;
-        q = input.value;
+        var path = `${url}search?api_key=${apiKey}&q=${inputSearchGifos.value}&limit=12`;
+        q = inputSearchGifos.value;
         console.log(`${path}`);
         search(path);
         seeMoreButton.addEventListener('click', seeMorePath);
@@ -130,12 +125,10 @@ function getSearchPath() { // Exportable
         alert('empty input');
     }
 }
-let queryCounter = 0; // Exportable
-var offset = 1; // Exportable
 
 function seeMorePath() { // Exportable
     queryCounter++;
-    offset = queryCounter * 12;
+    let offset = queryCounter * 12;
     var path = `${url}search?api_key=${apiKey}&q=${q}&offset=${offset}&limit=12`;
     console.log(path);
     search(path)
@@ -144,11 +137,11 @@ function seeMorePath() { // Exportable
 // Function with fetch default promises aproach
 function search(endpoint) { // Exportable and change name
 
-    resultsTitle.innerHTML = input.value;
+    resultsTitle.innerHTML = inputSearchGifos.value;
 
     var path = endpoint;
 
-    if (input.value) {
+    if (inputSearchGifos.value) {
 
         fetch(path).then(raw => raw.json())
             .then(json => {
@@ -175,4 +168,3 @@ function search(endpoint) { // Exportable and change name
         alert('empty')
     }
 }
-displayTrendingGifos();
