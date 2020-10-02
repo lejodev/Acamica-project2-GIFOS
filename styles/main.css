@@ -204,7 +204,7 @@ body {
     margin: 0 1rem;
   }
   .header .menu .links .link:hover {
-    border-bottom: 4px solid #572ee5;
+    border-bottom: 3px solid #5ED7C6;
   }
   .header .menu .links hr {
     display: none;
