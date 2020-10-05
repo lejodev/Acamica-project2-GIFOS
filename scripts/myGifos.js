@@ -12,7 +12,7 @@ var url = 'https://api.giphy.com/v1/gifs/'; // Exportable
 button.style.display = 'none';
 
 setStatus('myGifos');
-darkMode('myGifos');
+// darkMode('myGifos');
 
 var img = '/assets/icon-mis-gifos-sin-contenido.svg';
 var text = '¡Anímate a crear tu primer GIFO!';

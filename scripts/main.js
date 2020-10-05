@@ -1,4 +1,5 @@
-import { noResult, setStatus, darkMode, hoverGifMenu, displayTrendingGifos } from "./shared.js";
+import { noResult, setStatus, hoverGifMenu, 
+    displayTrendingGifos, LIGHT_MODE } from "./shared.js";
 
 
 const url = 'https://api.giphy.com/v1/gifs/'; // Exportable
@@ -11,6 +12,7 @@ var resultsTitle;
 var inputSearchGifos;
 var suggestionsList;
 var seeMoreButton;
+var darkModeButton;
 
 var q = '';
 let queryCounter = 0; // Exportable
@@ -18,30 +20,39 @@ let queryCounter = 0; // Exportable
 init();
 
 function init() {
+    checkInitialViewMode();
     assignQuerySelectors();
     registerEventListeners();
-    
     setStatus('main');
-    darkMode('main');    
     displayTrendingGifos();
     dynamicTrendTitles();
+
+    changeViewMode();
+}
+
+function checkInitialViewMode() {
+    const viewMode = localStorage.getItem('switch');
+    if(viewMode == null) {
+        localStorage.setItem('switch', LIGHT_MODE);
+    }
 }
 
 function assignQuerySelectors() {
     resultsPage = document.querySelector('.results');
     resultsGrid = document.querySelector('.resultsContainer');
-    searchButton = document.querySelector('.searchAction'); // Exportable
+    searchButton = document.querySelector('.searchAction');
     resultsTitle = document.querySelector('.heading');
     inputSearchGifos = document.querySelector('.searchInput');
     suggestionsList = document.querySelector('.suggestions');
-    seeMoreButton = document.querySelector('.button'); // Exportable
+    seeMoreButton = document.querySelector('.button');
+    darkModeButton = document.querySelector('.dark-mode');
 }
 
-
 function registerEventListeners() {
+
+    const ENTER_KEY_CODE = 13;
     inputSearchGifos.addEventListener('keydown', (e) => {
-        if (e.keyCode === 13) {
-            // alert('enter');
+        if (e.keyCode === ENTER_KEY_CODE) {
             e.preventDefault();
             suggestionsList.style = 'display : none';
             getSearchPath();
@@ -49,10 +60,16 @@ function registerEventListeners() {
     });
     
     inputSearchGifos.addEventListener('input', () => {
+        const viewMode = localStorage.getItem('switch');
+        
         if (inputSearchGifos.value) {
-            searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
+            if(viewMode == LIGHT_MODE){
+                searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
+            } else {
+                searchButton.style.backgroundImage = 'url("/assets/button-close-modo-noc.svg")';
+            }
         } else {
-            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+            changeViewMode();
         }
         setSuggestions(inputSearchGifos.value);
     });
@@ -60,8 +77,27 @@ function registerEventListeners() {
     searchButton.addEventListener('click', () => {
         inputSearchGifos.value = '';
         suggestionsList.innerText = '';
-        searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
     });
+
+    darkModeButton.addEventListener('click', () => changeViewMode(true));
+}
+
+function changeViewMode(changed) {
+    const viewMode = localStorage.getItem('switch');
+
+    if(changed) {
+        if(viewMode == LIGHT_MODE) {
+            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+        } else {
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+        }
+    } else {
+        if(viewMode == LIGHT_MODE) {
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+        } else {
+            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+        }
+    }
 }
 
 function dynamicTrendTitles() { 
@@ -85,6 +121,9 @@ function dynamicTrendTitles() {
 }
 
 async function setSuggestions(query) {
+
+    const viewMode = localStorage.getItem('switch');
+
     suggestionsList.style = 'display : block';
     var path = `${url}search/tags?api_key=${apiKey}&q=${query}&limit=5`
 
@@ -98,8 +137,12 @@ async function setSuggestions(query) {
             search.className = 'searchAction';
             text.className = 'text';
             text.innerHTML = autocomplete.name;
+
+            // viewMode == LIGHT_MODE ? search.style.backgroundImage = 'url("/assets/icon-search.svg")' : search.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+            viewMode != LIGHT_MODE ? search.classList.add('dark') : search.classList.remove('dark');
+
             li.appendChild(search);
-            li.appendChild(text);            
+            li.appendChild(text);
             suggestionsList.appendChild(li);
             console.log(autocomplete.name);
             li.addEventListener('click', () => {

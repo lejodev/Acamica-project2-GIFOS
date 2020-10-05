@@ -1,61 +1,25 @@
-// function test(num1, num2) {
-//     return num1 + num2;
-// }
 var darkModeButton = document.querySelector('.dark-mode');
 
-// function switchMode() {
+export const DARK_MODE = 0;
+export const LIGHT_MODE = 1;
 
 export function setStatus(caller) {
-
-    var switchStatus = 0;
-
-    // 1 Light Mode
-    // 0 Dark Mode
-
-    darkModeButton.addEventListener('click', () => {
-        if (!localStorage.switch) {
-            localStorage.setItem('switch', 0);
-            // alert('with switch');
-        } else {
-            switchStatus = localStorage.getItem('switch');
-            if (switchStatus == 1) {
-                localStorage.setItem('switch', 0);
-                // alert(localStorage.getItem('switch'))
-                // alert('Now dark mode here!')
-                // darkMode(caller);
-            } else {
-                localStorage.setItem('switch', 1);
-                // alert(localStorage.getItem('switch'))
-                // alert('Now in light mode!')
-                // darkMode(caller);
-            }
-        }
-        darkMode(caller)
-    });
-
-    // var switchStatus = localStorage.getItem('switch');
-    // if (switchStatus == 1) {
-    //     localStorage.setItem('switch', 0);
-    //     alert(localStorage.getItem('switch'))
-    //     alert('Now dark mode here!')
-    //     darkMode(caller);
-    // } else {
-    //     localStorage.setItem('switch', 1);
-    //     alert(localStorage.getItem('switch'))
-    //     alert('Now in light mode!')
-    //     darkMode(caller);
-    // }
-
+    darkMode(caller);
+    darkModeButton.addEventListener('click', () => changeViewMode(caller));
 }
 
-// console.log(status);
-// }
+function changeViewMode(caller) {
+    console.log('changeViewMode');
+    const viewMode = localStorage.getItem('switch');        
+    if (viewMode == LIGHT_MODE) {
+        localStorage.setItem('switch', DARK_MODE);
+    } else {
+        localStorage.setItem('switch', LIGHT_MODE);
+    }    
+    darkMode(caller);
+}
 
 export function darkMode(caller) {
-    // console.log(caller);
-    // console.log(status);
-    // alert(status);
-    // var darkModeButton = document.querySelector('.dark');
     var main = document.querySelector('.main');
     var trending_gifos = document.querySelector('.trending-gifos');
     var myGifos = document.querySelector('.myGifos');
@@ -81,17 +45,14 @@ export function darkMode(caller) {
     var image = document.querySelector('.image');
     var text = document.querySelector('.text');
 
-    // darkModeButton.addEventListener('click', () => {
-    if (localStorage.getItem('switch') == 0) {
+    if (localStorage.getItem('switch') == DARK_MODE) {
         darkModeButton.innerHTML = 'MODO DIURNO';
-        // alert('Zeroooo');
+
         if (caller === 'myGifos') {
             myGifos.classList.add('dark');
             trending_gifos.classList.add('dark');
         }
         if (caller === 'main') {
-            // image.classList.add('dark');
-            // text.classList.add('dark');
             trending_title.classList.add('dark');
             trend.classList.add('dark');
             searchAction.forEach(obj => {
@@ -112,7 +73,6 @@ export function darkMode(caller) {
             })
         }
         if (caller === 'createGifs') {
-            // createGif_button.classList.add('dark');
             step.forEach(step => {
                 step.classList.add('dark');
             });
@@ -136,7 +96,6 @@ export function darkMode(caller) {
 
     } else {
         darkModeButton.innerHTML = 'MODO NOCTURNO';
-        // alert('Oneeeee');
         if (caller === 'myGifos') {
             myGifos.classList.remove('dark');
             trending_gifos.classList.remove('dark');
@@ -510,40 +469,37 @@ export function hoverGifMenu(json, parent) {
 
 
 
-let hours = `00`,
-    minutes = `00`,
-    seconds = `00`,
-    chronometerDisplay = document.querySelector('.data-chronometer')
-export function timer() {
+// let hours = `00`,
+//     minutes = `00`,
+//     seconds = `00`,
+//     chronometerDisplay = document.querySelector('.data-chronometer')
+// export function timer() {
 
 
 
-    // function chronometer() {
+//     // function chronometer() {
 
-    seconds++
+//     seconds++
 
-    if (seconds < 10) seconds = `0` + seconds
+//     if (seconds < 10) seconds = `0` + seconds
 
-    if (seconds > 59) {
-        seconds = `00`
-        minutes++
+//     if (seconds > 59) {
+//         seconds = `00`
+//         minutes++
 
-        if (minutes < 10) minutes = `0` + minutes
-    }
+//         if (minutes < 10) minutes = `0` + minutes
+//     }
 
-    if (minutes > 59) {
-        minutes = `00`
-        hours++
+//     if (minutes > 59) {
+//         minutes = `00`
+//         hours++
 
-        if (hours < 10) hours = `0` + hours
-    }
+//         if (hours < 10) hours = `0` + hours
+//     }
 
-    chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`
+//     chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
 
-    // }
-
-
-}
+// }
 
 
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Export this

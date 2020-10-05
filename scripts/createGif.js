@@ -1,4 +1,4 @@
-import { setStatus, darkMode, timer, downloadListener, download } from "./shared.js";
+import { setStatus, darkMode, downloadListener, download } from "./shared.js";
 var url = 'https://upload.giphy.com/v1/gifs'; // Exportable
 const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
 var button_start = document.querySelector('.button');
@@ -23,6 +23,10 @@ var linkIcon = document.querySelector('.copy-link');
 var createGif_button = document.querySelector('.createGif');
 var dark_mode = document.querySelector('.dark-mode');
 
+let hours = `00`;
+let minutes = `00`;
+let seconds = `00`;
+
 var iniciado = false;
 
 button_film.style.display = 'none';
@@ -33,7 +37,7 @@ chronometerContainer.style.display = 'none';
 createGif_button.classList.toggle('btn_active');
 
 setStatus('createGifs');
-darkMode('createGifs');
+// darkMode('createGifs');
 
 button_start.addEventListener('click', () => {
     console.log('button_start');
@@ -55,7 +59,6 @@ step2.addEventListener('click', () => {
             step2.style.backgroundColor = '#572ee5';
             alert('Mode nocturne')
         } else {
-            alert('Mode die jio jio jio')
             step2.style.backgroundColor = '#572ee5';
         }
         step1.style.color = '#572ee5';
@@ -67,6 +70,32 @@ step2.addEventListener('click', () => {
         console.log('NO HA INICIADO');
     }
 })
+
+function timer() {
+    
+    // function chronometer() {
+
+    seconds++
+
+    if (seconds < 10) seconds = `0` + seconds
+
+    if (seconds > 59) {
+        seconds = `00`
+        minutes++
+
+        if (minutes < 10) minutes = `0` + minutes
+    }
+
+    if (minutes > 59) {
+        minutes = `00`
+        hours++
+
+        if (hours < 10) hours = `0` + hours
+    }
+
+    chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+    
+}
 
 function getStreamAndRecord() {
     navigator.mediaDevices.getUserMedia({
@@ -115,6 +144,11 @@ function getStreamAndRecord() {
                 stream.getTracks().forEach(function (track) {
                     track.stop();
                 });
+
+                hours = `00`;
+                minutes = `00`;
+                seconds = `00`;
+                
                 button_upload.onclick = () => {
                     chronometerContainer.style.display = 'none';
                     chronometerDisplay.style.display = 'none';
@@ -226,3 +260,6 @@ function downloadFromId(id) {
             console.log('Error getting gif' + err);
         })
 }
+
+
+    // chronometerDisplay = document.querySelector('.data-chronometer')
