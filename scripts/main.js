@@ -52,6 +52,7 @@ function registerEventListeners() {
 
     const ENTER_KEY_CODE = 13;
     inputSearchGifos.addEventListener('keydown', (e) => {
+        q = inputSearchGifos.value;
         if (e.keyCode === ENTER_KEY_CODE) {
             e.preventDefault();
             suggestionsList.style = 'display : none';
@@ -61,6 +62,8 @@ function registerEventListeners() {
     
     inputSearchGifos.addEventListener('input', () => {
         const viewMode = localStorage.getItem('switch');
+
+        resultsGrid.innerHTML = '';
         
         if (inputSearchGifos.value) {
             if(viewMode == LIGHT_MODE){
@@ -68,13 +71,26 @@ function registerEventListeners() {
             } else {
                 searchButton.style.backgroundImage = 'url("/assets/button-close-modo-noc.svg")';
             }
-        } else {
-            changeViewMode();
+        } 
+        else {
+            if(viewMode == LIGHT_MODE){
+                searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+            } else {
+                searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+            }
+            
+            // changeViewMode();
         }
         setSuggestions(inputSearchGifos.value);
     });
 
     searchButton.addEventListener('click', () => {
+        const viewMode = localStorage.getItem('switch');
+        if(viewMode == LIGHT_MODE){
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+        } else {
+            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+        }
         inputSearchGifos.value = '';
         suggestionsList.innerText = '';
     });
@@ -147,6 +163,7 @@ async function setSuggestions(query) {
             console.log(autocomplete.name);
             li.addEventListener('click', () => {
                 inputSearchGifos.value = li.innerText;
+                q = inputSearchGifos.value;
                 getSearchPath();
                 suggestionsList.style = 'display : none';
             })
@@ -157,10 +174,10 @@ async function setSuggestions(query) {
 }
 
 function getSearchPath() { // Exportable
-    if (inputSearchGifos.value) {
+    if (inputSearchGifos.value || q !== '') {
         resultsGrid.innerHTML = ''
-        var path = `${url}search?api_key=${apiKey}&q=${inputSearchGifos.value}&limit=12`;
         q = inputSearchGifos.value;
+        var path = `${url}search?api_key=${apiKey}&q=${q}&limit=12`;
         console.log(`${path}`);
         search(path);
         seeMoreButton.addEventListener('click', seeMorePath);
@@ -184,7 +201,7 @@ function search(endpoint) { // Exportable and change name
 
     var path = endpoint;
 
-    if (inputSearchGifos.value) {
+    if (inputSearchGifos.value || q !== '') {
 
         fetch(path).then(raw => raw.json())
             .then(json => {

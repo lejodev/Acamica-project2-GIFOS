@@ -213,40 +213,29 @@ body {
     text-decoration: none;
   }
   .header .createGif-btn .createGif {
-    margin: 20px;
-    border: 1px solid #9CAFC3;
-    border-radius: 50%;
-    padding: 20px;
     height: 4rem;
     width: 4rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
-    text-decoration: none;
-    font-size: 2.5rem;
-    color: #9CAFC3;
+    background-image: url(/assets/button-crear-gifo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .header .createGif-btn .createGif:hover {
-    background-color: #572ee5;
-    color: #fff;
+    background-image: url(/assets/CTA-crear-gifo-hover.svg);
   }
   .header .createGif-btn .createGif.btn_active {
-    background-color: #9cafc3;
-    color: #fff;
+    background-image: url(/assets/CTA-crear-gifo-active.svg);
   }
   .header .createGif-btn .createGif.dark {
-    color: #fff;
+    background-image: url(/assets/CTA-crear-gifo-modo-noc.svg);
+  }
+  .header .createGif-btn .createGif.dark.btn_active {
+    background-image: url(/assets/CTA-crear-gifo-active-modo-noc.svg);
   }
   .header .createGif-btn .createGif.dark:hover {
-    background-color: #fff;
-    color: #9CAFC3;
+    background-image: url(/assets/CTA-crear-gifo-hover-modo-noc.svg);
   }
 }
 
@@ -257,10 +246,6 @@ body {
 
 .header.dark .menu .links .link {
   color: #fff;
-}
-
-.header.dark .createGif {
-  border: 1px solid #fff;
 }
 
 @media (max-width: 599px) {
