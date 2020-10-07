@@ -181,19 +181,43 @@ export function displayTrendingGifos() {
         .catch(err => console.log(err))
 }
 
+function deleteMyGif(id, caller) {
 
-function getFavs(json, caller) {
-    if(!localStorage.favs) {
-        localStorage.setItem('favs')
-    }
+    alert('IN MYGIFS')
 
     if (!localStorage.myGifos) {
         localStorage.setItem('myGifos')
     }
 
-    var favs = JSON.parse(localStorage.getItem('favs'));
-    var favsIds = [];
     var myGifs = JSON.parse(localStorage.getItem('myGifos'));
+
+    alert(myGifs.indexOf(id.id))
+    console.log(myGifs);
+    myGifs.splice(myGifs.indexOf(id.id), 1);
+    console.log(myGifs);
+    localStorage.setItem('myGifos', JSON.stringify(myGifs));
+    location.reload();
+
+}
+
+
+function getFavs(json, caller) {
+
+    var favs = JSON.parse(localStorage.getItem('favs'));
+    
+    alert(`Wanna ${json}`)
+
+    if(!localStorage.favs) {
+        localStorage.setItem('favs')
+    }
+
+    // if (!localStorage.myGifos) {
+    //     localStorage.setItem('myGifos')
+    // }
+
+    var favsIds = [];
+    // var myGifs = JSON.parse(localStorage.getItem('myGifos'));
+
     // var myGifsIds = [];
 
     favs.forEach(json => {
@@ -220,26 +244,26 @@ function getFavs(json, caller) {
         console.log('favs: ' + favs);
         console.log('favs ids: ' + favsIds);
     }
-    if (caller === 'myGifs') {
-        // myGifs.splice(favsIds.indexOf(json), 1);
-        // localStorage.setItem('favs', JSON.stringify(favs));
-        // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
-        // alert(myGifs.indexOf(json.id))
-        // alert(json.id)
-        // alert(myGifs.length)
-        // console.log(myGifs.length);
-        // alert(favsIds.length)
-        // myGifs.splice(favsIds.indexOf(json.id), 1);
-        // // console.log(myGifs.length);
-        alert(myGifs.indexOf(json.id))
-        console.log(myGifs);
-        myGifs.splice(myGifs.indexOf(json.id), 1);
-        console.log(myGifs);
-        localStorage.setItem('myGifos', JSON.stringify(myGifs));
-        location.reload();
-        // console.log('myGifs: ' + myGifs);
-        // console.log('myGifsIds: ' + myGifsIds);
-    }
+    // if (caller === 'myGifs') {
+    //     // myGifs.splice(favsIds.indexOf(json), 1);
+    //     // localStorage.setItem('favs', JSON.stringify(favs));
+    //     // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
+    //     // alert(myGifs.indexOf(json.id))
+    //     // alert(json.id)
+    //     // alert(myGifs.length)
+    //     // console.log(myGifs.length);
+    //     // alert(favsIds.length)
+    //     // myGifs.splice(favsIds.indexOf(json.id), 1);
+    //     // // console.log(myGifs.length);
+    //     alert(myGifs.indexOf(json.id))
+    //     console.log(myGifs);
+    //     myGifs.splice(myGifs.indexOf(json.id), 1);
+    //     console.log(myGifs);
+    //     localStorage.setItem('myGifos', JSON.stringify(myGifs));
+    //     location.reload();
+    //     // console.log('myGifs: ' + myGifs);
+    //     // console.log('myGifsIds: ' + myGifsIds);
+    // }
 
 }
 export function hoverGifMenu(json, parent) {
@@ -275,7 +299,8 @@ export function hoverGifMenu(json, parent) {
         favActiveIcon.style.backgroundImage = 'url(/assets/icon_trash.svg)';
         favActiveIcon.addEventListener('click', () => {
             alert(json.id);
-            getFavs(json, 'myGifs');
+            deleteMyGif(json, 'myGifs');
+            // getFavs(json, 'myGifs');
         })
         // Click listener to delete from my gifos
 
@@ -287,7 +312,7 @@ export function hoverGifMenu(json, parent) {
             var favorites = []; // Can go outside HoverMenu function 
             var idsArr = []; // Can go outside HoverMenu function 
             if (localStorage.favs) {
-                favorites = JSON.parse(localStorage.favs);
+                favorites = JSON.parse(localStorage.getItem('favs'));
                 favorites.forEach(obj => {
                     idsArr.push(obj.id);
                 });

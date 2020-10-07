@@ -200,6 +200,7 @@ function upload(formObj) {
             myGifos = JSON.parse(localStorage.getItem('myGifos'));
             myGifos.push(id);
             localStorage.setItem('myGifos', JSON.stringify(myGifos));
+            console.log(`Hijueputa ${myGifos}`); // DELETE THIS SHIT
         } else {
             myGifos.push(id);
             localStorage.setItem('myGifos', JSON.stringify(myGifos));
