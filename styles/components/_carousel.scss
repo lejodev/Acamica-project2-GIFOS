@@ -34,7 +34,7 @@
         border: 1px solid #572EE5;
     }
     .leftRow {
-        background-image: url(/assets/button-left.svg);
+        background-image: url("../assets/button-left.svg");
         position: absolute;
         // height: 100px;
         margin-left: 2rem;
@@ -58,7 +58,7 @@
         @import "../components/hoverMenuCarousel";
     }
     .rightRow {
-        background-image: url(/assets/button-right.svg);
+        background-image: url("../assets/button-right.svg");
         margin-right: 2rem;
         right: 0;
         position: absolute;

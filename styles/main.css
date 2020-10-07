@@ -178,7 +178,7 @@ body {
     background-size: contain;
   }
   .header .home .logo.dark {
-    background-image: url(../../assets/logo-desktop-modo-noc.svg);
+    background-image: url("../assets/logo-desktop-modo-noc.svg");
   }
   .header input,
   .header label {
@@ -218,24 +218,24 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background-image: url(./assets/button-crear-gifo.svg);
+    background-image: url("../assets/button-crear-gifo.svg");
     background-repeat: no-repeat;
     background-position: center;
   }
   .header .createGif-btn .createGif:hover {
-    background-image: url(./assets/CTA-crear-gifo-hover.svg);
+    background-image: url("../assets/CTA-crear-gifo-hover.svg");
   }
   .header .createGif-btn .createGif.btn_active {
-    background-image: url(./assets/CTA-crear-gifo-active.svg);
+    background-image: url("../assets/CTA-crear-gifo-active.svg");
   }
   .header .createGif-btn .createGif.dark {
-    background-image: url(./assets/CTA-crear-gifo-modo-noc.svg);
+    background-image: url("../assets/CTA-crear-gifo-modo-noc.svg");
   }
   .header .createGif-btn .createGif.dark.btn_active {
-    background-image: url(./assets/CTA-crear-gifo-active-modo-noc.svg);
+    background-image: url("../assets/CTA-crear-gifo-active-modo-noc.svg");
   }
   .header .createGif-btn .createGif.dark:hover {
-    background-image: url(./assets/CTA-crear-gifo-hover-modo-noc.svg);
+    background-image: url("../assets/CTA-crear-gifo-hover-modo-noc.svg");
   }
 }
 
@@ -340,10 +340,10 @@ body {
     display: block;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -432,13 +432,13 @@ body {
     background-color: red;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -566,7 +566,7 @@ body {
   .main .search .imgForm .form .searchBox .searchAction {
     width: 100%;
     height: 100%;
-    background-image: url("/assets/icon-search.svg");
+    background-image: url("../assets/icon-search.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -686,14 +686,14 @@ body {
   .main .search .imgForm .form .searchBox .searchAction {
     width: 100%;
     height: 100%;
-    background-image: url("/assets/icon-search.svg");
+    background-image: url("../assets/icon-search.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     cursor: pointer;
   }
   .main .search .imgForm .form .searchBox .searchAction.dark {
-    background-image: url("/assets/icon-search-mod-noc.svg");
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .search .imgForm .form .searchBox .suggestions {
     display: none;
@@ -719,7 +719,7 @@ body {
     background-position: center;
   }
   .main .search .imgForm .form .searchBox .suggestions li .image.dark {
-    background-image: url(/assets/icon-search-mod-noc.svg);
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .search .imgForm .form .searchBox .suggestions li .text {
     padding-left: 20px;
@@ -774,7 +774,7 @@ body {
     color: #fff;
   }
   .main .searchAction.dark {
-    background-image: url(/assets/icon-search-mod-noc.svg);
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .favGifs {
     width: 100%;
@@ -864,10 +864,10 @@ body {
     display: block;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -956,13 +956,13 @@ body {
     background-color: red;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -1108,10 +1108,10 @@ body {
     display: block;
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -1200,13 +1200,13 @@ body {
     background-color: red;
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -1360,7 +1360,7 @@ body {
   .main .search .imgForm .form .searchBox .searchAction {
     width: 100%;
     height: 100%;
-    background-image: url("/assets/icon-search.svg");
+    background-image: url("../assets/icon-search.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1480,14 +1480,14 @@ body {
   .main .search .imgForm .form .searchBox .searchAction {
     width: 100%;
     height: 100%;
-    background-image: url("/assets/icon-search.svg");
+    background-image: url("../assets/icon-search.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     cursor: pointer;
   }
   .main .search .imgForm .form .searchBox .searchAction.dark {
-    background-image: url("/assets/icon-search-mod-noc.svg");
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .search .imgForm .form .searchBox .suggestions {
     display: none;
@@ -1513,7 +1513,7 @@ body {
     background-position: center;
   }
   .main .search .imgForm .form .searchBox .suggestions li .image.dark {
-    background-image: url(/assets/icon-search-mod-noc.svg);
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .search .imgForm .form .searchBox .suggestions li .text {
     padding-left: 20px;
@@ -1568,7 +1568,7 @@ body {
     color: #fff;
   }
   .main .searchAction.dark {
-    background-image: url(/assets/icon-search-mod-noc.svg);
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .results {
     display: -webkit-box;
@@ -1664,10 +1664,10 @@ body {
     display: block;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -1756,13 +1756,13 @@ body {
     background-color: red;
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .results .resultsContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -1924,10 +1924,10 @@ body {
     display: block;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -2016,13 +2016,13 @@ body {
     background-color: red;
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .favGifs .favContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -2161,10 +2161,10 @@ body {
     display: block;
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -2253,13 +2253,13 @@ body {
     background-color: red;
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .main .myGifos .myGifosContainer .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -2342,18 +2342,18 @@ body {
   .main .create-gif .camera-light .camera {
     width: 10vw;
     height: 100%;
-    background-image: url(/assets/camara.svg);
+    background-image: url("../assets/camara.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
   .main .create-gif .camera-light .camera.dark {
-    background-image: url(/assets/camara-modo-noc.svg);
+    background-image: url("../assets/camara-modo-noc.svg");
   }
   .main .create-gif .camera-light .light {
     width: 5.5vw;
     height: 100%;
-    background-image: url(/assets/element-luz-camara.svg);
+    background-image: url("../assets/element-luz-camara.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -2528,10 +2528,10 @@ body {
     background-color: #f3f5f8;
   }
   .main .create-gif .outer-frame .content-container .gifo-status .succuess .my-gifo-icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .main .create-gif .outer-frame .content-container .gifo-status .succuess .my-gifo-icons .copy-link {
-    background-image: url(/assets/icon-link.svg);
+    background-image: url("../assets/icon-link.svg");
   }
   .main .create-gif .outer-frame .inf-inner-frame::after {
     content: '';
@@ -2557,13 +2557,13 @@ body {
     position: absolute;
     right: 8vw;
     bottom: 5vh;
-    background-image: url(/assets/pelicula.svg);
+    background-image: url("../assets/pelicula.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
   .main .create-gif .tape.dark {
-    background-image: url(/assets/pelicula-modo-noc.svg);
+    background-image: url("../assets/pelicula-modo-noc.svg");
   }
   .main .create-gif .steps {
     width: 50%;
@@ -2746,13 +2746,13 @@ main.dark,
     background-color: #fff;
   }
   .carousel .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .carousel .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .carousel .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .carousel .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -2798,7 +2798,7 @@ main.dark,
     border: 1px solid #572EE5;
   }
   .leftRow {
-    background-image: url(/assets/button-left.svg);
+    background-image: url("../assets/button-left.svg");
     position: absolute;
     margin-left: 2rem;
   }
@@ -2884,13 +2884,13 @@ main.dark,
     background-color: #fff;
   }
   .carousel .gif-menuContainer .menu .icons .like {
-    background-image: url(/assets/icon-fav-hover.svg);
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .carousel .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
   .carousel .gif-menuContainer .menu .icons .expand {
-    background-image: url(/assets/icon-max.svg);
+    background-image: url("../assets/icon-max.svg");
   }
   .carousel .gif-menuContainer .menu .gifInfo {
     width: 100%;
@@ -2926,7 +2926,7 @@ main.dark,
 
 @media (min-width: 600px) {
   .rightRow {
-    background-image: url(/assets/button-right.svg);
+    background-image: url("../assets/button-right.svg");
     margin-right: 2rem;
     right: 0;
     position: absolute;
@@ -3098,7 +3098,7 @@ main.dark,
         align-self: flex-end;
     width: 5%;
     height: 5%;
-    background-image: url(/assets/button-close.svg);
+    background-image: url("../assets/button-close.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -3174,7 +3174,7 @@ main.dark,
     content: '';
   }
   .fullImageContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
 }
 
@@ -3198,7 +3198,7 @@ main.dark,
         align-self: flex-end;
     width: 5%;
     height: 5%;
-    background-image: url(/assets/button-close.svg);
+    background-image: url("../assets/button-close.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -3273,10 +3273,10 @@ main.dark,
     background-repeat: no-repeat;
   }
   .fullImageContainer .gif-menuContainer .menu .icons .dislike {
-    background-image: url("/assets/icon-fav-hover.svg");
+    background-image: url("../assets/icon-fav-hover.svg");
   }
   .fullImageContainer .gif-menuContainer .menu .icons .download {
-    background-image: url(/assets/icon-download.svg);
+    background-image: url("../assets/icon-download.svg");
   }
 }
 /*# sourceMappingURL=main.css.map */

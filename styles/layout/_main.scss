@@ -327,18 +327,18 @@
                 .camera {
                     width: 10vw;
                     height: 100%;
-                    background-image: url(/assets/camara.svg);
+                    background-image: url("../assets/camara.svg");
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: contain;
                     &.dark {
-                        background-image: url(/assets/camara-modo-noc.svg);
+                        background-image: url("../assets/camara-modo-noc.svg");
                     }
                 }
                 .light {
                     width: 5.5vw;
                     height: 100%;
-                    background-image: url(/assets/element-luz-camara.svg);
+                    background-image: url("../assets/element-luz-camara.svg");
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: contain;
@@ -486,10 +486,10 @@
                                     }
                                 }
                                 .download {
-                                    background-image: url(/assets/icon-download.svg);
+                                    background-image: url("../assets/icon-download.svg");
                                 }
                                 .copy-link {
-                                    background-image: url(/assets/icon-link.svg);
+                                    background-image: url("../assets/icon-link.svg");
                                 }
                             }
                         }
@@ -524,12 +524,12 @@
                 position: absolute;
                 right: 8vw;
                 bottom: 5vh;
-                background-image: url(/assets/pelicula.svg);
+                background-image: url("../assets/pelicula.svg");
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
                 &.dark {
-                    background-image: url(/assets/pelicula-modo-noc.svg);
+                    background-image: url("../assets/pelicula-modo-noc.svg");
                 }
             }
 

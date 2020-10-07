@@ -57,7 +57,7 @@
                         // background-color: tan;
                         width: 100%;
                         height: 100%;
-                        background-image: url("/assets/icon-search.svg");
+                        background-image: url("../assets/icon-search.svg");
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: contain;
@@ -196,13 +196,13 @@
                         // background-color: tan;
                         width: 100%;
                         height: 100%;
-                        background-image: url("/assets/icon-search.svg");
+                        background-image: url("../assets/icon-search.svg");
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: contain;
                         cursor: pointer;
                         &.dark {
-                            background-image: url("/assets/icon-search-mod-noc.svg");
+                            background-image: url("../assets/icon-search-mod-noc.svg");
                         }
                     }
                     .suggestions {
@@ -229,7 +229,7 @@
                                 background-position: center;
                                 // background-color: lime;
                                 &.dark {
-                                    background-image: url(/assets/icon-search-mod-noc.svg);
+                                    background-image: url("../assets/icon-search-mod-noc.svg");
                                 }
                             }
                             .text {
@@ -318,6 +318,6 @@
 .searchAction {
     // background-image: url("/assets/icon-search.svg");
     &.dark {
-        background-image: url(/assets/icon-search-mod-noc.svg);
+        background-image: url("../assets/icon-search-mod-noc.svg");
     }
 }
