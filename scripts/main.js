@@ -207,7 +207,7 @@ function search(endpoint) { // Exportable and change name
             .then(json => {
                 if (json.data.length === 0) {
                     alert('Incorrect')
-                    var img = '/assets/icon-busqueda-sin-resultado.svg';
+                    var img = '../assets/icon-busqueda-sin-resultado.svg';
                     var text = 'Intenta con otra búsqueda';
                     resultsPage.style = 'display:block'
                     seeMoreButton.style.display = 'none'
