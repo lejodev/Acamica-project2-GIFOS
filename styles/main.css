@@ -32,13 +32,13 @@ body {
     display: inline-block;
     width: 6rem;
     height: 100%;
-    background-image: url(/assets/logo-mobile.svg);
+    background-image: url(./assets/logo-mobile.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
   .header .home .logo.dark {
-    background-image: url(/assets/logo-desktop-modo-noc.svg);
+    background-image: url(./assets/logo-desktop-modo-noc.svg);
   }
   .header .burger {
     padding-top: 2vh;
@@ -172,13 +172,13 @@ body {
     display: inline-block;
     width: 6rem;
     height: 100%;
-    background-image: url(/assets/logo-desktop.svg);
+    background-image: url(./assets/logo-desktop.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
   .header .home .logo.dark {
-    background-image: url(/assets/logo-desktop-modo-noc.svg);
+    background-image: url(./assets/logo-desktop-modo-noc.svg);
   }
   .header input,
   .header label {
@@ -218,24 +218,24 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background-image: url(/assets/button-crear-gifo.svg);
+    background-image: url(./assets/button-crear-gifo.svg);
     background-repeat: no-repeat;
     background-position: center;
   }
   .header .createGif-btn .createGif:hover {
-    background-image: url(/assets/CTA-crear-gifo-hover.svg);
+    background-image: url(./assets/CTA-crear-gifo-hover.svg);
   }
   .header .createGif-btn .createGif.btn_active {
-    background-image: url(/assets/CTA-crear-gifo-active.svg);
+    background-image: url(./assets/CTA-crear-gifo-active.svg);
   }
   .header .createGif-btn .createGif.dark {
-    background-image: url(/assets/CTA-crear-gifo-modo-noc.svg);
+    background-image: url(./assets/CTA-crear-gifo-modo-noc.svg);
   }
   .header .createGif-btn .createGif.dark.btn_active {
-    background-image: url(/assets/CTA-crear-gifo-active-modo-noc.svg);
+    background-image: url(./assets/CTA-crear-gifo-active-modo-noc.svg);
   }
   .header .createGif-btn .createGif.dark:hover {
-    background-image: url(/assets/CTA-crear-gifo-hover-modo-noc.svg);
+    background-image: url(./assets/CTA-crear-gifo-hover-modo-noc.svg);
   }
 }
 
