@@ -172,7 +172,7 @@ body {
     display: inline-block;
     width: 6rem;
     height: 100%;
-    background-image: url(../../assets/logo-desktop.svg);
+    background-image: url("../assets/logo-desktop.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
