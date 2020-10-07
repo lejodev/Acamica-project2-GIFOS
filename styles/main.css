@@ -172,13 +172,13 @@ body {
     display: inline-block;
     width: 6rem;
     height: 100%;
-    background-image: url(./assets/logo-desktop.svg);
+    background-image: url(../assets/logo-desktop.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
   .header .home .logo.dark {
-    background-image: url(./assets/logo-desktop-modo-noc.svg);
+    background-image: url(../assets/logo-desktop-modo-noc.svg);
   }
   .header input,
   .header label {
