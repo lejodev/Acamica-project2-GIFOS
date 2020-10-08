@@ -9,7 +9,6 @@ export function setStatus(caller) {
 }
 
 function changeViewMode(caller) {
-    console.log('changeViewMode');
     const viewMode = localStorage.getItem('switch');        
     if (viewMode == LIGHT_MODE) {
         localStorage.setItem('switch', DARK_MODE);
@@ -40,7 +39,7 @@ export function darkMode(caller) {
     var step = document.querySelectorAll('.step');
     var bar = document.querySelector('.bar');
     var camera = document.querySelector('.camera');
-    var tape = document.querySelector('.tape')
+    var tape = document.querySelector('.tape');
 
     var image = document.querySelector('.image');
     var text = document.querySelector('.text');
@@ -101,14 +100,9 @@ export function darkMode(caller) {
             trending_gifos.classList.remove('dark');
         }
         if (caller === 'main') {
-            // image.classList.remove('dark');
-            // text.classList.remove('dark');
             trending_title.classList.remove('dark');
             trend.classList.remove('dark');
-            // searchAction.classList.remove('dark');
-            // searchAction.style.backgroundImage = 'url("/assets/icon-search.svg")'
             searchAction.forEach(obj => {
-                // obj.style.backgroundImage = 'url("/assets/icon-search.svg")';
                 obj.classList.remove('dark');
             })
             title.forEach(eachTitle => {
@@ -148,7 +142,6 @@ export function darkMode(caller) {
         })
         burger.classList.remove('dark');
     }
-    // })
 }
 
 export function displayTrendingGifos() {
@@ -157,24 +150,21 @@ export function displayTrendingGifos() {
     var rightRow = document.querySelector('.rightRow');
     var leftRow = document.querySelector('.leftRow');
     rightRow.addEventListener('click', () => {
-        // alert(`width ${gif_menuContainer.clientWidth}`)
+        
         carousel.scrollLeft += carousel.clientWidth / 2.85;
-        // alert('clicked')
+        
     });
     leftRow.addEventListener('click', () => {
+        
         carousel.scrollLeft -= carousel.clientWidth / 2.85;
-        // alert('on left')
+
     })
 
     var path = `${url}trending?api_key=${apiKey}&limit=10`;
-    console.log(path);
 
     fetch(path).then(rawResponse => rawResponse.json())
         .then(res => {
             res.data.forEach(obj => {
-                // localStorage.set
-                // hoverMenuCarousel(obj.images.original.url, obj.title, obj.username, carousel);
-                // console.log(obj);
                 hoverGifMenu(obj, carousel);
             })
         })
@@ -183,18 +173,13 @@ export function displayTrendingGifos() {
 
 function deleteMyGif(id, caller) {
 
-    alert('IN MYGIFS')
-
     if (!localStorage.myGifos) {
         localStorage.setItem('myGifos')
     }
 
     var myGifs = JSON.parse(localStorage.getItem('myGifos'));
 
-    alert(myGifs.indexOf(id.id))
-    console.log(myGifs);
     myGifs.splice(myGifs.indexOf(id.id), 1);
-    console.log(myGifs);
     localStorage.setItem('myGifos', JSON.stringify(myGifs));
     location.reload();
 
@@ -204,33 +189,19 @@ function deleteMyGif(id, caller) {
 function getFavs(json, caller) {
 
     var favs = JSON.parse(localStorage.getItem('favs'));
-    
-    alert(`Wanna ${json}`)
 
     if(!localStorage.favs) {
         localStorage.setItem('favs')
     }
-
-    // if (!localStorage.myGifos) {
-    //     localStorage.setItem('myGifos')
-    // }
-
     var favsIds = [];
-    // var myGifs = JSON.parse(localStorage.getItem('myGifos'));
-
-    // var myGifsIds = [];
 
     favs.forEach(json => {
         favsIds.push(json.id);
     })
 
-    // myGifs.forEach(json => {
-    //     myGifsIds.push(json.id);
-    // })
-
     if (caller === 'any') {
         if (favsIds.includes(json.id)) {
-            alert('This GIFO is already in your favorites');
+            alert('Este GIFO ya está en tus favoritos!');
         } else {
             favs.push(json);
             localStorage.setItem('favs', JSON.stringify(favs));
@@ -239,31 +210,8 @@ function getFavs(json, caller) {
     if (caller === 'favorites') {
         favs.splice(favsIds.indexOf(json.id), 1);
         localStorage.setItem('favs', JSON.stringify(favs));
-        // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
         location.reload();
-        console.log('favs: ' + favs);
-        console.log('favs ids: ' + favsIds);
     }
-    // if (caller === 'myGifs') {
-    //     // myGifs.splice(favsIds.indexOf(json), 1);
-    //     // localStorage.setItem('favs', JSON.stringify(favs));
-    //     // favsIds.includes(id)? alert('inside' + favsIds.indexOf(id)) : alert('No here!');
-    //     // alert(myGifs.indexOf(json.id))
-    //     // alert(json.id)
-    //     // alert(myGifs.length)
-    //     // console.log(myGifs.length);
-    //     // alert(favsIds.length)
-    //     // myGifs.splice(favsIds.indexOf(json.id), 1);
-    //     // // console.log(myGifs.length);
-    //     alert(myGifs.indexOf(json.id))
-    //     console.log(myGifs);
-    //     myGifs.splice(myGifs.indexOf(json.id), 1);
-    //     console.log(myGifs);
-    //     localStorage.setItem('myGifos', JSON.stringify(myGifs));
-    //     location.reload();
-    //     // console.log('myGifs: ' + myGifs);
-    //     // console.log('myGifsIds: ' + myGifsIds);
-    // }
 
 }
 export function hoverGifMenu(json, parent) {
@@ -274,7 +222,6 @@ export function hoverGifMenu(json, parent) {
     var trendGif = document.createElement('img');
     trendGif.className = 'trendGif';
     trendGif.src = json.images.original.url;
-    // trendGif.setAttribute('src', json.images.original.url);
 
     var menu = document.createElement('div');
     menu.className = 'menu';
@@ -289,56 +236,38 @@ export function hoverGifMenu(json, parent) {
 
         favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
         favActiveIcon.addEventListener('click', () => {
-            // alert(json.id);
             getFavs(json, 'favorites');
         });
-        // Click listener to quit from favorites list
 
     } else if (parent.className == 'myGifosContainer') {
 
         favActiveIcon.style.backgroundImage = 'url(/assets/icon_trash.svg)';
         favActiveIcon.addEventListener('click', () => {
-            alert(json.id);
             deleteMyGif(json, 'myGifs');
-            // getFavs(json, 'myGifs');
         })
-        // Click listener to delete from my gifos
 
     } else {
 
         favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
 
         favActiveIcon.addEventListener('click', () => {
-            var favorites = []; // Can go outside HoverMenu function 
-            var idsArr = []; // Can go outside HoverMenu function 
+            var favorites = [];
+            var idsArr = [];
             if (localStorage.favs) {
                 favorites = JSON.parse(localStorage.getItem('favs'));
                 favorites.forEach(obj => {
                     idsArr.push(obj.id);
                 });
-                // if (idsArr.includes(json.id)) {
-                //     alert('This GIFO is already in your favorites');
-                // } else {
-                //     favorites.push(json);
-                //     localStorage.setItem('favs', JSON.stringify(favorites));
-                // }
             } else {
                 favorites.push(json);
                 localStorage.setItem('favs', JSON.stringify(favorites))
                 favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
             }
             getFavs(json, 'any');
-
-            // favorites.push(json);
-            alert(`clicked ${json.id}`)
-            // localStorage.setItem('favs', JSON.stringify(favorites))
+            
         });
 
     }
-
-    // var favActiveIcon = document.createElement('img')
-    // favActiveIcon.className = 'like-and-like-active icon';
-    // favActiveIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
 
     var downloadIcon = document.createElement('img');
     downloadIcon.className = 'download icon'
@@ -374,7 +303,6 @@ export function hoverGifMenu(json, parent) {
     downloadIcon.addEventListener("click", () => {
         var x = new XMLHttpRequest();
         x.open("GET", json.images.original.url, true);
-        alert(json.images.original.url)
         x.responseType = 'blob';
         x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
         x.send();
@@ -383,20 +311,16 @@ export function hoverGifMenu(json, parent) {
 
     trendGif.addEventListener('click', () => {
         setFullImage();
-        alert('Mobile touched');
     });
 
-    // var downloadIcon = document.querySelector('.download');
-
-
     function setFullImage() {
-        // alert('clicked=================')
+
         var fullImageContainer = document.createElement('div');
         fullImageContainer.className = 'fullImageContainer';
         fullImageContainer.style.display = 'flex';
         fullImageContainer.innerHTML = '';
 
-        var closeFullImage = document.createElement('img');
+        var closeFullImage = document.createElement('div');
         closeFullImage.className = 'closeAction';
         closeFullImage.addEventListener('click', () => {
             fullImageContainer.style.display = 'none';
@@ -416,11 +340,10 @@ export function hoverGifMenu(json, parent) {
         var icons = document.createElement('div')
         icons.className = 'icons'
 
-        var likeIcon = document.createElement('img')
+        var likeIcon = document.createElement('div')
         likeIcon.className = 'dislike icon';
 
         if (parent.className == 'favContainer') {
-            alert(json.id)
             likeIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
         }
         else {
@@ -429,37 +352,25 @@ export function hoverGifMenu(json, parent) {
         }
         
         likeIcon.addEventListener('click' , () => {
-            // if (parent.className == 'favContainer') {
-            //     alert(json.id)
-            //     likeIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
-            // }
-            // else {
-            //     likeIcon.style.backgroundImage = 'url(/assets/icon-fav-hover.svg)';
 
-            // }
-            getFavs(json, 'any');
+            if (parent.className == 'favContainer') {
+                likeIcon.style.backgroundImage = 'url(/assets/icon-fav-active.svg)';
+                getFavs(json, 'favorites');
+            } else {
+                getFavs(json, 'any');
+            }
         })
 
-        var downloadIcon = document.createElement('img');
+        var downloadIcon = document.createElement('div');
         downloadIcon.className = 'download icon'
 
         downloadIcon.addEventListener("click", () => {
             var x = new XMLHttpRequest();
             x.open("GET", json.images.original.url, true);
-            alert(json.images.original.url)
             x.responseType = 'blob';
             x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
             x.send();
         });
-
-        // var gifInfo = document.createElement('div');
-        // gifInfo.className = 'gifInfo'
-        // var gifUser = document.createElement('div');
-        // gifUser.className = 'user';
-        // gifUser.innerHTML = 'json.username';
-        // var gifTitle = document.createElement('div');
-        // gifTitle.className = 'title'
-        // gifTitle.innerHTML = 'json.title';
 
         gifInfo.appendChild(gifUser);
         gifInfo.appendChild(gifTitle);
@@ -471,64 +382,26 @@ export function hoverGifMenu(json, parent) {
         menu.appendChild(icons);
 
         gif_menuContainer.appendChild(trendGif);
-        // icons.appendChild(maxIcon)
+        
         gif_menuContainer.appendChild(menu);
-
-        // parent.appendChild(gif_menuContainer);
 
         fullImageContainer.appendChild(closeFullImage);
         fullImageContainer.appendChild(gif_menuContainer);
         document.body.appendChild(fullImageContainer);
-        // alert('click on!');
-        // var fullImageContainer = document.createElement('div');
-        // fullImageContainer.className = 'fullImageContainer';
 
-        // var closeFullImage = document.createElement('img');
-        // closeFullImage.className = 'closeAction';
+        var closeAction = document.querySelector('.closeAction');
 
-        // fullImageContainer.appendChild(gif_menuContainer);
-        // fullImageContainer.appendChild(closeFullImage);
-        // alert('click on!');
+        if(darkModeButton.innerHTML === 'MODO DIURNO') {
+            closeAction.classList.add('dark');
+        } else {
+            closeAction.classList.remove('dark');
+        }
     }
 }
 
 
-
-// let hours = `00`,
-//     minutes = `00`,
-//     seconds = `00`,
-//     chronometerDisplay = document.querySelector('.data-chronometer')
-// export function timer() {
-
-
-
-//     // function chronometer() {
-
-//     seconds++
-
-//     if (seconds < 10) seconds = `0` + seconds
-
-//     if (seconds > 59) {
-//         seconds = `00`
-//         minutes++
-
-//         if (minutes < 10) minutes = `0` + minutes
-//     }
-
-//     if (minutes > 59) {
-//         minutes = `00`
-//         hours++
-
-//         if (hours < 10) hours = `0` + hours
-//     }
-
-//     chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-
-// }
-
-
-const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Export this
-var url = 'https://api.giphy.com/v1/gifs/'; // Export this
+const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8';
+var url = 'https://api.giphy.com/v1/gifs/';
 
 
 
@@ -554,7 +427,6 @@ export function downloadListener(node) {
     node.addEventListener("click", () => {
         var x = new XMLHttpRequest();
         x.open("GET", json.images.original.url, true);
-        alert(json.images.original.url)
         x.responseType = 'blob';
         x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
         x.send();
@@ -562,8 +434,8 @@ export function downloadListener(node) {
 }
 
 export function download(data, strFileName, strMimeType) {
-    var self = window, // this script is only for browsers anyway...
-        defaultMime = "application/octet-stream", // this default mime also triggers iframe downloads
+    var self = window,
+        defaultMime = "application/octet-stream",
         mimeType = strMimeType || defaultMime,
         payload = data,
         url = !strFileName && !strMimeType && payload,
@@ -673,7 +545,3 @@ export function download(data, strFileName, strMimeType) {
     }
     return true;
 }; /* end download() */
-
-
-
-// export default hoverGifMenu;

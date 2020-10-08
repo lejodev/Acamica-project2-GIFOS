@@ -20,12 +20,12 @@
                 height: 100%;
                 // background-color: red;
                 // background-image: url(/assets/logo-mobile.svg);
-                background-image: url(./assets/logo-mobile.svg);
+                background-image: url("../assets/logo-mobile.svg");
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
                 &.dark {
-                    background-image: url(./assets/logo-desktop-modo-noc.svg);
+                    background-image: url("../assets/logo-desktop-modo-noc.svg");
                 }
             }
         }

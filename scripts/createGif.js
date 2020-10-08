@@ -1,6 +1,6 @@
 import { setStatus, darkMode, downloadListener, download } from "./shared.js";
-var url = 'https://upload.giphy.com/v1/gifs'; // Exportable
-const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
+var url = 'https://upload.giphy.com/v1/gifs';
+const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8';
 var button_start = document.querySelector('.button');
 var button_film = document.querySelector('.film');
 var button_stop = document.querySelector('.stop');
@@ -32,17 +32,14 @@ var iniciado = false;
 button_film.style.display = 'none';
 button_stop.style.display = 'none';
 button_upload.style.display = 'none';
-// chronometerContainer.style.visibility = 'hidden';
 chronometerContainer.style.display = 'none';
 createGif_button.classList.toggle('btn_active');
 
 setStatus('createGifs');
-// darkMode('createGifs');
 
 button_start.addEventListener('click', () => {
     console.log('button_start');
     iniciado = true;
-    // e.preventDefault();
     step1.style.backgroundColor = '#572ee5';
     step1.style.color = '#fff';
     title.innerHTML = `<span> ¿Nos das acceso </span><span> a tu cámara? </span>`
@@ -52,12 +49,10 @@ button_start.addEventListener('click', () => {
 
 step2.addEventListener('click', () => {
     if (iniciado) {
-        console.log('step2');
         step1.style.backgroundColor = 'unset';
         step2.style.backgroundColor = '#572ee5';
         if (dark_mode.innerHTML === 'MODO NOCTURO') {
             step2.style.backgroundColor = '#572ee5';
-            alert('Mode nocturne')
         } else {
             step2.style.backgroundColor = '#572ee5';
         }
@@ -66,14 +61,10 @@ step2.addEventListener('click', () => {
         button_film.style.display = 'block';
         button_film.addEventListener('click', getStreamAndRecord);
         iniciado = false;
-    } else {
-        console.log('NO HA INICIADO');
     }
 })
 
 function timer() {
-    
-    // function chronometer() {
 
     seconds++
 
@@ -120,9 +111,9 @@ function getStreamAndRecord() {
                 width: 360,
                 hidden: 240,
                 onGifRecordingStarted: function () {
-                    console.log('started')
                     chronometerContainer.style.display = 'block';
                     chronometerDisplay.style.display = 'block';
+                    chronometerDisplay.style.textDecoration = 'none';
                     timerInterval = setInterval(timer, 1000);
                 },
             });
@@ -132,13 +123,11 @@ function getStreamAndRecord() {
             button_stop.onclick = () => {
                 recorder.stopRecording();
                 clearInterval(timerInterval);
-                chronometerDisplay.innerHTML = 'REPETIR CAPTURA';
+                chronometerDisplay.innerHTML = 'repetir captura';
+                chronometerDisplay.style.borderBottom = '5px solid #5ED7C6'
                 video_container.pause();
-                console.log(recorder);
                 let form = new FormData();
                 form.append('file', recorder.getBlob(), 'myGif.gif');
-                // console.log(form.get('file'))
-                alert('stopped!');
                 button_stop.style.display = 'none';
                 button_upload.style.display = 'block';
                 stream.getTracks().forEach(function (track) {
@@ -155,25 +144,20 @@ function getStreamAndRecord() {
                     button_upload.style.display = 'none';
                     upload(form);
                 }
-                // upload(form)
             };
         })
 }
 
 function upload(formObj) {
-    // var file = formObj;
-    console.log(formObj.get('file'))
+    
     var endpoint = `${url}?api_key=${apiKey}`;
-    console.log(endpoint);
     gifo_status_uploading.style.display = 'block';
     video_container.style.opacity = '0.3';
     fetch(endpoint, {
-        // mode : 'no-cors',
         method: 'POST',
         body: formObj
     }).then(resp => {
-        console.log('status = ' + resp.status);
-        console.log(resp);
+        
         step2.style.backgroundColor = 'unset';
         step2.style.color = '#572ee5';
         step3.style.backgroundColor = '#572ee5';
@@ -182,25 +166,17 @@ function upload(formObj) {
         let data = resp.json();
         gifo_status_uploading.style.display = 'none';
         gifo_status_success.style.display = 'block';
-
-        // console.log(data);
+        
         return data;
     }).then(obj => {
-        console.log(obj);
+        
         let id = obj.data.id;
-
-        // ====================================================================
-        // download_icon.addEventListener('click', () => {
         downloadFromId(id)
-        // })
-        // ====================================================================
-
-        console.log(id);
+        
         if (localStorage.myGifos) {
             myGifos = JSON.parse(localStorage.getItem('myGifos'));
             myGifos.push(id);
             localStorage.setItem('myGifos', JSON.stringify(myGifos));
-            console.log(`Hijueputa ${myGifos}`); // DELETE THIS SHIT
         } else {
             myGifos.push(id);
             localStorage.setItem('myGifos', JSON.stringify(myGifos));
@@ -212,8 +188,8 @@ function upload(formObj) {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.target.innerHTML === 'REPETIR CAPTURA') {
-        // alert('REPETIR CAPTURA');
+    if (e.target.innerHTML === 'repetir captura') {
+
         button_upload.style.display = 'none';
         chronometerContainer.style.display = 'none';
         chronometerDisplay.style.display = 'none';
@@ -224,43 +200,32 @@ document.addEventListener('click', (e) => {
 })
 
 function downloadFromId(id) {
-
-    console.log(id);
+    
     var url = 'https://api.giphy.com/v1/gifs/';
     const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8';
     var path = `${url}${id}?api_key=${apiKey}`;
-    console.log(path);
     fetch(path).then(gifObj => gifObj.json())
         .then(json => {
-            console.log(json.data.images.original.url);
-            alert('Inside');
+            
             linkIcon.addEventListener('click', () => {
                 var gifUrl = json.data.url;
-                alert('Link copiado al clipboard' + gifUrl);
-                gifUrl.select();
-                document.execCommand('copy');
+
+                navigator.clipboard.writeText(gifUrl).then(function() {
+                    alert('Link copiado al clipboard');
+                  }, function(err) {
+                    console.log('Error al copiar el link de tu GIFO. ERROR : ', err);
+                  });
             })
-            // ======================== Download query ========================
+
             download_icon.addEventListener("click", () => {
                 var x = new XMLHttpRequest();
                 x.open("GET", json.data.images.original.url, true);
-                // alert(json.images.original.url)
                 x.responseType = 'blob';
                 x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
                 x.send();
             });
-            // var x = new XMLHttpRequest();
-            // x.open("GET", json.data.images.original.url, true);
-            // alert(json.images.original.url)
-            // x.responseType = 'blob';
-            // x.onload = function (e) { download(x.response, "descarga.gif", "image/gif"); }
-            // x.send();
-            // ================================================================
         })
         .catch(err => {
-            console.log('Error getting gif' + err);
+            console.log('Error obteniendo ti GIFO' + err);
         })
 }
-
-
-    // chronometerDisplay = document.querySelector('.data-chronometer')

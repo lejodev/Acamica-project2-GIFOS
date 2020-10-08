@@ -2,8 +2,8 @@ import { noResult, setStatus, hoverGifMenu,
     displayTrendingGifos, LIGHT_MODE } from "./shared.js";
 
 
-const url = 'https://api.giphy.com/v1/gifs/'; // Exportable
-const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8'; // Exportable
+const url = 'https://api.giphy.com/v1/gifs/';
+const apiKey = 'ES5Qs5lBlti0twPy81oeRnqfaDotGqp8';
 
 var resultsPage;
 var resultsGrid;
@@ -15,7 +15,7 @@ var seeMoreButton;
 var darkModeButton;
 
 var q = '';
-let queryCounter = 0; // Exportable
+let queryCounter = 0;
 
 init();
 
@@ -67,19 +67,17 @@ function registerEventListeners() {
         
         if (inputSearchGifos.value) {
             if(viewMode == LIGHT_MODE){
-                searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
+                searchButton.style.backgroundImage = 'url("../assets/button-close.svg")';
             } else {
-                searchButton.style.backgroundImage = 'url("/assets/button-close-modo-noc.svg")';
+                searchButton.style.backgroundImage = 'url("../assets/button-close-modo-noc.svg")';
             }
         } 
         else {
             if(viewMode == LIGHT_MODE){
-                searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+                searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
             } else {
-                searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+                searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
             }
-            
-            // changeViewMode();
         }
         setSuggestions(inputSearchGifos.value);
     });
@@ -87,9 +85,9 @@ function registerEventListeners() {
     searchButton.addEventListener('click', () => {
         const viewMode = localStorage.getItem('switch');
         if(viewMode == LIGHT_MODE){
-            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+            searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
         } else {
-            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+            searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
         }
         inputSearchGifos.value = '';
         suggestionsList.innerText = '';
@@ -103,15 +101,15 @@ function changeViewMode(changed) {
 
     if(changed) {
         if(viewMode == LIGHT_MODE) {
-            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+            searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
         } else {
-            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+            searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
         }
     } else {
         if(viewMode == LIGHT_MODE) {
-            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
+            searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
         } else {
-            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
+            searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
         }
     }
 }
@@ -154,13 +152,11 @@ async function setSuggestions(query) {
             text.className = 'text';
             text.innerHTML = autocomplete.name;
 
-            // viewMode == LIGHT_MODE ? search.style.backgroundImage = 'url("/assets/icon-search.svg")' : search.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
             viewMode != LIGHT_MODE ? search.classList.add('dark') : search.classList.remove('dark');
 
             li.appendChild(search);
             li.appendChild(text);
             suggestionsList.appendChild(li);
-            console.log(autocomplete.name);
             li.addEventListener('click', () => {
                 inputSearchGifos.value = li.innerText;
                 q = inputSearchGifos.value;
@@ -170,32 +166,26 @@ async function setSuggestions(query) {
         })
     });
     suggestionsList.innerHTML = '';
-    console.log(inputSearchGifos.value);
 }
 
-function getSearchPath() { // Exportable
+function getSearchPath() {
     if (inputSearchGifos.value || q !== '') {
         resultsGrid.innerHTML = ''
         q = inputSearchGifos.value;
         var path = `${url}search?api_key=${apiKey}&q=${q}&limit=12`;
-        console.log(`${path}`);
         search(path);
         seeMoreButton.addEventListener('click', seeMorePath);
-    } else {
-        alert('empty input');
     }
 }
 
-function seeMorePath() { // Exportable
+function seeMorePath() {
     queryCounter++;
     let offset = queryCounter * 12;
     var path = `${url}search?api_key=${apiKey}&q=${q}&offset=${offset}&limit=12`;
-    console.log(path);
     search(path)
 }
 
-// Function with fetch default promises aproach
-function search(endpoint) { // Exportable and change name
+function search(endpoint) {
 
     resultsTitle.innerHTML = inputSearchGifos.value;
 
@@ -206,7 +196,6 @@ function search(endpoint) { // Exportable and change name
         fetch(path).then(raw => raw.json())
             .then(json => {
                 if (json.data.length === 0) {
-                    alert('Incorrect')
                     var img = '../assets/icon-busqueda-sin-resultado.svg';
                     var text = 'Intenta con otra búsqueda';
                     resultsPage.style = 'display:block'
@@ -216,7 +205,6 @@ function search(endpoint) { // Exportable and change name
                 } else {
                     (json.data.length < 12) ? (seeMoreButton.style.display = 'none') : (seeMoreButton.style.display = 'block')
                     json.data.forEach(obj => {
-                        console.log(obj.length);
                         resultsPage.style = 'display:flex'
 
                         hoverGifMenu(obj, resultsGrid);
@@ -224,7 +212,5 @@ function search(endpoint) { // Exportable and change name
                     })
                 }
             })
-    } else {
-        alert('empty')
     }
 }

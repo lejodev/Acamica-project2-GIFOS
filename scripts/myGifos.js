@@ -45,16 +45,11 @@ function myGifosDisplaying() {
 
     if (myGifosIds.length > 8) {
 
-        console.log(myGifosIds.length);
-        // alert('Display my gifs (Greater than 12)');
-        console.log(myGifosIds);
         var newIdsArr = myGifosIds.splice(0, 8);
-        console.log('new = ' + newIdsArr);
         getAndSetGifos(newIdsArr);
 
     } else {
 
-        // alert('Display my gifs (Lower than 12)');
         getAndSetGifos(myGifosIds);
         button.style.display = 'none';
 
@@ -64,18 +59,13 @@ function myGifosDisplaying() {
 checkLocalstorage();
 displayTrendingGifos();
 
-console.log('Ckecking asynchrony');
-
 function getAndSetGifos(gifsIds) {
     var gifsPromises = gifsIds.map(gifId => fetch(`${url}${gifId}?api_key=${apiKey}`));
 
-    console.log('BEFORE ALL')
-
     Promise.all(gifsPromises).then(async (promisesResolveArray) => {
         for (const resolve of promisesResolveArray) {
-            console.log('Bef JSON' + resolve.url)
+            
             let gifObject = await resolve.json();
-            console.log('ID GIF: ' + gifObject.data.id)
             hoverGifMenu(gifObject.data, gifsContainer);
         }
     });

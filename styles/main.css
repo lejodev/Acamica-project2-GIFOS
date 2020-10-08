@@ -32,13 +32,13 @@ body {
     display: inline-block;
     width: 6rem;
     height: 100%;
-    background-image: url(./assets/logo-mobile.svg);
+    background-image: url("../assets/logo-mobile.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
   }
   .header .home .logo.dark {
-    background-image: url(./assets/logo-desktop-modo-noc.svg);
+    background-image: url("../assets/logo-desktop-modo-noc.svg");
   }
   .header .burger {
     padding-top: 2vh;
@@ -279,7 +279,6 @@ body {
     -webkit-column-gap: 2vw;
             column-gap: 2vw;
     row-gap: 5vh;
-    background-color: darkslategrey;
     overflow-y: scroll;
   }
 }
@@ -2385,8 +2384,8 @@ body {
     content: '';
     height: 5%;
     width: 3rem;
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
+    border-top: 1px solid #50E3C2;
+    border-right: 1px solid #50E3C2;
     position: absolute;
     right: 28%;
   }
@@ -2394,8 +2393,8 @@ body {
     content: '';
     height: 5%;
     width: 3rem;
-    border-top: 1px solid #000;
-    border-left: 1px solid #000;
+    border-top: 1px solid #50E3C2;
+    border-left: 1px solid #50E3C2;
     position: absolute;
     left: 28%;
   }
@@ -2537,8 +2536,8 @@ body {
     content: '';
     height: 5%;
     width: 3rem;
-    border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
+    border-bottom: 1px solid #50E3C2;
+    border-right: 1px solid #50E3C2;
     position: absolute;
     right: 28%;
   }
@@ -2546,8 +2545,8 @@ body {
     content: '';
     height: 5%;
     width: 3rem;
-    border-bottom: 1px solid #000;
-    border-left: 1px solid #000;
+    border-bottom: 1px solid #50E3C2;
+    border-left: 1px solid #50E3C2;
     position: absolute;
     left: 28%;
   }
@@ -2598,9 +2597,12 @@ body {
   .main .create-gif .steps .timer {
     position: absolute;
     right: 0;
-    width: 130px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-family: "Montserrat", sans-serif;
     height: 60px;
-    background-color: #572ee5;
+    color: #572ee5;
     display: block;
   }
   .main .create-gif .bar {
@@ -3107,14 +3109,17 @@ main.dark,
   .fullImageContainer .gif-menuContainer {
     height: 60%;
     width: 50%;
-    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
         align-self: center;
-    background-color: sienna;
   }
   .fullImageContainer .gif-menuContainer .trendGif {
-    background-color: lime;
     height: 80%;
     width: 100%;
     background-repeat: no-repeat;
@@ -3125,7 +3130,7 @@ main.dark,
   .fullImageContainer .gif-menuContainer .menu {
     width: 100%;
     height: 20%;
-    background-color: maroon;
+    background-color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3140,18 +3145,16 @@ main.dark,
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
-    background-color: linen;
   }
   .fullImageContainer .gif-menuContainer .menu .gifInfo .user {
-    background-color: sienna;
+    height: 50%;
   }
   .fullImageContainer .gif-menuContainer .menu .gifInfo .title {
-    background-color: springgreen;
+    height: 50%;
   }
   .fullImageContainer .gif-menuContainer .menu .icons {
     width: 50%;
-    height: 100%;
-    background-color: lightsteelblue;
+    height: 80%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3162,10 +3165,13 @@ main.dark,
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .fullImageContainer .gif-menuContainer .menu .icons .icon {
     width: 10%;
-    height: 100%;
+    height: 80%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -3209,9 +3215,15 @@ main.dark,
     width: 85%;
     margin: auto;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
         align-self: center;
     background-color: sienna;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .fullImageContainer .gif-menuContainer .trendGif {
     background-color: lime;
@@ -3225,7 +3237,7 @@ main.dark,
   .fullImageContainer .gif-menuContainer .menu {
     width: 100%;
     height: 20%;
-    background-color: maroon;
+    background-color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3240,18 +3252,16 @@ main.dark,
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
-    background-color: linen;
   }
   .fullImageContainer .gif-menuContainer .menu .gifInfo .user {
-    background-color: sienna;
+    height: 50%;
   }
   .fullImageContainer .gif-menuContainer .menu .gifInfo .title {
-    background-color: springgreen;
+    height: 50%;
   }
   .fullImageContainer .gif-menuContainer .menu .icons {
     width: 50%;
-    height: 100%;
-    background-color: lightsteelblue;
+    height: 80%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3262,21 +3272,26 @@ main.dark,
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    -ms-flex-line-pack: center;
-        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .fullImageContainer .gif-menuContainer .menu .icons .icon {
     width: 10%;
-    height: 100%;
+    height: 80%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
   }
   .fullImageContainer .gif-menuContainer .menu .icons .dislike {
-    background-image: url("../assets/icon-fav-hover.svg");
+    content: '';
   }
   .fullImageContainer .gif-menuContainer .menu .icons .download {
     background-image: url("../assets/icon-download.svg");
   }
+}
+
+.closeAction.dark {
+  background-image: url("../assets/button-close-modo-noc.svg");
 }
 /*# sourceMappingURL=main.css.map */
