@@ -234,21 +234,21 @@ export function hoverGifMenu(json, parent) {
 
     if (parent.className == 'favContainer') {
 
-        favActiveIcon.style.backgroundImage = 'url(../assets/icon-fav-active.svg)';
+        favActiveIcon.style.backgroundImage = 'url(./assets/icon-fav-active.svg)';
         favActiveIcon.addEventListener('click', () => {
             getFavs(json, 'favorites');
         });
 
     } else if (parent.className == 'myGifosContainer') {
 
-        favActiveIcon.style.backgroundImage = 'url(../assets/icon_trash.svg)';
+        favActiveIcon.style.backgroundImage = 'url(./assets/icon_trash.svg)';
         favActiveIcon.addEventListener('click', () => {
             deleteMyGif(json, 'myGifs');
         })
 
     } else {
 
-        favActiveIcon.style.backgroundImage = 'url(../assets/icon-fav-hover.svg)';
+        favActiveIcon.style.backgroundImage = 'url(./assets/icon-fav-hover.svg)';
 
         favActiveIcon.addEventListener('click', () => {
             var favorites = [];
@@ -261,7 +261,7 @@ export function hoverGifMenu(json, parent) {
             } else {
                 favorites.push(json);
                 localStorage.setItem('favs', JSON.stringify(favorites))
-                favActiveIcon.style.backgroundImage = 'url(../assets/icon-fav-active.svg)';
+                favActiveIcon.style.backgroundImage = 'url(./assets/icon-fav-active.svg)';
             }
             getFavs(json, 'any');
             
@@ -344,17 +344,17 @@ export function hoverGifMenu(json, parent) {
         likeIcon.className = 'dislike icon';
 
         if (parent.className == 'favContainer') {
-            likeIcon.style.backgroundImage = 'url(../assets/icon-fav-active.svg)';
+            likeIcon.style.backgroundImage = 'url(./assets/icon-fav-active.svg)';
         }
         else {
-            likeIcon.style.backgroundImage = 'url(../assets/icon-fav-hover.svg)';
+            likeIcon.style.backgroundImage = 'url(./assets/icon-fav-hover.svg)';
 
         }
         
         likeIcon.addEventListener('click' , () => {
 
             if (parent.className == 'favContainer') {
-                likeIcon.style.backgroundImage = 'url(../assets/icon-fav-active.svg)';
+                likeIcon.style.backgroundImage = 'url(./assets/icon-fav-active.svg)';
                 getFavs(json, 'favorites');
             } else {
                 getFavs(json, 'any');
