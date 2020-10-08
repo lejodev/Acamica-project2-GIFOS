@@ -67,16 +67,16 @@ function registerEventListeners() {
         
         if (inputSearchGifos.value) {
             if(viewMode == LIGHT_MODE){
-                searchButton.style.backgroundImage = 'url("../assets/button-close.svg")';
+                searchButton.style.backgroundImage = 'url("/assets/button-close.svg")';
             } else {
-                searchButton.style.backgroundImage = 'url("../assets/button-close-modo-noc.svg")';
+                searchButton.style.backgroundImage = 'url("/assets/button-close-modo-noc.svg")';
             }
         } 
         else {
             if(viewMode == LIGHT_MODE){
-                searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
+                searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
             } else {
-                searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
+                searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
             }
         }
         setSuggestions(inputSearchGifos.value);
@@ -85,9 +85,9 @@ function registerEventListeners() {
     searchButton.addEventListener('click', () => {
         const viewMode = localStorage.getItem('switch');
         if(viewMode == LIGHT_MODE){
-            searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
         } else {
-            searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
+            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
         }
         inputSearchGifos.value = '';
         suggestionsList.innerText = '';
@@ -101,15 +101,15 @@ function changeViewMode(changed) {
 
     if(changed) {
         if(viewMode == LIGHT_MODE) {
-            searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
+            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
         } else {
-            searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
         }
     } else {
         if(viewMode == LIGHT_MODE) {
-            searchButton.style.backgroundImage = 'url("../assets/icon-search.svg")';
+            searchButton.style.backgroundImage = 'url("/assets/icon-search.svg")';
         } else {
-            searchButton.style.backgroundImage = 'url("../assets/icon-search-mod-noc.svg")';
+            searchButton.style.backgroundImage = 'url("/assets/icon-search-mod-noc.svg")';
         }
     }
 }
