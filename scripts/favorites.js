@@ -7,7 +7,7 @@ var favorites = [];
 
 setStatus('favorites');
 
-var img = '../assets/icon-mis-gifos-sin-contenido.svg';
+var img = './assets/icon-mis-gifos-sin-contenido.svg';
 var text = '"Guarda tu primer gifo en favoritoa para que se muestre aquí!"';
 
 function checkLocalstorage() {

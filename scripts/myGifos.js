@@ -14,7 +14,7 @@ button.style.display = 'none';
 setStatus('myGifos');
 // darkMode('myGifos');
 
-var img = '../assets/icon-mis-gifos-sin-contenido.svg';
+var img = "./assets/icon-fav-sin-contenido.svg";
 var text = '¡Anímate a crear tu primer GIFO!';
 
 async function checkLocalstorage() {
