@@ -67,6 +67,9 @@ body {
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
+  .header .burger .stick.dark {
+    background-color: #fff;
+  }
   .header .burger .stick::before, .header .burger .stick::after {
     content: "";
     position: absolute;
@@ -83,9 +86,6 @@ body {
   .header .burger .stick::after {
     position: absolute;
     bottom: -15px;
-  }
-  .header .burger .stick.dark, .header .burger .stick::before, .header .burger .stick::after {
-    background-color: #fff;
   }
   .header #input:checked ~ .burger .stick {
     background-color: #37383c;
@@ -571,6 +571,9 @@ body {
     background-size: contain;
     cursor: pointer;
   }
+  .main .search .imgForm .form .searchBox .searchAction.dark {
+    background-image: url("../assets/icon-search-mod-noc.svg");
+  }
   .main .search .imgForm .form .searchBox .suggestions {
     width: 100%;
     list-style: none;
@@ -586,12 +589,15 @@ body {
     -ms-grid-columns: 10% 90%;
         grid-template-columns: 10% 90%;
   }
-  .main .search .imgForm .form .searchBox .suggestions li .searchAction {
+  .main .search .imgForm .form .searchBox .suggestions li .image {
     height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     cursor: pointer;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .image.dark {
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .search .imgForm .form .searchBox .suggestions li .text {
     padding-left: 20px;
@@ -1365,6 +1371,9 @@ body {
     background-size: contain;
     cursor: pointer;
   }
+  .main .search .imgForm .form .searchBox .searchAction.dark {
+    background-image: url("../assets/icon-search-mod-noc.svg");
+  }
   .main .search .imgForm .form .searchBox .suggestions {
     width: 100%;
     list-style: none;
@@ -1380,12 +1389,15 @@ body {
     -ms-grid-columns: 10% 90%;
         grid-template-columns: 10% 90%;
   }
-  .main .search .imgForm .form .searchBox .suggestions li .searchAction {
+  .main .search .imgForm .form .searchBox .suggestions li .image {
     height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     cursor: pointer;
+  }
+  .main .search .imgForm .form .searchBox .suggestions li .image.dark {
+    background-image: url("../assets/icon-search-mod-noc.svg");
   }
   .main .search .imgForm .form .searchBox .suggestions li .text {
     padding-left: 20px;

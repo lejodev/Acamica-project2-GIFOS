@@ -40,26 +40,36 @@ setStatus('createGifs');
 button_start.addEventListener('click', () => {
     console.log('button_start');
     iniciado = true;
-    step1.style.backgroundColor = '#572ee5';
-    step1.style.color = '#fff';
+    // step1.style.backgroundColor = '#572ee5';
+    // step1.style.color = '#fff';
     title.innerHTML = `<span> ¿Nos das acceso </span><span> a tu cámara? </span>`
+    if (dark_mode.innerHTML === 'MODO NOCTURO') {
+        step2.style.backgroundColor = '#572ee5';
+    } else {
+        step2.style.backgroundColor = '#572ee5';
+    }
+    // button_film.addEventListener('click', getStreamAndRecord);
+    getStreamAndRecord();
     paragraph.innerHTML = `El acceso a tu cámara será solo por el tiempo en que estás creando el GIFO`;
     button_start.style.display = 'none';
+    button_film.style.display = 'block';
 });
 
 step2.addEventListener('click', () => {
+    step1.style.backgroundColor = '#FFF';
+    step1.style.color = '#FFF';
     if (iniciado) {
         step1.style.backgroundColor = 'unset';
         step2.style.backgroundColor = '#572ee5';
-        if (dark_mode.innerHTML === 'MODO NOCTURO') {
-            step2.style.backgroundColor = '#572ee5';
-        } else {
-            step2.style.backgroundColor = '#572ee5';
-        }
+        // if (dark_mode.innerHTML === 'MODO NOCTURO') {
+        //     step2.style.backgroundColor = '#572ee5';
+        // } else {
+        //     step2.style.backgroundColor = '#572ee5';
+        // }
         step1.style.color = '#572ee5';
         step2.style.color = '#fff';
-        button_film.style.display = 'block';
-        button_film.addEventListener('click', getStreamAndRecord);
+        // button_film.style.display = 'block';
+        // button_film.addEventListener('click', getStreamAndRecord);
         iniciado = false;
     }
 })
@@ -101,24 +111,33 @@ function getStreamAndRecord() {
             video_container.style.display = 'block';
             video_container.srcObject = stream;
             video_container.play()
-            button_film.style.display = 'none';
-            button_stop.style.display = 'block';
+            
 
-            var recorder = RecordRTC(stream, {
-                type: 'gif',
-                frameRate: 1,
-                quality: 10,
-                width: 360,
-                hidden: 240,
-                onGifRecordingStarted: function () {
-                    chronometerContainer.style.display = 'block';
-                    chronometerDisplay.style.display = 'block';
-                    chronometerDisplay.style.textDecoration = 'none';
-                    timerInterval = setInterval(timer, 1000);
-                },
-            });
+            var recorder = null;
 
-            recorder.startRecording();
+            button_film.onclick = () => {
+                button_film.style.display = 'none';
+            button_stop.style.display = 'block'
+
+                recorder = RecordRTC(stream, {
+                    type: 'gif',
+                    frameRate: 1,
+                    quality: 10,
+                    width: 360,
+                    hidden: 240,
+                    onGifRecordingStarted: function () {
+                        chronometerContainer.style.display = 'block';
+                        chronometerDisplay.style.display = 'block';
+                        chronometerDisplay.style.textDecoration = 'none';
+                        timerInterval = setInterval(timer, 1000);
+                    },
+                });
+    
+                recorder.startRecording();
+
+            }
+
+            
 
             button_stop.onclick = () => {
                 recorder.stopRecording();
@@ -130,6 +149,7 @@ function getStreamAndRecord() {
                 form.append('file', recorder.getBlob(), 'myGif.gif');
                 button_stop.style.display = 'none';
                 button_upload.style.display = 'block';
+                console.log(`This is the form ${form}`);
                 stream.getTracks().forEach(function (track) {
                     track.stop();
                 });

@@ -3,16 +3,14 @@
     .search {
         width: 100%;
         height: 100vh;
-        // background-color: teal;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
         justify-content: space-evenly;
         .title {
-            // Set this style in typography or mixins ===============================
             text-align: center;
             font-size: 3rem;
-            color: #572ee5; // Brand
+            color: #572ee5;
             font-family: $titles;
             .full-width {
                 display: inline-block;
@@ -26,12 +24,10 @@
             display: grid;
             grid-template-rows: 400px fit-content;
             .img {
-                // height: 100%;
                 width: 50vw;
                 margin: auto;
             }
             .form {
-                // background-color: tomato;
                 width: 60vw;
                 margin: auto;
                 .searchBox {
@@ -46,15 +42,11 @@
                     &.dark {
                         border: 1px solid #fff;
                     }
-                    // background-color: salmon;
                     .searchInput {
-                        // background-color: teal;
                         border-style: none;
                         width: 100%;
-                        // height: 100%;
                     }
                     .searchAction {
-                        // background-color: tan;
                         width: 100%;
                         height: 100%;
                         background-image: url("../assets/icon-search.svg");
@@ -62,11 +54,13 @@
                         background-position: center;
                         background-size: contain;
                         cursor: pointer;
+                        &.dark {
+                            background-image: url("../assets/icon-search-mod-noc.svg");
+                        }
                     }
                     .suggestions {
                         width: 100%;
                         list-style: none;
-                        // background-color: maroon;
                         padding: 0;
                         margin: 0;
                         display: none;
@@ -75,38 +69,24 @@
                             padding: 0.5rem 0;
                             display: grid;
                             grid-template-columns: 10% 90%;
-                            .searchAction {
+                            .image {
                                 height: 100%;
-                                // background-image: url(/assets/icon-search.svg);
                                 background-repeat: no-repeat;
                                 background-size: contain;
                                 background-position: center;
-                                // background-color: lime;
                                 cursor: pointer;
+                                &.dark {
+                                    background-image: url("../assets/icon-search-mod-noc.svg");
+                                }
                             }
                             .text {
                                 padding-left: 20px;
                                 display: flex;
                                 align-items: center;
                                 height: 100%;
-                                // background-color: olive;
                             }
                         }
                     }
-                    // .suggestions {
-                    //     margin: 0;
-                    //     display: none;
-                    //     width: 50%;
-                    //     background-color: seagreen;
-                    //     li {
-                    //         display: grid;
-                    //         grid-template-columns: 90% 10%;
-                    //         cursor: pointer;
-                    //         &:hover {
-                    //             background-color: tan;
-                    //         }
-                    //     }
-                    // }
                 }
             }
         }
@@ -227,20 +207,13 @@
             width: 100%;
             text-align: center;
             .trending-title {
-                // Set this style in typography or mixins ===============================
                 font-family: $titles;
                 font-size: 1.2rem;
-                color: #572ee5; // Brand
-                // &.dark {
-                //     color: #fff;
-                // }
+                color: #572ee5;
             }
             .trendNames {
                 font-size: 1.2rem;
-                color: #572ee5; //Brand
-                // &.dark {
-                //     color: #fff;
-                // }
+                color: #572ee5;
                 .trend {
                     display: inline;
                 }
@@ -254,12 +227,6 @@
         background-color: #37383c;
     }
 }
-
-// .searchAction {
-//     &.dark {
-//         background-image: url("/assets/icon-search-mod-noc.svg");
-//     }
-// }
 
 .title {
     &.dark {
